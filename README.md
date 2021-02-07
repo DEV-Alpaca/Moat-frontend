@@ -8,7 +8,7 @@ framework를 사용하지 않은 순수 React로 개발(CRA)
 + dotenv
 + immer
 + redux/saga
-+ redudx-devtools-extension
++ redux-devtools-extension
 + snippet => srfc
 
 # Reference
