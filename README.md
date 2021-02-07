@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +69,21 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+=======
+# Moat-frontend
+framework를 사용하지 않은 순수 React로 개발(CRA)
+
+# 환경 
+
++ prettier/eslint
++ react-router-dom
++ dotenv
++ immer
++ redux/saga
++ redux-devtools-extension
++ snippet => srfc
+
+# Reference
+
++ 리액트를 다루는 기술
+>>>>>>> 9ee208b797c5fea1befc21b13ab78a5eb3b115f2
