@@ -1,23 +1,9 @@
+import React from 'react';
+import Template from './lib/styles/Template';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          testing merge aaa Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+  return <Template>안녕 템플렛</Template>;
+};
 
 export default App;
