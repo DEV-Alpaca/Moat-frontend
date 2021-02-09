@@ -1,13 +1,14 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import palette from '../../lib/styles/paletts';
+
 import { Link } from 'react-router-dom';
+import r from '../../lib/styles/Rem';
 
 const buttonStyle = css`
   width: 100%;
-  height: rem;
-  margin-top: 32px;
-  padding: 16px 136.5px;
+  height: ${r[60]}rem;
+  padding: ${r[16]}rem;
   border: none;
   border-radius: 8px;
   color: white;
@@ -15,7 +16,7 @@ const buttonStyle = css`
 
   background: ${palette.orange};
 
-  font-size: 20px;
+  font-size: ${r[20]}rem;
   font-weight: bold;
   font-stretch: normal;
   line-height: 1.4;
@@ -60,17 +61,3 @@ const Button = (props) => {
 };
 
 export default Button;
-
-/* 
-color : orange, white
-
-1. 주황/ 흰색글씨 버튼 default border x
-2. 흰색/ 검정글씨 버튼 white버튼 border 얕은회색
-
-closed 버튼
-3. 회색/ 짙은회색 버튼
-
-fullScreen버튼
-4. width 100% 버튼
-
-*/
