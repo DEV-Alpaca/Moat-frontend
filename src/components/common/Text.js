@@ -27,8 +27,8 @@ const StyledText = styled.p`
     `}
 `;
 
-const Title = (props) => {
-  return <StyledText {...props}>{props.children}</StyledText>;
+const Title = ({ children, ...rest }) => {
+  return <StyledText {...rest}>{children}</StyledText>;
 };
 
 export default Title;

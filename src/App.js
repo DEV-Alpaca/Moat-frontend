@@ -15,11 +15,9 @@ const App = () => {
   return (
     <Template>
       <Route component={PostListPage} path={['/@:username', '/']} exact />
-
-      <Route component={AuthPage} path="/Auth" />
+      <Route component={AuthPage} path="/auth" />
       <Route component={LoginPage} path="/login" />
       <Route component={RegisterPage} path="/register" />
-
       <Route component={WritePage} path="/write" />
       <Route component={SelectLocationPage} path="/SelectLocationPage" />
       <Route component={MyPage} path="/@:username/:postId" />

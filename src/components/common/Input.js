@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import palette from '../../lib/styles/paletts';
 import r from '../../lib/styles/Rem';
 
@@ -30,21 +30,23 @@ const StyledInput = styled.input`
 `;
 
 const Input = ({
-  type = '',
-  value = undefined,
-  name = '',
-  onChange = null,
-  onSubmit = null,
-  placeholder = '',
+  // type = '',
+  // value = undefined,
+  // name = '',
+  // onChange = null,
+  // onSubmit = null,
+  // placeholder = '',
+  ...rest
 }) => {
   return (
     <StyledInput
-      name={name}
-      value={value}
-      type={type}
-      onChange={onChange}
-      onSubmit={onSubmit}
-      placeholder={placeholder}
+      {...rest}
+      // name={name}
+      // value={value}
+      // type={type}
+      // onChange={onChange}
+      // onSubmit={onSubmit}
+      // placeholder={placeholder}
     />
   );
 };

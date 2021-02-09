@@ -4,10 +4,12 @@ import Input from '../components/common/Input';
 import Title from '../components/common/Title';
 import Text from '../components/common/Text';
 import Form from '../lib/styles/Form';
+import Nav from '../components/common/Nav';
 
 const LoginPage = () => {
   return (
     <>
+      <Nav goback text="회원가입" />
       <Form>
         <Title>로그인</Title>
         <Input placeholder=" 전화번호를 입력하세요."></Input>

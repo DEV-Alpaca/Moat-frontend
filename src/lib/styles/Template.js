@@ -82,7 +82,7 @@ const Template = ({ children }) => {
       <GlobalStyle />
       <TemplateBlock>
         <Gray />
-        <WhiteBox>{children}</WhiteBox>
+        <WhiteBox>{children}aa</WhiteBox>
         <Gray />
       </TemplateBlock>
     </>
