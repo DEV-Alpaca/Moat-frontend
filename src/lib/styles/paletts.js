@@ -1,31 +1,16 @@
 // source: http://yeun.github.io/open-color/
 
 const palette = {
-  gray: [
-    '#f8f9fa',
-    '#f1f3f5',
-    '#e9ecef',
-    '#dee2e6',
-    '#ced4da',
-    '#adb5bd',
-    '#868e96',
-    '#495057',
-    '#343a40',
-    '#212529',
-  ],
-
-  cyan: [
-    '#e3fafc',
-    '#c5f6fa',
-    '#99e9f2',
-    '#66d9e8',
-    '#3bc9db',
-    '#22b8cf',
-    '#15aabf',
-    '#1098ad',
-    '#0c8599',
-    '0b7285',
-  ],
+  gray: {
+    50: '#f5f5f5',
+    100: '#efefef',
+    200: '#cecece',
+    300: '#8e8e8e',
+    400: '#5c5c5c',
+  },
+  orange: '#fa7a1d',
+  black: '#000000',
+  white: '#ffffff',
 };
 
 export default palette;
