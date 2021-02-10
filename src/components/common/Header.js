@@ -16,7 +16,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: ${r[25]}rem;
+  height: ${r[48]}rem;
 `;
 
 const HeaderText = styled.p`
@@ -36,10 +36,6 @@ const HeaderText = styled.p`
 const Spacer = styled.div`
   width: 100%;
   height: ${r[48]}rem;
-`;
-
-const Space = styled.div`
-  width: ${r[24]}rem;
 `;
 
 const Header = () => {
