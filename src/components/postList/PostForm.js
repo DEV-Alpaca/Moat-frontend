@@ -10,6 +10,7 @@ import { ReactComponent as Location } from '../../assets/location.svg';
 import Text from '../common/Text';
 import Line from '../common/Line';
 import BoldLine from '../common/BoldLine';
+import Tag from '../common/Tag';
 
 const PostFormBlock = styled.div``;
 
@@ -54,7 +55,8 @@ const PostForm = () => {
           >
             창천동
           </Text>
-          <div>소모임</div>
+          <Tag>소모임</Tag>
+          <Tag green>재능공유</Tag>
         </Block>
       </Form>
       <BoldLine />
