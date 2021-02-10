@@ -23,27 +23,21 @@ const GlobalStyle = createGlobalStyle`
     font-size: 18px;
   }
 }
-@media (min-width: 376px) and (max-width: 412px) {
+@media (min-width: 376px) and (max-width: 450px) {
   html {
     font-size: 18px;
   }
 }
-/* }
-@media (min-width: 413px) and (max-width: 450px) {
-  html {
-    font-size: 20px;
-  }
-}
+ 
 @media (min-width: 451px){
   html {
-    font-size: 21px;
+    font-size: 18px;
   }
-} */
+} 
 
-/* 
 ::-webkit-scrollbar {
   display: none;
-} */
+} 
 
 input {
   -webkit-appearance: none;
@@ -82,7 +76,7 @@ const Template = ({ children }) => {
       <GlobalStyle />
       <TemplateBlock>
         <Gray />
-        <WhiteBox>{children}aa</WhiteBox>
+        <WhiteBox>{children}</WhiteBox>
         <Gray />
       </TemplateBlock>
     </>

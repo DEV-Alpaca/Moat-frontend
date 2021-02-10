@@ -4,7 +4,7 @@ import r from '../../lib/styles/Rem';
 import palette from './paletts';
 
 const StyledForm = styled.div`
-  width: 100%;
+  max-width: 100%;
   padding: ${r[32]}rem ${r[16]}rem;
   ${({ background }) =>
     background &&

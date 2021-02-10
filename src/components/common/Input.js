@@ -6,9 +6,9 @@ import r from '../../lib/styles/Rem';
 const StyledInput = styled.input`
   width: 100%;
   height: ${r[52]}rem;
-  padding-left: ${r[12]}rem;
   border-radius: 8px;
 
+  padding: 0;
   border: solid 1px ${palette.gray[200]};
   font-size: ${r[20]}rem;
   color: ${palette.black};
@@ -21,7 +21,7 @@ const StyledInput = styled.input`
   }
 
   &:focus {
-    border-bottom: 1px solid ${palette.orange};
+    border: 1px solid ${palette.orange};
   }
 
   & + & {
