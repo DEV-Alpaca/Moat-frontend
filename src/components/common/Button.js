@@ -6,6 +6,9 @@ import { Link } from 'react-router-dom';
 import r from '../../lib/styles/Rem';
 
 const buttonStyle = css`
+  display: flex;
+  justify-content: center;
+
   width: 100%;
   height: ${r[60]}rem;
   padding: ${r[16]}rem;
