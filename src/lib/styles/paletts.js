@@ -13,6 +13,8 @@ const palette = {
   black: '#000000',
   white: '#ffffff',
   red: '#ff3737',
+  green: '#74bc20',
+  green5: 'rgba(116, 188, 32, 0.05)',
 };
 
 export default palette;

@@ -5,16 +5,18 @@ import palette from './paletts';
 
 const StyledForm = styled.div`
   max-width: 100%;
-  padding: ${r[32]}rem ${r[16]}rem;
+  padding: ${r[16]}rem ${r[16]}rem;
+  background: ${palette.white};
+
   ${({ background }) =>
     background &&
     css`
-      background: ${palette.orange5};
+      background: ${background};
     `};
 `;
 
-const Form = ({ children, background = false }) => {
-  return <StyledForm background={background}>{children}</StyledForm>;
+const Form = ({ children, ...rest }) => {
+  return <StyledForm {...rest}>{children}</StyledForm>;
 };
 
 export default Form;

@@ -1,7 +1,8 @@
 import React from 'react';
+import PostList from '../components/postList/PostList';
 
 const PostListPage = () => {
-  return <div>포스트리스트 페이지(메인)</div>;
+  return <PostList />;
 };
 
 export default PostListPage;
