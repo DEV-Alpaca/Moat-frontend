@@ -6,17 +6,16 @@ import { ReactComponent as Home } from '../../assets/home.svg';
 import palette from '../../lib/styles/paletts';
 import r from '../../lib/styles/Rem';
 
-const NavBlock = styled.div`
-  position: fixed;
-  top: 0;
-  width: 34.23rem;
-  padding-left: ${r[16]}rem;
-  padding-right: ${r[16]}rem;
-
-  /* padding: ${r[12]}rem ${r[16]}rem; */
-`;
+const NavBlock = styled.div``;
 
 const Wrapper = styled.div`
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+
+  padding-left: ${r[16]}rem;
+  padding-right: ${r[16]}rem;
+  background: ${palette.white};
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -61,7 +60,6 @@ const Nav = ({
           {home ? <Home /> : <Space />}
         </Wrapper>
       </NavBlock>
-      <Spacer />
     </>
   );
 };

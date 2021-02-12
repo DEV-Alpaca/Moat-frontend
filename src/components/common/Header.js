@@ -4,15 +4,16 @@ import { ReactComponent as Hamburger } from '../../assets/hamburgermenu.svg';
 import palette from '../../lib/styles/paletts';
 import r from '../../lib/styles/Rem';
 
-const HeaderBlock = styled.div`
-  position: fixed;
-  top: 0;
-  width: 34.23rem;
-  padding-left: ${r[16]}rem;
-  padding-right: ${r[16]}rem;
-`;
+const HeaderBlock = styled.div``;
 
 const Wrapper = styled.div`
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+
+  padding-left: ${r[16]}rem;
+  padding-right: ${r[16]}rem;
+  background: ${palette.white};
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -38,17 +39,16 @@ const Spacer = styled.div`
   height: ${r[48]}rem;
 `;
 
-const Header = () => {
+const Header = ({ title = true }) => {
   return (
     <>
-      <HeaderBlock>
-        <Wrapper>
-          <Hamburger />
-          <HeaderText>모앗</HeaderText>
-          <HeaderText style={{ color: `${palette.orange}` }}>로그인</HeaderText>
-        </Wrapper>
-      </HeaderBlock>
-      <Spacer />
+      <HeaderBlock />
+      <Wrapper>
+        <Hamburger />
+        <HeaderText>{title && '모앗'}</HeaderText>
+        <HeaderText style={{ color: `${palette.orange}` }}>로그인</HeaderText>
+      </Wrapper>
+      {/* <Spacer /> */}
     </>
   );
 };
