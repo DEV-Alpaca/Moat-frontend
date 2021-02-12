@@ -19,7 +19,7 @@ const App = () => {
       <Route component={LoginPage} path="/login" />
       <Route component={RegisterPage} path="/register" />
       <Route component={WritePage} path="/write" />
-      <Route component={SelectLocationPage} path="/SelectLocationPage" />
+      <Route component={SelectLocationPage} path="/select" />
       <Route component={MyPage} path="/@:username/:postId" />
     </Template>
   );

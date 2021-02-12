@@ -13,35 +13,34 @@ const StyledText = styled.p`
   letter-spacing: -0.7px;
   text-align: center;
 
-  ${({ fontWeight }) =>
-    fontWeight &&
+  ${(props) =>
+    props.fontWeight &&
     css`
-      font-weight: ${fontWeight};
+      font-weight: ${props.fontWeight};
     `}
-
   ${(props) =>
     props.fontSize &&
     css`
       font-size: ${r[props.fontSize]}rem;
     `}
 
-  ${(props) =>
+    ${(props) =>
     props.textAlign &&
     css`
       text-align: ${props.textAlign};
     `}
 
-  ${(props) =>
+    ${(props) =>
     props.gray &&
     css`
       color: ${palette.gray[400]};
     `}
 
-  ${(props) =>
+    ${(props) =>
     props.orange &&
     css`
       color: ${palette.orange};
-    `}
+    `};
 `;
 
 const Text = ({ children, ...rest }) => {

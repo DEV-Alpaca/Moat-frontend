@@ -32,7 +32,7 @@ const PostForm = () => {
     <PostFormBlock>
       <Form>
         <Image />
-        <Text fontSize={23} textAlign={'left'} fontWeight={500}>
+        <Text fontSize={23} textAlign={'left'} fontWeight={800}>
           현직 목수입니다. 자신만의 가구 만들 분, 만 원에 가르쳐드려요
         </Text>
       </Form>
@@ -40,7 +40,7 @@ const PostForm = () => {
       <Form>
         <Block>
           <Schedule style={{ marginRight: `${r[8]}rem` }} />
-          <Text fontSize={20} textAlign={'left'} fontWeight={500}>
+          <Text fontSize={20} textAlign={'left'} fontWeight={800}>
             협의
           </Text>
           <br />

@@ -31,9 +31,17 @@ const GlobalStyle = createGlobalStyle`
  
 @media (min-width: 451px){
   html {
-    font-size: 18px;
+    font-size: 17px;
   }
 } 
+/* 
+@media (max-width: 1024px){
+  width : 768px;
+}
+@media (max-width: 768px){
+  width: 100%;
+} */
+
 
 ::-webkit-scrollbar {
   display: none;
