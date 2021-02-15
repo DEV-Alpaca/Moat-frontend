@@ -31,7 +31,7 @@ const GlobalStyle = createGlobalStyle`
  
 @media (min-width: 451px){
   html {
-    font-size: 17px;
+    font-size: 18px;
   }
 } 
 /* 

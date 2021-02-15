@@ -51,7 +51,7 @@ const PostForm = () => {
             style={{ marginRight: 'auto' }}
             fontSize={20}
             textAlign={'left'}
-            fontWeight={500}
+            fontWeight={800}
           >
             창천동
           </Text>
