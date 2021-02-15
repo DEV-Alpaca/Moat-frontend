@@ -11,6 +11,7 @@ const buttonStyle = css`
   width: 100%;
   height: ${r[60]}rem;
   padding: ${r[16]}rem;
+  outline: none;
   border: none;
   border-radius: 8px;
   color: white;
@@ -23,7 +24,7 @@ const buttonStyle = css`
   background: ${palette.orange};
 
   font-size: ${r[20]}rem;
-  font-weight: bold;
+  font-weight: normal;
   font-stretch: normal;
   line-height: 1.4;
   letter-spacing: -0.4px;
