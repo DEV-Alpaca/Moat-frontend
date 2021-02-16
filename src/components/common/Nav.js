@@ -6,20 +6,23 @@ import { ReactComponent as Home } from '../../assets/home.svg';
 import palette from '../../lib/styles/paletts';
 import r from '../../lib/styles/Rem';
 
-const NavBlock = styled.div``;
-
 const Wrapper = styled.div`
-  position: sticky;
+  box-sizing: border-box;
+  position: fixed;
   top: 0;
+  width: 100%;
+  max-width: 36rem;
+
   z-index: 9999;
 
-  padding-left: ${r[16]}rem;
-  padding-right: ${r[16]}rem;
+  padding: ${r[10]}rem ${r[16]}rem;
   background: ${palette.white};
+`;
+
+const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: ${r[48]}rem;
 `;
 
 const NavText = styled.p`
@@ -53,14 +56,15 @@ const Nav = ({
 }) => {
   return (
     <>
-      <NavBlock>
-        <Wrapper>
+      <Wrapper>
+        <Container>
           {goback && <Goback style={{ cursor: 'pointer' }} />}
           {close && <Close style={{ cursor: 'pointer' }} />}
           <NavText>{text}</NavText>
           {home ? <Home style={{ cursor: 'pointer' }} /> : <Space />}
-        </Wrapper>
-      </NavBlock>
+        </Container>
+      </Wrapper>
+      <Spacer />
     </>
   );
 };
