@@ -14,7 +14,7 @@ const StyledInput = styled.input`
   color: ${palette.black};
   outline: none;
 
-  font-weight: normal;
+  font-weight: 500;
   font-family: 'Spoqa Han Sans Neo', 'sans-serif';
 
   ::-webkit-input-placeholder {

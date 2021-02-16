@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled, { css } from 'styled-components';
 import Form from '../../lib/styles/Form';
 import r from '../../lib/styles/Rem';
@@ -49,6 +49,8 @@ const StyledGreenButton = styled(Button)`
 `;
 
 const StyledInput = styled(Input)`
+  width: 98%;
+
   padding-left: ${r[10]}rem;
   height: ${r[52]}rem;
 `;
@@ -70,28 +72,110 @@ const CameraBlock = styled.div`
   color: #808080;
 `;
 
+const StyledForm = styled(Form)`
+  margin-top: ${r[16]}rem;
+  border-radius: 8px;
+  border: 1px solid ${palette.gray[200]};
+`;
+
+const StyledTextarea = styled.textarea`
+  width: 100%;
+  border: none;
+  outline: none;
+  overflow: visible;
+  font-size: ${r[20]}rem;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.6;
+  letter-spacing: -0.7px;
+  color: ${palette.black};
+  resize: none;
+
+  &:focus {
+    color: black;
+  }
+`;
+
 const WriteForm = () => {
+  const textareaRef = useRef(null);
+  const [currentValue, setCurrentValue] = useState(''); // you can manage data with it
+
+  useEffect(() => {
+    textareaRef.current.style.height = '0px';
+    const scrollHeight = textareaRef.current.scrollHeight;
+    textareaRef.current.style.height = scrollHeight + 'px';
+  }, [currentValue]);
+
   return (
     <Form>
-      <ButtonBlock>
-        <StyledOrangeButton active>소모임</StyledOrangeButton>
-        <StyledGreenButton>재능공유</StyledGreenButton>
-      </ButtonBlock>
-      <StyledInput placeholder="모임의 제목을 한줄로 적어주세요" />
-      <Text
-        textAlign={'left'}
-        fontWeight={'400'}
-        style={{
-          marginTop: `${r[24]}rem`,
-          color: `${palette.gray[300]}`,
-        }}
-      >
-        소개이미지를 1장 이상 추가해주세요.
-      </Text>
-      <CameraBlock>
-        <Camera />
-        <Text fontWeight={400}>사진추가</Text>
-      </CameraBlock>
+      <form>
+        <ButtonBlock>
+          <StyledOrangeButton active>소모임</StyledOrangeButton>
+          <StyledGreenButton>재능공유</StyledGreenButton>
+        </ButtonBlock>
+        <StyledInput placeholder="모임의 제목을 한줄로 적어주세요" />
+        <Text
+          textAlign={'left'}
+          fontWeight={'400'}
+          style={{
+            marginTop: `${r[24]}rem`,
+            color: `${palette.gray[300]}`,
+          }}
+        >
+          소개이미지를 1장 이상 추가해주세요.
+        </Text>
+        <CameraBlock>
+          <Camera />
+          <Text fontWeight={400}>사진추가</Text>
+        </CameraBlock>
+        <StyledForm style={{ padding: `${r[12]}rem ${r[12]}rem` }}>
+          <StyledTextarea
+            // ref={textareaRef}
+            // value={currentValue}
+            // onChange={(e) => {
+            //   setCurrentValue(e.target.value);
+            // }}
+            placeholder="동/읍/면"
+            rows="1"
+          />
+          <StyledTextarea
+            // ref={textareaRef}
+            // value={currentValue}
+            // onChange={(e) => {
+            //   setCurrentValue(e.target.value);
+            // }}
+            placeholder="장소(ex. 체육관)"
+            rows="1"
+          />
+          <StyledTextarea
+            // ref={textareaRef}
+            // value={currentValue}
+            // onChange={(e) => {
+            //   setCurrentValue(e.target.value);
+            // }}
+            placeholder="날짜(ex. 매주 화/수,금/협의/미정)"
+            rows="1"
+          />
+          <StyledTextarea
+            ref={textareaRef}
+            value={currentValue}
+            onChange={(e) => {
+              setCurrentValue(e.target.value);
+            }}
+            placeholder="어떤 모임인지 이웃들이 알기 쉽게 적어주세요!"
+            rows="6"
+          />
+        </StyledForm>
+        <Button
+          closed
+          style={{
+            marginTop: `${r[24]}rem`,
+          }}
+        >
+          작성완료
+        </Button>
+      </form>
     </Form>
   );
 };
