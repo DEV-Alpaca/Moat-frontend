@@ -62,14 +62,16 @@ const TemplateBlock = styled.div`
   display: flex;
   flex-direction: row;
   min-height: 100%;
+  position: relatvie;
 `;
 
 const WhiteBox = styled.div`
-  width: 100%;
+  width: 100vw;
   max-width: 36rem;
-  min-height: 100%;
+  min-height: 100vh;
   background-color: white;
   position: relatvie;
+  margin: 0 auto;
 `;
 
 const Gray = styled.div`

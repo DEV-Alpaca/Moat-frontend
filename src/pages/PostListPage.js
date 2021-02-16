@@ -5,7 +5,7 @@ import PostList from '../components/postList/PostList';
 const PostListPage = () => {
   return (
     <>
-      <Header title={false} />
+      <Header title={true} />
       <PostList />
     </>
   );

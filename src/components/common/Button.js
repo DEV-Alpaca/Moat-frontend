@@ -8,18 +8,16 @@ import r from '../../lib/styles/Rem';
 const buttonStyle = css`
   display: flex;
   justify-content: center;
+
   width: 100%;
   height: ${r[60]}rem;
-  padding: ${r[16]}rem;
+
+  padding: ${r[12]}rem;
+
   outline: none;
   border: none;
   border-radius: 8px;
   color: white;
-  cursor: pointer;
-
-  & + & {
-    margin-bottom: ${r[16]}rem;
-  }
 
   background: ${palette.orange};
 
@@ -29,6 +27,12 @@ const buttonStyle = css`
   line-height: 1.4;
   letter-spacing: -0.4px;
   text-align: center;
+
+  cursor: pointer;
+
+  & + & {
+    margin-bottom: ${r[16]}rem;
+  }
 
   ${(props) =>
     props.full &&
@@ -47,8 +51,9 @@ const buttonStyle = css`
     ${(props) =>
     props.closed &&
     css`
-      background: ${palette.gray[200]};
-      color: #9a9a9a;
+      background: ${palette.gray[100]};
+      color: ${palette.gray[200]};
+      font-size: ${r[23]}rem;
     `}
 `;
 
