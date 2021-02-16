@@ -5,7 +5,8 @@ import r from '../../lib/styles/Rem';
 
 const StyledDiv = styled.div`
   border-radius: 8px;
-  padding-left: ${r[10]}rem;
+  padding: 0 ${r[10]}rem;
+
   border: solid 1px ${palette.gray[200]};
 
   outline: none;
@@ -21,14 +22,15 @@ const StyledDiv = styled.div`
 `;
 
 const StyledInput = styled.input`
-  width: 90%;
+  box-sizing: border-box;
+
   height: ${r[52]}rem;
   margin: 0;
   padding: 0;
   font-size: ${r[20]}rem;
   color: ${palette.black};
   font-weight: normal;
-  border: none;
+  /* border: none; */
   outline: none;
 `;
 

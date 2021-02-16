@@ -38,6 +38,8 @@ const buttonStyle = css`
     props.full &&
     css`
       border-radius: 0px;
+      font-size: ${r[23]}rem;
+      font-weight: 500;
     `}
 
   ${(props) =>
@@ -54,6 +56,19 @@ const buttonStyle = css`
       background: ${palette.gray[100]};
       color: ${palette.gray[200]};
       font-size: ${r[23]}rem;
+      font-weight: 500;
+    `}
+
+    ${(props) =>
+    props.fontWeight &&
+    css`
+      font-weight: ${props.fontWeight};
+    `}
+
+    ${(props) =>
+    props.fontSize &&
+    css`
+      font-size: ${r[props.fontSize]}rem;
     `}
 `;
 
