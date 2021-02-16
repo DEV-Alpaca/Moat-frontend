@@ -1,10 +1,12 @@
 import React from 'react';
-import Header from '../components/common/Header';
+import Nav from '../components/common/Nav';
+import LoginForm from '../components/login/LoginForm';
 
 const LoginPage = () => {
   return (
     <>
-      <Header />
+      <Nav close />
+      <LoginForm />
     </>
   );
 };

@@ -32,6 +32,7 @@ const HeaderText = styled.p`
   letter-spacing: -0.7px;
 
   color: ${palette.black};
+  cursor: pointer;
 `;
 
 const Spacer = styled.div`
@@ -44,7 +45,7 @@ const Header = ({ title = true }) => {
     <>
       <HeaderBlock />
       <Wrapper>
-        <Hamburger />
+        <Hamburger style={{ cursor: 'pointer' }} />
         <HeaderText>{title && '모앗'}</HeaderText>
         <HeaderText style={{ color: `${palette.orange}` }}>로그인</HeaderText>
       </Wrapper>

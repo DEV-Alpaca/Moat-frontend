@@ -34,6 +34,7 @@ const NavText = styled.p`
   letter-spacing: -0.4px;
 
   color: ${palette.black};
+  cursor: pointer;
 `;
 const Spacer = styled.div`
   width: 100%;
@@ -54,10 +55,10 @@ const Nav = ({
     <>
       <NavBlock>
         <Wrapper>
-          {goback && <Goback />}
-          {close && <Close />}
+          {goback && <Goback style={{ cursor: 'pointer' }} />}
+          {close && <Close style={{ cursor: 'pointer' }} />}
           <NavText>{text}</NavText>
-          {home ? <Home /> : <Space />}
+          {home ? <Home style={{ cursor: 'pointer' }} /> : <Space />}
         </Wrapper>
       </NavBlock>
     </>
