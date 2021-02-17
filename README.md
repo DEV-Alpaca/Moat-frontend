@@ -83,7 +83,4 @@ framework를 사용하지 않은 순수 React로 개발(CRA)
 + redux-devtools-extension
 + snippet => srfc
 
-# Reference
-
-+ 리액트를 다루는 기술
 
