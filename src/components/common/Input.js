@@ -23,14 +23,14 @@ const StyledDiv = styled.div`
 
 const StyledInput = styled.input`
   box-sizing: border-box;
-
+  width: 100%;
   height: ${r[52]}rem;
   margin: 0;
   padding: 0;
   font-size: ${r[20]}rem;
   color: ${palette.black};
   font-weight: normal;
-  /* border: none; */
+  border: none;
   outline: none;
 `;
 
