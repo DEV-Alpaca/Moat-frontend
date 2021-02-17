@@ -1,23 +1,28 @@
-import './App.css';
+import React from 'react';
+import Template from './lib/styles/Template';
+import { Route } from 'react-router-dom';
 
-function App() {
+import AuthPage from './pages/AuthPage';
+import LoginPage from './pages/LoginPage';
+import MyPage from './pages/MyPage';
+
+import PostListPage from './pages/PostListPage';
+import RegisterPage from './pages/RegisterPage';
+import SelectLocationPage from './pages/SelectLocationPage';
+import WritePage from './pages/WritePage';
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          testing merge aaa Learn React
-        </a>
-      </header>
-    </div>
+    <Template>
+      <Route component={PostListPage} path={['/@:username', '/']} exact />
+      <Route component={AuthPage} path="/auth" />
+      <Route component={LoginPage} path="/login" />
+      <Route component={RegisterPage} path="/register" />
+      <Route component={WritePage} path="/write" />
+      <Route component={SelectLocationPage} path="/select" />
+      <Route component={MyPage} path="/@:username/:postId" />
+    </Template>
   );
-}
+};
 
 export default App;

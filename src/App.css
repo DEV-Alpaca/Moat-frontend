@@ -1,38 +1,60 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.BestWrapper {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: row;
+  min-height: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.Wrapper {
+  width: 100%;
+  max-width: 5rem;
+  min-height: 100%;
+  background-color: white;
+  position: relatvie;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.Gray {
+  flex: 1;
+  background-color: #ccc;
+  z-index: 100;
+}
+
+.Space {
+  height: 500px;
+  background: blue;
+}
+
+@media (max-width: 262px) {
+  html {
+    font-size: 10px;
   }
-  to {
-    transform: rotate(360deg);
+}
+@media (min-width: 263px) and (max-width: 300px) {
+  html {
+    font-size: 11px;
+  }
+}
+@media (min-width: 301px) and (max-width: 337px) {
+  html {
+    font-size: 12px;
+  }
+}
+@media (min-width: 338px) and (max-width: 375px) {
+  html {
+    font-size: 13px;
+  }
+}
+@media (min-width: 376px) and (max-width: 412px) {
+  html {
+    font-size: 14px;
+  }
+}
+@media (min-width: 413px) and (max-width: 450px) {
+  html {
+    font-size: 15px;
+  }
+}
+@media (min-width: 451px) {
+  html {
+    font-size: 16px;
   }
 }
