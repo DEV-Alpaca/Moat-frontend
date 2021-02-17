@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import Form from '../../lib/styles/Form';
 import palette from '../../lib/styles/paletts';
 import r from '../../lib/styles/Rem';

@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Button from '../../components/common/Button';
-import Input from '../../components/common/Input';
 import Title from '../../components/common/Title';
 import Form from '../../lib/styles/Form';
 import palette from '../../lib/styles/paletts';
