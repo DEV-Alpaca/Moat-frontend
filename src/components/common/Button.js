@@ -8,6 +8,7 @@ import r from '../../lib/styles/Rem';
 const buttonStyle = css`
   display: flex;
   justify-content: center;
+  align-items: center;
 
   width: 100%;
   height: ${r[60]}rem;
