@@ -8,6 +8,7 @@ import Text from '../../components/common/Text';
 import Form from '../../lib/styles/Form';
 import palette from '../../lib/styles/paletts';
 import Padding from '../common/Padding';
+import r from '../../lib/styles/Rem';
 
 const StyledDiv = styled.div`
   box-sizing: border-box;
@@ -25,9 +26,32 @@ const LoginForm = () => {
         <Title>로그인</Title>
         <Padding />
         <Padding />
+        <Text orange fontSize={16} textAlign={'left'} marginLeft={`${r[8]}`}>
+          전화번호
+        </Text>
         <Input placeholder=" 전화번호를 입력하세요."></Input>
+        <Text
+          red
+          fontSize={18}
+          textAlign={'left'}
+          marginLeft={`${r[12]}`}
+          marginTop={`${r[3]}`}
+          fontWeight={700}
+        >
+          전화번호를 다시 확인해주세요.
+        </Text>
         <Padding />
         <Input type="password" placeholder=" 비밀번호를 입력하세요."></Input>
+        <Text
+          red
+          fontSize={18}
+          textAlign={'left'}
+          marginLeft={`${r[12]}`}
+          marginTop={`${r[3]}`}
+          fontWeight={700}
+        >
+          비밀번호를 다시 확인해주세요.
+        </Text>
         <Padding />
         <Button>로그인</Button>
       </Form>

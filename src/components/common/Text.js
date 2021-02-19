@@ -41,6 +41,30 @@ const StyledText = styled.p`
     css`
       color: ${palette.orange};
     `};
+
+  ${(props) =>
+    props.red &&
+    css`
+      color: ${palette.red};
+    `};
+
+  ${(props) =>
+    props.marginLeft &&
+    css`
+      margin-left: ${props.marginLeft}rem;
+    `};
+
+  ${(props) =>
+    props.marginTop &&
+    css`
+      margin-top: ${props.marginTop}rem;
+    `};
+
+  ${(props) =>
+    props.marginBottom &&
+    css`
+      margin-bottom: ${props.marginBottom}rem;
+    `};
 `;
 
 const Text = ({ children, ...rest }) => {

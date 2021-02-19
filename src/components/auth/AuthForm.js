@@ -9,6 +9,7 @@ import r from '../../lib/styles/Rem';
 import Padding from '../common/Padding';
 
 import { ReactComponent as Check } from '../../assets/greencheck.svg';
+import Text from '../common/Text';
 
 const StyledButton = styled(Button)`
   position: fixed;
@@ -67,6 +68,9 @@ const AuthForm = () => {
         </Title>
         <Padding height={`${r[60]}`} />
         <StyledDiv>
+          <Text orange fontSize={16} textAlign={'left'} marginLeft={`${r[8]}`}>
+            전화번호 입력
+          </Text>
           <StyledInput placeholder="전화번호를 입력해주세요."></StyledInput>
           <StyledAuthButton>인증하기</StyledAuthButton>
         </StyledDiv>
