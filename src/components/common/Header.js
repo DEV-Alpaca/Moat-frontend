@@ -11,7 +11,7 @@ const HeaderBlock = styled.div`
   width: 100%;
   max-width: 36rem;
 
-  z-index: 9999;
+  z-index: 9998;
 
   padding: ${r[10]}rem ${r[16]}rem;
   background: ${palette.white};

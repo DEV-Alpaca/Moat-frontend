@@ -11,11 +11,14 @@ import r from '../../lib/styles/Rem';
 import Form from '../../lib/styles/Form';
 import palette from '../../lib/styles/paletts';
 import Title from '../common/Title';
+import CarouselSlider from './mainboard/CarouselSlider';
+import Sample from './mainboard/Sample';
 
 const Mainboard = styled(Form)`
-  height: ${r[214]}rem;
+  display: flex;
+  /* height: ${r[214]}rem;
 
-  background-color: ${palette.orange5};
+  background-color: ${palette.orange5}; */
 `;
 
 const TitleContainer = styled(Form)`
@@ -77,7 +80,8 @@ const StyledCallButton = styled(Button)`
 const PostList = () => {
   return (
     <>
-      <Mainboard>우리마을</Mainboard>
+      <Sample />
+      {/* <Mainboard>우리마을</Mainboard> */}
       <TitleContainer>
         <Title>서울특별시</Title>
         <div className="titleBox">
