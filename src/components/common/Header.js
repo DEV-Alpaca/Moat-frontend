@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { ReactComponent as Hamburger } from '../../assets/hamburgermenu.svg';
 import palette from '../../lib/styles/paletts';
 import r from '../../lib/styles/Rem';
+import NavModal from './NavModal';
 
 const HeaderBlock = styled.div`
   box-sizing: border-box;
@@ -11,7 +12,7 @@ const HeaderBlock = styled.div`
   width: 100%;
   max-width: 36rem;
 
-  z-index: 9998;
+  z-index: 999;
 
   padding: ${r[10]}rem ${r[16]}rem;
   background: ${palette.white};
@@ -44,11 +45,23 @@ const Spacer = styled.div`
 `;
 
 const Header = ({ title = true }) => {
+  const [modal, setModal] = useState(false);
+  const onNavClick = () => {
+    setModal(true);
+  };
+  const onCancel = () => {
+    setModal(false);
+  };
+  const onConfirm = () => {
+    setModal(false);
+  };
+
   return (
     <>
+      <NavModal visible={modal} onConfirm={onConfirm} onCancel={onCancel} />
       <HeaderBlock>
         <Wrapper>
-          <Hamburger style={{ cursor: 'pointer' }} />
+          <Hamburger style={{ cursor: 'pointer' }} onClick={onNavClick} />
           <HeaderText>{title && '모앗'}</HeaderText>
           <HeaderText style={{ color: `${palette.orange}` }}>로그인</HeaderText>
         </Wrapper>
