@@ -36,7 +36,7 @@ const StyledButton = styled(Button)`
   }
 `;
 
-const Modal = ({ visible, onConfirm, onCancel }) => {
+const HeaderModal = ({ visible, onConfirm, onCancel }) => {
   if (!visible) return null;
   return (
     <FullScreen>
@@ -59,4 +59,4 @@ const Modal = ({ visible, onConfirm, onCancel }) => {
   );
 };
 
-export default Modal;
+export default HeaderModal;

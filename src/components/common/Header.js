@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { ReactComponent as Hamburger } from '../../assets/hamburgermenu.svg';
 import palette from '../../lib/styles/paletts';
 import r from '../../lib/styles/Rem';
-import NavModal from './NavModal';
+import HeaderModal from './HeaderModal';
 
 const HeaderBlock = styled.div`
   box-sizing: border-box;
@@ -58,7 +58,7 @@ const Header = ({ title = true }) => {
 
   return (
     <>
-      <NavModal visible={modal} onConfirm={onConfirm} onCancel={onCancel} />
+      <HeaderModal visible={modal} onConfirm={onConfirm} onCancel={onCancel} />
       <HeaderBlock>
         <Wrapper>
           <Hamburger style={{ cursor: 'pointer' }} onClick={onNavClick} />

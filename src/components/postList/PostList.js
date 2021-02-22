@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useState } from 'react';
+import styled, { css } from 'styled-components';
 import Button from '../common/Button';
 import PostForm from './PostForm';
 import { ReactComponent as Plus } from '../../assets/plus.svg';
@@ -11,15 +11,8 @@ import r from '../../lib/styles/Rem';
 import Form from '../../lib/styles/Form';
 import palette from '../../lib/styles/paletts';
 import Title from '../common/Title';
-import CarouselSlider from './mainboard/CarouselSlider';
 import Sample from './mainboard/Sample';
-
-const Mainboard = styled(Form)`
-  display: flex;
-  /* height: ${r[214]}rem;
-
-  background-color: ${palette.orange5}; */
-`;
+import LocationModal from './location/LocationModal';
 
 const TitleContainer = styled(Form)`
   height: ${r[84]}rem;
@@ -43,6 +36,8 @@ const StyledLocationButton = styled(Button)`
   border-radius: 8px;
   border: solid 1px ${palette.orange};
   background-color: ${palette.white};
+
+  z-index: 9999;
 `;
 
 const StyledButton = styled(Button)`
@@ -78,15 +73,36 @@ const StyledCallButton = styled(Button)`
 `;
 
 const PostList = () => {
+  const [modal, setModal] = useState(false);
+  const [fontColor, setFontColor] = useState(`${palette.black}`);
+  const onLocationClick = () => {
+    setModal(!modal);
+    setFontColor(!modal ? `${palette.orange}` : `${palette.black}`);
+  };
+  const onCancel = () => {
+    setModal(false);
+  };
+  const onConfirm = () => {
+    setModal(false);
+  };
+
   return (
     <>
+      <LocationModal
+        visible={modal}
+        onConfirm={onConfirm}
+        onCancel={onCancel}
+      />
       <Sample />
-      {/* <Mainboard>우리마을</Mainboard> */}
       <TitleContainer>
         <Title>서울특별시</Title>
         <div className="titleBox">
           <Title>서대문&마포구</Title>
-          <StyledLocationButton white>
+          <StyledLocationButton
+            white
+            onClick={onLocationClick}
+            style={{ color: `${fontColor}` }}
+          >
             <Location style={{ marginTop: '4px' }} /> <Padding />
             지역 변경
           </StyledLocationButton>
