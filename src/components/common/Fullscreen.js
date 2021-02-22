@@ -10,12 +10,10 @@ const FullScreenBlock = styled.div`
   max-width: 36rem;
   height: 100%;
 
-  z-index: 9999;
-
   background: rgba(0, 0, 0, 0.25);
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 `;
 
 const FullScreen = ({ children }) => {

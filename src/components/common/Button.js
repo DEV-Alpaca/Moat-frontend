@@ -31,10 +31,6 @@ const buttonStyle = css`
 
   cursor: pointer;
 
-  & + & {
-    margin-bottom: ${r[16]}rem;
-  }
-
   ${(props) =>
     props.full &&
     css`

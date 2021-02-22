@@ -1,71 +1,59 @@
 import React from 'react';
 import styled from 'styled-components';
+import FullScreen from './Fullscreen';
+import { ReactComponent as Close } from '../../assets/X.svg';
 import Button from './Button';
+import r from '../../lib/styles/Rem';
+import Form from '../../lib/styles/Form';
+import palette from '../../lib/styles/paletts';
+import Padding from './Padding';
 
-const FullScreen = styled.div`
+const ModalBlock = styled(Form)`
   position: fixed;
-  z-index: 9999;
-
   top: 0;
-  width: 100%;
-  max-width: 36rem;
+  width: ${r[214]}rem;
   height: 100%;
-
-  z-index: 9999;
-
-  background: rgba(0, 0, 0, 0.25);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const ModalBlock = styled.div`
-  width: 320px;
   background: white;
-  padding: 1.4rem;
-  border-radius: 4px;
+
+  border-radius: 0 8px 8px 0;
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.125);
-  h2 {
-    margin-top: 0;
-    margin-bottom: 1rem;
+`;
+
+const StyledButton = styled(Button)`
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  height: auto;
+  text-align: left;
+  font-size: 30px;
+  font-weight: 800;
+  :hover {
+    color: ${palette.orange};
   }
-  p {
-    margin-bottom: 3rem;
-  }
-  .buttons {
-    display: flex;
-    justify-content: flex-end;
+  :active {
+    color: ${palette.orange};
   }
 `;
 
-const StyleButton = styled(Button)`
-  height: 2rem;
-  & + & {
-    margin-left: 0.75rem;
-  }
-`;
-
-const Modal = ({
-  visible,
-  title,
-  description,
-  confirmText = '확인',
-  cancelText = '취소',
-  onConfirm,
-  onCancel,
-}) => {
+const Modal = ({ visible, onConfirm, onCancel }) => {
   if (!visible) return null;
   return (
     <FullScreen>
       <ModalBlock>
-        <h2>{title}</h2>
-        <p>{description}</p>
-        <div className="buttons">
-          <StyleButton onClick={onCancel}>{cancelText}</StyleButton>
-          <StyleButton cyan onClick={onConfirm}>
-            {confirmText}
-          </StyleButton>
-        </div>
+        <Close onClick={onCancel} style={{ cursor: 'pointer' }} />
+        <Padding height={`${r[60]}`} />
+        <StyledButton onClick={onConfirm} white>
+          동네모앗
+        </StyledButton>
+        <Padding />
+        <StyledButton onClick={onConfirm} white>
+          마이페이지
+        </StyledButton>
+        <Padding />
+        <StyledButton onClick={onConfirm} white>
+          문의하기
+        </StyledButton>
       </ModalBlock>
     </FullScreen>
   );
