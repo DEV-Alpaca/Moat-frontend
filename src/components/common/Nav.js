@@ -47,7 +47,13 @@ const Space = styled.div`
   width: ${r[24]}rem;
 `;
 
-const Nav = ({ goback = false, close = false, home = false, text = '' }) => {
+const Nav = ({
+  goback = false,
+  close = false,
+  home = false,
+  text = '',
+  notSpacer = false,
+}) => {
   return (
     <>
       <Wrapper>
@@ -58,7 +64,7 @@ const Nav = ({ goback = false, close = false, home = false, text = '' }) => {
           {home ? <Home style={{ cursor: 'pointer' }} /> : <Space />}
         </Container>
       </Wrapper>
-      <Spacer />
+      {!notSpacer && <Spacer />}
     </>
   );
 };

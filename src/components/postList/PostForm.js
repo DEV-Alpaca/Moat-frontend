@@ -21,46 +21,61 @@ const Image = styled(Sample)`
   border-radius: 8px;
 `;
 
+const PostViewerImage = styled.img`
+  box-sizing: border-box;
+  width: 100%;
+  height: 270px;
+  margin: 0;
+`;
+
 const Block = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
 `;
 
-const PostForm = () => {
+const PostForm = ({ postViewer = false }) => {
   return (
-    <PostFormBlock>
-      <Form>
-        <Image />
-        <Text fontSize={23} textAlign={'left'} fontWeight={800}>
-          현직 목수입니다. 자신만의 가구 만들 분, 만 원에 가르쳐드려요
-        </Text>
-      </Form>
-      <Line />
-      <Form>
-        <Block>
-          <Schedule style={{ marginRight: `${r[8]}rem` }} />
-          <Text fontSize={20} textAlign={'left'} fontWeight={800}>
-            협의
+    <>
+      <PostFormBlock>
+        {postViewer && (
+          <PostViewerImage
+            src="http://placehold.it/320x100?text=sample"
+            alt="postViewerImage"
+          />
+        )}
+        <Form>
+          {!postViewer && <Image />}
+          <Text fontSize={23} textAlign={'left'} fontWeight={800}>
+            현직 목수입니다. 자신만의 가구 만들 분, 만 원에 가르쳐드려요
           </Text>
-          <br />
-        </Block>
-        <Block>
-          <Location style={{ marginRight: `${r[8]}rem` }} />
-          <Text
-            style={{ marginRight: 'auto' }}
-            fontSize={20}
-            textAlign={'left'}
-            fontWeight={800}
-          >
-            창천동
-          </Text>
-          <Tag>소모임</Tag>
-          <Tag green>재능공유</Tag>
-        </Block>
-      </Form>
-      <BoldLine />
-    </PostFormBlock>
+        </Form>
+        <Line />
+        <Form>
+          <Block>
+            <Schedule style={{ marginRight: `${r[8]}rem` }} />
+            <Text fontSize={20} textAlign={'left'} fontWeight={800}>
+              협의
+            </Text>
+            <br />
+          </Block>
+          <Block>
+            <Location style={{ marginRight: `${r[8]}rem` }} />
+            <Text
+              style={{ marginRight: 'auto' }}
+              fontSize={20}
+              textAlign={'left'}
+              fontWeight={800}
+            >
+              창천동
+            </Text>
+            <Tag>1:1</Tag>
+            <Tag green>재능공유</Tag>
+          </Block>
+        </Form>
+        <BoldLine />
+      </PostFormBlock>
+    </>
   );
 };
 

@@ -11,6 +11,7 @@ import RegisterPage from './pages/RegisterPage';
 import SelectLocationPage from './pages/SelectLocationPage';
 import WritePage from './pages/WritePage';
 import PasswordChangePage from './pages/PasswordChangePage';
+import PostPage from './pages/PostPage';
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
       <Route component={RegisterPage} path="/register" />
       <Route component={PasswordChangePage} path="/password" />
       <Route component={PostListPage} path={['/@:username', '/']} exact />
+      <Route component={PostPage} path="/post" />
       <Route component={SelectLocationPage} path="/select" />
       <Route component={WritePage} path="/write" />
       <Route component={MyPage} path="/@:username/:postId" />
