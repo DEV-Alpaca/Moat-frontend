@@ -17,19 +17,22 @@ const PaginationBlock = styled.div`
 `;
 
 const StyledButton = styled(Button)`
-  width: ${r[40]}rem;
-  height: ${r[40]}rem;
+  width: ${r[42]}rem;
+  height: ${r[42]}rem;
   margin: 0;
   padding: 0;
+
+  &:disabled {
+    background: ${palette.gray[100]};
+    cursor: not-not-allowed;
+  }
 `;
 
 const PageNumberBlock = styled.div`
   display: flex;
   justify-content: flex-start;
-  /* margin: 0 ${r[16]}rem; */
 
-  width: 73%;
-  /* border: 1px solid blue; */
+  width: 70%;
   padding: 0;
 `;
 
@@ -40,7 +43,6 @@ const PageNumber = styled.div`
   color: ${palette.gray[200]};
 
   display: flex;
-  /* border: 1px solid red; */
   justify-content: center;
   align-items: center;
   cursor: pointer;
@@ -64,7 +66,7 @@ for (var i = 1; i <= lastPage; i++) {
 const Pagination = () => {
   return (
     <PaginationBlock>
-      <StyledButton gray>
+      <StyledButton gray disabled>
         <LeftPage />
       </StyledButton>
       <PageNumberBlock>
@@ -73,8 +75,8 @@ const Pagination = () => {
         <PageNumber>3</PageNumber>
         <PageNumber>4</PageNumber>
         <PageNumber>5</PageNumber>
-        {/* {PageNumbers.map((page) => (
-          <PageNumber>{page < 5 ? page : null}</PageNumber>
+        {/* {pageNumbers.map((page) => (
+          <PageNumber>{page < 5 ? page : undefined}</PageNumber>
         ))} */}
       </PageNumberBlock>
       <StyledButton>

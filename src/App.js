@@ -10,6 +10,7 @@ import PostListPage from './pages/PostListPage';
 import RegisterPage from './pages/RegisterPage';
 import SelectLocationPage from './pages/SelectLocationPage';
 import WritePage from './pages/WritePage';
+import WarningPage from './pages/WarningPage';
 import PasswordChangePage from './pages/PasswordChangePage';
 import PostPage from './pages/PostPage';
 
@@ -24,6 +25,7 @@ const App = () => {
       <Route component={PostPage} path="/post" />
       <Route component={SelectLocationPage} path="/select" />
       <Route component={WritePage} path="/write" />
+      <Route component={WarningPage} path="/warning" />
       <Route component={MyPage} path="/@:username/:postId" />
     </Template>
   );
