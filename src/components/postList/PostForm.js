@@ -11,6 +11,7 @@ import Text from '../common/Text';
 import Line from '../common/Line';
 import BoldLine from '../common/BoldLine';
 import Tag from '../common/Tag';
+import Pagination from './Pagination';
 
 const PostFormBlock = styled.div``;
 

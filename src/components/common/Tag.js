@@ -8,7 +8,7 @@ const TagBlock = styled.div`
   align-items: center;
   justify-content: center;
 
-  width: ${r[81]}rem;
+  width: ${r[40]}rem;
   height: ${r[40]}rem;
 
   border-radius: 4px;
