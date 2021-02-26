@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import location from '../../../lib/location/location';
+import location from '../../../lib/location/locations';
 import Form from '../../../lib/styles/Form';
 import palette from '../../../lib/styles/paletts';
 import r from '../../../lib/styles/Rem';

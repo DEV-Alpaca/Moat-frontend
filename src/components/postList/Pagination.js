@@ -8,7 +8,7 @@ import r from '../../lib/styles/Rem';
 import palette from '../../lib/styles/paletts';
 
 const PaginationBlock = styled.div`
-  padding: ${r[48]}rem ${r[24]}rem;
+  padding: ${r[36]}rem ${r[24]}rem;
   display: flex;
   justify-content: space-between;
 `;

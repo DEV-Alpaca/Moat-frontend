@@ -1,4 +1,5 @@
 import React from 'react';
+import FootBar from '../components/common/FootBar';
 import Header from '../components/common/Header';
 import Pagination from '../components/postList/Pagination';
 import PostList from '../components/postList/PostList';
@@ -11,6 +12,7 @@ const PostListPage = () => {
       <PostList />
       <Pagination />
       <QuestionBox />
+      <FootBar />
     </>
   );
 };

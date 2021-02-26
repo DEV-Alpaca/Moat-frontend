@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { ReactComponent as Hamburger } from '../../assets/hamburgermenu.svg';
+import { ReactComponent as Profile } from '../../assets/profile.svg';
+
+import { ReactComponent as DownArrow } from '../../assets/downArrow.svg';
 import palette from '../../lib/styles/paletts';
 import r from '../../lib/styles/Rem';
 import HeaderModal from './HeaderModal';
@@ -19,6 +21,12 @@ const HeaderBlock = styled.div`
 `;
 
 const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -61,9 +69,14 @@ const Header = ({ title = true }) => {
       <HeaderModal visible={modal} onConfirm={onConfirm} onCancel={onCancel} />
       <HeaderBlock>
         <Wrapper>
-          <Hamburger style={{ cursor: 'pointer' }} onClick={onNavClick} />
-          <HeaderText>{title && '모앗'}</HeaderText>
-          <HeaderText style={{ color: `${palette.orange}` }}>로그인</HeaderText>
+          <HeaderContainer>
+            <HeaderText>서울 전체</HeaderText>
+            <DownArrow
+              onClick={onNavClick}
+              style={{ marginLeft: `${r[4]}rem` }}
+            />
+          </HeaderContainer>
+          <DownArrow />
         </Wrapper>
       </HeaderBlock>
       <Spacer />

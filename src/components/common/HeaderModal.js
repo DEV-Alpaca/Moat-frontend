@@ -7,6 +7,7 @@ import r from '../../lib/styles/Rem';
 import Form from '../../lib/styles/Form';
 import palette from '../../lib/styles/paletts';
 import Padding from './Padding';
+import locations from '../../lib/location/locations';
 
 const ModalBlock = styled(Form)`
   position: fixed;
@@ -43,6 +44,9 @@ const HeaderModal = ({ visible, onConfirm, onCancel }) => {
       <ModalBlock>
         <Close onClick={onCancel} style={{ cursor: 'pointer' }} />
         <Padding height={`${r[60]}`} />
+
+        {locations.seoul[0]}
+
         <StyledButton onClick={onConfirm} white>
           동네모앗
         </StyledButton>
