@@ -30,6 +30,8 @@ const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 9999;
+  cursor: pointer;
 `;
 
 const HeaderText = styled.p`
@@ -44,7 +46,6 @@ const HeaderText = styled.p`
   letter-spacing: -0.7px;
 
   color: ${palette.black};
-  cursor: pointer;
 `;
 
 const Spacer = styled.div`
@@ -58,7 +59,7 @@ const Header = ({ title = true }) => {
   const [modal, setModal] = useState(false);
   const [location, setLocation] = useState('전체');
   const onNavClick = () => {
-    setModal(true);
+    setModal(!modal);
   };
   const onCancel = () => {
     setModal(false);

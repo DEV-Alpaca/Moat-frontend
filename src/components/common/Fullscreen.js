@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const FullScreenBlock = styled.div`
   box-sizing: border-box;
   position: fixed;
-  z-index: 9999;
+  z-index: 100;
 
   top: 0;
   width: 100%;

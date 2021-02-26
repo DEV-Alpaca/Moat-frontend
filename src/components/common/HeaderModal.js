@@ -1,12 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import FullScreen from './Fullscreen';
-import { ReactComponent as Close } from '../../assets/X.svg';
 import Button from './Button';
 import r from '../../lib/styles/Rem';
-import Form from '../../lib/styles/Form';
 import palette from '../../lib/styles/paletts';
-import Line from './Line';
 
 const ModalBlock = styled.div`
   width: ${r[214]}rem;
@@ -15,11 +12,11 @@ const ModalBlock = styled.div`
   border-radius: 8px 8px 8px 8px;
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.125);
   button:last-of-type {
-    border-radius: 8px 8px 8px 8px;
+    border-radius: 0 0 8px 8px;
     border-bottom: none;
   }
   button:first-child {
-    border-radius: 8px 8px 8px 8px;
+    border-radius: 8px 8px 0 0;
   }
 `;
 
@@ -27,7 +24,6 @@ const StyledButton = styled(Button)`
   font-weight: 500;
   border: none;
   border-radius: 0;
-  /* border-bottom: 1px solid ${palette.gray[100]}; */
   :hover {
     background: ${palette.orange5};
     color: ${palette.orange};
