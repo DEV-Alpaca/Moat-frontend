@@ -11,6 +11,10 @@ const FullScreenBlock = styled.div`
   max-width: 36rem;
   height: 100%;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   background: rgba(0, 0, 0, 0.25);
 `;
 

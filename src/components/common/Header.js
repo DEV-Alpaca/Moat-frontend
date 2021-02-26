@@ -52,29 +52,35 @@ const Spacer = styled.div`
   height: ${r[48]}rem;
 `;
 
+const locations = ['전체', '서대문구', '송파구', '그 외 지역'];
+
 const Header = ({ title = true }) => {
   const [modal, setModal] = useState(false);
+  const [location, setLocation] = useState('전체');
   const onNavClick = () => {
     setModal(true);
   };
   const onCancel = () => {
     setModal(false);
   };
-  const onConfirm = () => {
+  const onConfirm = (location) => {
     setModal(false);
+    setLocation(location);
   };
 
   return (
     <>
-      <HeaderModal visible={modal} onConfirm={onConfirm} onCancel={onCancel} />
+      <HeaderModal
+        locations={locations}
+        visible={modal}
+        onConfirm={onConfirm}
+        onCancel={onCancel}
+      />
       <HeaderBlock>
         <Wrapper>
-          <HeaderContainer>
-            <HeaderText>서울 전체</HeaderText>
-            <DownArrow
-              onClick={onNavClick}
-              style={{ marginLeft: `${r[4]}rem` }}
-            />
+          <HeaderContainer onClick={onNavClick}>
+            <HeaderText>서울 {location}</HeaderText>
+            <DownArrow style={{ marginLeft: `${r[4]}rem` }} />
           </HeaderContainer>
           <DownArrow />
         </Wrapper>
