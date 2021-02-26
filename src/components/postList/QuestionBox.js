@@ -5,12 +5,11 @@ import palette from '../../lib/styles/paletts';
 import r from '../../lib/styles/Rem';
 import Button from '../common/Button';
 import Text from '../common/Text';
-import { ReactComponent as Call } from '../../assets/call.svg';
+import { ReactComponent as Kakao } from '../../assets/kakao.svg';
+import Padding from '../common/Padding';
 
-const QuestionBlock = styled.div`
-  width: 100%;
-  height: ${r[196]}rem;
-  padding-top: ${r[16]}rem;
+const QuestionBlock = styled(Form)`
+  height: ${r[228]}rem;
   background-color: ${palette.gray[50]};
   text-align: left;
 `;
@@ -20,31 +19,29 @@ const QuestionContainer = styled.div`
 `;
 
 const StyledCallButton = styled(Button)`
-  width: ${r[114]}rem;
+  width: ${r[142]}rem;
+  height: ${r[60]}rem;
   padding: 0;
   align-items: center;
-  margin-top: ${r[8]}rem;
+  font-weight: 700;
+  font-size: 21px;
+  border: 1px solid ${palette.orange};
 `;
 
 const QuestionBox = () => {
   return (
     <QuestionBlock>
-      <Form background={`${palette.gray[50]}`}>
-        <QuestionContainer>
-          <Text
-            style={{ textAlign: 'left', marginRight: 'auto' }}
-            fontSize={23}
-            fontWeight={800}
-          >
-            모앗에게 궁금한 점이 <br />
-            있으신가요?
-          </Text>
-          <StyledCallButton white>
-            <Call style={{ marginTop: '4px' }} />
-            문의하기
-          </StyledCallButton>
-        </QuestionContainer>
-      </Form>
+      <Padding />
+      <QuestionContainer>
+        <Text style={{ marginRight: 'auto' }} fontSize={20} fontWeight={800}>
+          궁금하거나 <br />
+          어려운 점이 있나요?
+        </Text>
+        <StyledCallButton white>
+          <Kakao style={{ marginTop: '4px', marginRight: '4px' }} />
+          물어보기!
+        </StyledCallButton>
+      </QuestionContainer>
     </QuestionBlock>
   );
 };
