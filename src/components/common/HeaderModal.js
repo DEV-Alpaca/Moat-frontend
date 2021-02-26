@@ -4,9 +4,10 @@ import FullScreen from './Fullscreen';
 import Button from './Button';
 import r from '../../lib/styles/Rem';
 import palette from '../../lib/styles/paletts';
+import Line from './Line';
 
 const ModalBlock = styled.div`
-  width: ${r[214]}rem;
+  width: 100%;
   background: white;
 
   border-radius: 8px 8px 8px 8px;
@@ -22,8 +23,9 @@ const ModalBlock = styled.div`
 
 const StyledButton = styled(Button)`
   font-weight: 500;
-  border: none;
+  border-bottom: 1px solid ${palette.gray[100]};
   border-radius: 0;
+  font-weight: 500;
   :hover {
     background: ${palette.orange5};
     color: ${palette.orange};
