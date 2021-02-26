@@ -1,31 +1,22 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import Form from '../../lib/styles/Form';
 import r from '../../lib/styles/Rem';
 
-import { ReactComponent as Sample } from '../../assets/sample.svg';
-import { ReactComponent as Schedule } from '../../assets/schedule.svg';
-import { ReactComponent as Location } from '../../assets/location.svg';
+import { ReactComponent as ImageSample } from '../../assets/sample.svg';
 
 import Text from '../common/Text';
-import Line from '../common/Line';
 import BoldLine from '../common/BoldLine';
 import Tag from '../common/Tag';
-import Pagination from './Pagination';
+import Padding from '../common/Padding';
 
 const PostFormBlock = styled.div``;
 
-const Image = styled(Sample)`
+const Image = styled(ImageSample)`
   width: 100%;
-  height: 15rem;
+  height: ${r[202]}rem;
   object-fit: contain;
   border-radius: 8px;
-`;
-
-const PostViewerImage = styled.img`
-  box-sizing: border-box;
-  width: 100%;
-  height: 270px;
   margin: 0;
 `;
 
@@ -35,23 +26,36 @@ const Block = styled.div`
   align-items: center;
 `;
 
-const PostForm = ({ postViewer = false }) => {
+const PostForm = ({ closed = false }) => {
   return (
     <>
-      <PostFormBlock>
-        {postViewer && (
-          <PostViewerImage
-            src="http://placehold.it/320x100?text=sample"
-            alt="postViewerImage"
-          />
+      <PostFormBlock closed>
+        {closed ? (
+          <Form style={{ opacity: '0.3' }}>
+            <Image />
+            <Padding height={`${r[10]}`} />
+            <Text fontSize={23} fontWeight={500}>
+              서대문구 마을공동체!! 음악 밴드 {'<'}모앗{'>'}새 멤버 모집합니다.
+            </Text>
+            <Padding height={`${r[10]}`} />
+            <Text fontSize={20} fontWeight={600}>
+              2,000원 (10분)
+            </Text>
+          </Form>
+        ) : (
+          <Form>
+            <Image />
+            나는 열린 폼
+            <Padding height={`${r[10]}`} />
+            <Text fontSize={23} fontWeight={500}>
+              잠실 재개발위원회 소속입니다. 부동산 궁금한 점 물어보세요
+            </Text>
+            <Padding height={`${r[10]}`} />
+            <Text fontSize={20} fontWeight={600}>
+              2,000원 (10분)
+            </Text>
+          </Form>
         )}
-        <Form>
-          {!postViewer && <Image />}
-          <Text fontSize={23} textAlign={'left'} fontWeight={500}>
-            잠실 재개발위원회 소속입니다. 부동산 궁금한 점 물어보세요
-          </Text>
-        </Form>
-
         <BoldLine />
       </PostFormBlock>
     </>

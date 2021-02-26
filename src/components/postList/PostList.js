@@ -74,27 +74,21 @@ const PostList = () => {
         onCancel={onCancel}
       />
       <Sample />
-      <TitleContainer>
-        <Title>서울특별시</Title>
-        <div className="titleBox">
-          <Title>서대문&마포구</Title>
-          <StyledLocationButton
-            white
-            onClick={onLocationClick}
-            style={{ color: `${fontColor}` }}
-          >
-            <Location style={{ marginTop: '4px' }} /> <Padding />
-            지역 변경
-          </StyledLocationButton>
-        </div>
-      </TitleContainer>
+      <StyledLocationButton
+        white
+        onClick={onLocationClick}
+        style={{ color: `${fontColor}` }}
+      >
+        지역 변경
+      </StyledLocationButton>
       <StyledButton>
         <Plus style={{ marginTop: '2px' }} /> <Padding />
-        모임 만들기
+        재능 나누기
       </StyledButton>
-      {/* <PostForm />
-      <PostForm /> */}
+      <PostForm closed />
       <PostForm />
+      <PostForm />
+      <PostForm closed />
     </>
   );
 };

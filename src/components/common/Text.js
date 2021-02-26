@@ -9,10 +9,9 @@ const StyledText = styled.p`
   font-weight: 500;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.67;
+  line-height: 1.6;
   letter-spacing: -0.7px;
-  text-align: center;
-
+  text-align: left;
   ${(props) =>
     props.fontWeight &&
     css`
@@ -47,6 +46,12 @@ const StyledText = styled.p`
     css`
       color: ${palette.red};
     `};
+
+  ${(props) =>
+    props.closed &&
+    css`
+      color: var(--black);
+    `}
 
   ${(props) =>
     props.marginLeft &&
