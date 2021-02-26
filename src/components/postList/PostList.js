@@ -85,10 +85,9 @@ const PostList = () => {
         <Plus style={{ marginTop: '2px' }} /> <Padding />
         재능 나누기
       </StyledButton>
-      <PostForm closed />
-      <PostForm />
       <PostForm />
       <PostForm closed />
+      <PostForm />
     </>
   );
 };

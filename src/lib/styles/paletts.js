@@ -12,6 +12,8 @@ const palette = {
   orange: '#fa7a1d',
   orange5: 'rgba(250, 122, 29, 0.05)',
   black: '#000000',
+  black5: 'rgba(17, 17, 17, 0.5)',
+  black7: ' rgba(17, 17, 17, 0.7)',
   white: '#ffffff',
   red: '#ff3737',
   green: '#74bc20',

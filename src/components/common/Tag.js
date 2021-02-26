@@ -8,26 +8,25 @@ const TagBlock = styled.div`
   align-items: center;
   justify-content: center;
 
-  width: ${r[40]}rem;
-  height: ${r[40]}rem;
-
-  border-radius: 4px;
-  border: ${palette.orange};
-  background-color: ${palette.orange5};
+  border-radius: 8px;
+  border: none;
+  background-color: ${palette.black7};
   color: ${palette.orange};
 
+  padding: ${r[8]}rem ${r[16]}rem;
+  width: auto;
+
   ${(props) =>
-    props.green &&
+    props.closed &&
     css`
-      width: ${r[98]}rem;
-      background: ${palette.green5};
-      border: ${palette.orange};
-      color: ${palette.green};
+      /* width: ${r[98]}rem; */
+      background: ${palette.black};
+      color: ${palette.white};
     `}
 `;
 
-const Tag = ({ children, green = false }) => {
-  return <TagBlock green={green}>{children}</TagBlock>;
+const Tag = ({ children, ...rest }) => {
+  return <TagBlock {...rest}>{children}</TagBlock>;
 };
 
 export default Tag;
