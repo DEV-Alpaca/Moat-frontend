@@ -8,6 +8,7 @@ const palette = {
     300: '#8e8e8e',
     400: '#5c5c5c',
   },
+  orange0: 'var(--bg-gray)',
   orange: '#fa7a1d',
   orange5: 'rgba(250, 122, 29, 0.05)',
   black: '#000000',

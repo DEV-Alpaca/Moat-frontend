@@ -47,33 +47,11 @@ const PostForm = ({ postViewer = false }) => {
         )}
         <Form>
           {!postViewer && <Image />}
-          <Text fontSize={23} textAlign={'left'} fontWeight={800}>
-            현직 목수입니다. 자신만의 가구 만들 분, 만 원에 가르쳐드려요
+          <Text fontSize={23} textAlign={'left'} fontWeight={500}>
+            잠실 재개발위원회 소속입니다. 부동산 궁금한 점 물어보세요
           </Text>
         </Form>
-        <Line />
-        <Form>
-          <Block>
-            <Schedule style={{ marginRight: `${r[8]}rem` }} />
-            <Text fontSize={20} textAlign={'left'} fontWeight={800}>
-              협의
-            </Text>
-            <br />
-          </Block>
-          <Block>
-            <Location style={{ marginRight: `${r[8]}rem` }} />
-            <Text
-              style={{ marginRight: 'auto' }}
-              fontSize={20}
-              textAlign={'left'}
-              fontWeight={800}
-            >
-              창천동
-            </Text>
-            <Tag>1:1</Tag>
-            <Tag green>재능공유</Tag>
-          </Block>
-        </Form>
+
         <BoldLine />
       </PostFormBlock>
     </>

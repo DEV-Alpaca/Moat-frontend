@@ -1,13 +1,10 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import qs from 'qs';
 import Button from '../common/Button';
-import Tag from '../common/Tag';
 
 import { ReactComponent as LeftPage } from '../../assets/leftPage.svg';
 import { ReactComponent as RightPage } from '../../assets/rightPage.svg';
 import r from '../../lib/styles/Rem';
-import Form from '../../lib/styles/Form';
 import palette from '../../lib/styles/paletts';
 
 const PaginationBlock = styled.div`
