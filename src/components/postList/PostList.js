@@ -13,17 +13,6 @@ import Title from '../common/Title';
 import Sample from './mainboard/Sample';
 import LocationModal from './location/LocationModal';
 
-const TitleContainer = styled(Form)`
-  height: ${r[84]}rem;
-
-  padding: ${r[10]}rem;
-  .titleBox {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-`;
-
 const StyledLocationButton = styled(Button)`
   width: ${r[160]}rem;
   height: ${r[40]}rem;
@@ -39,11 +28,22 @@ const StyledLocationButton = styled(Button)`
   z-index: 9999;
 `;
 
-const StyledButton = styled(Button)`
+const ButtonBlock = styled.div`
+  display: flex;
+  flex-direction: row-reverse;
+  box-sizing: border-box;
   position: fixed;
-  top: 31.17rem;
-  right: ${r[16]}rem;
+  bottom: 0;
+  width: 100%;
+  max-width: 36rem;
+  z-index: 999;
+  padding: ${r[16]}rem;
+  margin-bottom: ${r[70]}rem;
+`;
+
+const StyledButton = styled(Button)`
   width: ${r[160]}rem;
+  margin-right: ${r[2]}rem;
 `;
 
 const Padding = styled.div`
@@ -81,10 +81,12 @@ const PostList = () => {
       >
         지역 변경
       </StyledLocationButton>
-      <StyledButton>
-        <Plus style={{ marginTop: '2px' }} /> <Padding />
-        재능 나누기
-      </StyledButton>
+      <ButtonBlock>
+        <StyledButton to={'/write'}>
+          <Plus style={{ marginTop: '2px' }} /> <Padding />
+          재능 나누기
+        </StyledButton>
+      </ButtonBlock>
       <PostForm />
       <PostForm closed />
       <PostForm />

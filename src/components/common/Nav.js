@@ -5,6 +5,7 @@ import { ReactComponent as Close } from '../../assets/X.svg';
 import { ReactComponent as Home } from '../../assets/home.svg';
 import palette from '../../lib/styles/paletts';
 import r from '../../lib/styles/Rem';
+import { withRouter } from 'react-router-dom';
 
 const Wrapper = styled.div`
   box-sizing: border-box;
@@ -48,6 +49,7 @@ const Space = styled.div`
 `;
 
 const Nav = ({
+  history,
   goback = false,
   close = false,
   home = false,
@@ -58,7 +60,12 @@ const Nav = ({
     <>
       <Wrapper>
         <Container>
-          {goback && <Goback style={{ cursor: 'pointer' }} />}
+          {goback && (
+            <Goback
+              style={{ cursor: 'pointer' }}
+              onClick={() => history.goBack()}
+            />
+          )}
           {close && <Close style={{ cursor: 'pointer' }} />}
           <NavText>{text}</NavText>
           {home ? <Home style={{ cursor: 'pointer' }} /> : <Space />}
@@ -69,4 +76,4 @@ const Nav = ({
   );
 };
 
-export default Nav;
+export default withRouter(Nav);

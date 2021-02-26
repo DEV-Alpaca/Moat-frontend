@@ -13,8 +13,6 @@ const buttonStyle = css`
   width: 100%;
   height: ${r[60]}rem;
 
-  padding: ${r[12]}rem;
-
   outline: none;
   border: none;
   border-radius: 8px;
