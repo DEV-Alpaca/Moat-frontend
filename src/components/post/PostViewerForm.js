@@ -21,8 +21,6 @@ const PostViewerImage = styled(PostViewerSampleImage)`
   width: 100%;
   height: 100%;
   object-fit: contain;
-  border-radius: 8px;
-  margin: 0;
   margin: 0;
 `;
 
