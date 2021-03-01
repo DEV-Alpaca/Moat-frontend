@@ -28,11 +28,15 @@ const StyledDiv = styled.div`
 
   border: solid 1px ${palette.gray[200]};
   outline: none;
+
+  &:hover {
+    border-color: ${palette.orange};
+  }
 `;
 
 const StyledInput = styled.input`
   box-sizing: border-box;
-  width: 100%;
+  width: 70%;
   margin: 0 auto;
   height: ${r[52]}rem;
 
@@ -50,10 +54,10 @@ const StyledAuthButton = styled(Button)`
   align-items: center;
   height: ${r[40]}rem;
 
-  padding: 0 ${r[5]}rem;
-  width: 89px;
+  padding: 0 ${r[12]}rem;
+  width: auto;
   height: ${r[40]}rem;
-  font-size: ${r[16]}rem;
+  font-size: ${r[18]}rem;
 `;
 
 const AuthForm = () => {
@@ -75,10 +79,23 @@ const AuthForm = () => {
           <StyledAuthButton>인증하기</StyledAuthButton>
         </StyledDiv>
         <Padding />
+        <Text orange fontSize={16} textAlign={'left'} marginLeft={`${r[8]}`}>
+          인증번호 입력
+        </Text>
         <StyledDiv>
           <StyledInput placeholder="인증번호를 입력해주세요."></StyledInput>
-          <Check />
+          <Check style={{ marginRight: `${r[3]}rem` }} />
         </StyledDiv>
+        <Text
+          red
+          fontSize={18}
+          textAlign={'left'}
+          marginLeft={`${r[12]}`}
+          marginTop={`${r[3]}`}
+          fontWeight={700}
+        >
+          인증번호를 다시 확인해주세요.
+        </Text>
       </Form>
       <StyledButton closed full fontSize={23} fontWeight={500}>
         다음으로

@@ -8,6 +8,7 @@ import Form from '../../lib/styles/Form';
 import r from '../../lib/styles/Rem';
 import Padding from '../common/Padding';
 import Text from '../common/Text';
+import { ReactComponent as Check } from '../../assets/greencheck.svg';
 
 const StyledButton = styled(Button)`
   position: fixed;
