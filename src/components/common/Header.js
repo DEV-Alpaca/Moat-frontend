@@ -53,7 +53,12 @@ const Spacer = styled.div`
   height: ${r[48]}rem;
 `;
 
-const locations = ['전체', '서대문구', '송파구', '그 외 지역'];
+const locations = [
+  { id: 1, value: '전체' },
+  { id: 2, value: '서대문구' },
+  { id: 3, value: '송파구' },
+  { id: 4, value: '그 외 지역' },
+];
 
 const Header = ({ title = true }) => {
   const [modal, setModal] = useState(false);
