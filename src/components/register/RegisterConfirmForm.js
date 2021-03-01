@@ -9,7 +9,9 @@ import Padding from '../common/Padding';
 import Text from '../common/Text';
 import { ReactComponent as OrangeCheck } from '../../assets/orangeCheck.svg';
 
-const RegisterConfirmFormBlock = styled(Form)``;
+const RegisterConfirmFormBlock = styled(Form)`
+  padding-top: ${r[28]}rem;
+`;
 
 const StyledButton = styled(Button)`
   position: fixed;
@@ -56,7 +58,7 @@ const RegisterConfirmForm = () => {
   return (
     <>
       <RegisterConfirmFormBlock>
-        <Text>
+        <Text fontSize={30} fontWeight={700} style={{ lineHeight: '1.4' }}>
           이제 마지막! <br /> 정보를 알려주세요.
         </Text>
         <Padding height={`${r[48]}`} />
