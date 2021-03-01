@@ -10,13 +10,11 @@ import palette from '../../lib/styles/paletts';
 import Padding from '../common/Padding';
 import r from '../../lib/styles/Rem';
 
-const StyledDiv = styled.div`
+const StyledDiv = styled(Form)`
   box-sizing: border-box;
 
-  position: fixed;
   width: 100%;
-  max-width: 36rem;
-  bottom: 0;
+  padding-top: ${r[26]}rem;
 `;
 
 const LoginForm = () => {
@@ -55,18 +53,32 @@ const LoginForm = () => {
         <Padding />
         <Button>로그인</Button>
       </Form>
-      <StyledDiv>
-        <Form background={`${palette.orange5}`}>
-          <Text gray> 지금 바로 우리 동네에 있는</Text>
-          <Text gray> 나만을 위한 취미수업과 모임을 찾아보세요.</Text>
-          <Padding />
 
-          <Button white>회원가입 </Button>
-          <Padding />
-          <Text orange style={{ cursor: 'pointer' }}>
-            비밀번호를 잊어버렸어요.
-          </Text>
-        </Form>
+      <StyledDiv background={`${palette.orange5}`}>
+        <Text fontWeight={800}> 아직 가입 전이신가요?</Text>
+        <Text gray fontSize={16}>
+          모앗에서 가입하고 동네에서 경험을 나눠보세요.
+        </Text>
+        <Padding />
+
+        <Button
+          white
+          style={{ border: `1px solid ${palette.orange}`, fontWeight: '800' }}
+        >
+          회원가입{' '}
+        </Button>
+        <Padding />
+        <Text
+          gray
+          style={{
+            cursor: 'pointer',
+            textAlign: 'center',
+            marginBottom: `${r[28]}rem`,
+          }}
+          fontSize={18}
+        >
+          비밀번호를 잊어버렸어요
+        </Text>
       </StyledDiv>
     </>
   );
