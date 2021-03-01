@@ -3,8 +3,6 @@ import styled, { css } from 'styled-components';
 import palette from '../../lib/styles/paletts';
 import r from '../../lib/styles/Rem';
 import { ReactComponent as Home } from '../../assets/home.svg';
-import { ReactComponent as Sample } from '../../assets/schedule.svg';
-// import { ReactComponent as SS } from '../../assets/sample2.png';
 import { ReactComponent as Guide } from '../../assets/guide.svg';
 
 const FootBarBlock = styled.div`

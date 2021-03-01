@@ -5,11 +5,9 @@ import PostForm from './PostForm';
 import { ReactComponent as Plus } from '../../assets/plus.svg';
 import { ReactComponent as OrangeCheck } from '../../assets/orangeCheck.svg';
 
-import Text from '../common/Text';
 import r from '../../lib/styles/Rem';
 import Form from '../../lib/styles/Form';
 import palette from '../../lib/styles/paletts';
-import Title from '../common/Title';
 import Sample from './mainboard/Sample';
 import LocationModal from './location/LocationModal';
 

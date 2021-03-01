@@ -2,9 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import FullScreen from './Fullscreen';
 import Button from './Button';
-import r from '../../lib/styles/Rem';
 import palette from '../../lib/styles/paletts';
-import Line from './Line';
 
 const ModalBlock = styled.div`
   width: 100%;

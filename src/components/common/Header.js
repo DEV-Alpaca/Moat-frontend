@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { ReactComponent as Profile } from '../../assets/profile.svg';
 
 import { ReactComponent as DownArrow } from '../../assets/downArrow.svg';
 import palette from '../../lib/styles/paletts';
