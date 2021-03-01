@@ -9,10 +9,9 @@ const StyledText = styled.p`
   font-weight: 500;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.67;
+  line-height: 1.6;
   letter-spacing: -0.7px;
-  text-align: center;
-
+  text-align: left;
   ${(props) =>
     props.fontWeight &&
     css`
@@ -40,6 +39,36 @@ const StyledText = styled.p`
     props.orange &&
     css`
       color: ${palette.orange};
+    `};
+
+  ${(props) =>
+    props.red &&
+    css`
+      color: ${palette.red};
+    `};
+
+  ${(props) =>
+    props.closed &&
+    css`
+      color: var(--black);
+    `}
+
+  ${(props) =>
+    props.marginLeft &&
+    css`
+      margin-left: ${props.marginLeft}rem;
+    `};
+
+  ${(props) =>
+    props.marginTop &&
+    css`
+      margin-top: ${props.marginTop}rem;
+    `};
+
+  ${(props) =>
+    props.marginBottom &&
+    css`
+      margin-bottom: ${props.marginBottom}rem;
     `};
 `;
 

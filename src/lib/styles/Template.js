@@ -48,7 +48,7 @@ const GlobalStyle = createGlobalStyle`
 } 
 
 input {
-  -webkit-appearance: none;
+  /* -webkit-appearance: none; */
 }
 
 html,

@@ -1,24 +1,38 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import Form from '../../lib/styles/Form';
 import r from '../../lib/styles/Rem';
 
-import { ReactComponent as Sample } from '../../assets/sample.svg';
-import { ReactComponent as Schedule } from '../../assets/schedule.svg';
-import { ReactComponent as Location } from '../../assets/location.svg';
+import { ReactComponent as ImageSample } from '../../assets/ImageSample.svg';
 
 import Text from '../common/Text';
-import Line from '../common/Line';
 import BoldLine from '../common/BoldLine';
 import Tag from '../common/Tag';
+import Padding from '../common/Padding';
 
 const PostFormBlock = styled.div``;
 
-const Image = styled(Sample)`
+const ImageBlock = styled.div`
+  position: relative;
+  /* height: ${r[202]}rem; */
   width: 100%;
-  height: 15rem;
+  height: 100%;
+`;
+
+const Image = styled(ImageSample)`
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   border-radius: 8px;
+  margin: 0;
+`;
+
+const StyledTag = styled(Tag)`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-left: ${r[4]}rem;
+  margin-bottom: ${r[10]}rem;
 `;
 
 const Block = styled.div`
@@ -27,40 +41,46 @@ const Block = styled.div`
   align-items: center;
 `;
 
-const PostForm = () => {
+const PostForm = ({ closed = false }) => {
   return (
-    <PostFormBlock>
-      <Form>
-        <Image />
-        <Text fontSize={23} textAlign={'left'} fontWeight={800}>
-          현직 목수입니다. 자신만의 가구 만들 분, 만 원에 가르쳐드려요
-        </Text>
-      </Form>
-      <Line />
-      <Form>
-        <Block>
-          <Schedule style={{ marginRight: `${r[8]}rem` }} />
-          <Text fontSize={20} textAlign={'left'} fontWeight={800}>
-            협의
-          </Text>
-          <br />
-        </Block>
-        <Block>
-          <Location style={{ marginRight: `${r[8]}rem` }} />
-          <Text
-            style={{ marginRight: 'auto' }}
-            fontSize={20}
-            textAlign={'left'}
-            fontWeight={800}
-          >
-            창천동
-          </Text>
-          <Tag>소모임</Tag>
-          <Tag green>재능공유</Tag>
-        </Block>
-      </Form>
-      <BoldLine />
-    </PostFormBlock>
+    <>
+      <PostFormBlock>
+        {closed ? (
+          <Form style={{ opacity: '0.3' }}>
+            <ImageBlock>
+              <Image />
+              <StyledTag closed>신청 마감</StyledTag>
+            </ImageBlock>
+            <Padding height={`${r[10]}`} />
+            <Text fontSize={23} fontWeight={500}>
+              서대문구 마을공동체!! 음악 밴드 {'<'}모앗{'>'}새 멤버 모집합니다.
+            </Text>
+            <Padding height={`${r[10]}`} />
+            <Text fontSize={20} fontWeight={600}>
+              2,000원 (10분)
+            </Text>
+            <Padding height={`${r[8]}`} />
+          </Form>
+        ) : (
+          <Form>
+            <ImageBlock>
+              <Image />
+              <StyledTag>전화/카톡</StyledTag>
+            </ImageBlock>
+            <Padding height={`${r[10]}`} />
+            <Text fontSize={23} fontWeight={500}>
+              잠실 재개발위원회 소속입니다. 부동산 궁금한 점 물어보세요
+            </Text>
+            <Padding height={`${r[10]}`} />
+            <Text fontSize={20} fontWeight={600}>
+              2,000원 (10분)
+            </Text>
+            <Padding height={`${r[8]}`} />
+          </Form>
+        )}
+        <BoldLine />
+      </PostFormBlock>
+    </>
   );
 };
 

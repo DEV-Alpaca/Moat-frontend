@@ -6,7 +6,7 @@ import r from '../../lib/styles/Rem';
 const LineBlock = styled.div`
   width: 100%;
   height: ${r[8]}rem;
-  background: ${palette.gray[50]};
+  background: ${palette.gray[100]};
 `;
 
 const BoldLine = () => {

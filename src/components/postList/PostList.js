@@ -1,52 +1,63 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useState } from 'react';
+import styled, { css } from 'styled-components';
 import Button from '../common/Button';
 import PostForm from './PostForm';
 import { ReactComponent as Plus } from '../../assets/plus.svg';
-import { ReactComponent as Call } from '../../assets/call.svg';
-import { ReactComponent as Location } from '../../assets/location.svg';
+import { ReactComponent as OrangeCheck } from '../../assets/orangeCheck.svg';
 
-import Text from '../common/Text';
 import r from '../../lib/styles/Rem';
 import Form from '../../lib/styles/Form';
 import palette from '../../lib/styles/paletts';
-import Title from '../common/Title';
+import Sample from './mainboard/Sample';
+import LocationModal from './location/LocationModal';
 
-const Mainboard = styled(Form)`
-  height: ${r[214]}rem;
-
-  background-color: ${palette.orange5};
-`;
-
-const TitleContainer = styled(Form)`
-  height: ${r[84]}rem;
-
-  padding: ${r[10]}rem;
-  .titleBox {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-`;
-
-const StyledLocationButton = styled(Button)`
-  width: ${r[160]}rem;
-  height: ${r[40]}rem;
-  padding: ${r[5]}rem ${r[5]}rem;
+const CategoryContainer = styled(Form)`
+  display: flex;
   align-items: center;
-  font-size: 1rem;
+  padding-bottom: 0px;
+`;
+
+const StyledCategoryButton = styled(Button)`
+  width: auto;
+  padding: ${r[10]}rem ${r[10]}rem;
+
+  font-size: ${r[20]}rem;
   letter-spacing: -0.4px;
 
   border-radius: 8px;
-  border: solid 1px ${palette.orange};
-  background-color: ${palette.white};
+  border: none;
+  background-color: ${palette.gray[50]};
+  color: ${palette.gray[400]};
+  margin-right: ${r[8]}rem;
+  &:hover {
+    font-weight: 700;
+  }
+  ${(props) =>
+    props.active &&
+    css`
+      color: ${palette.orange};
+      background: ${palette.orange5};
+      border: 2px solid ${palette.orange};
+      font-weight: 700;
+    `}
+`;
+
+const ButtonBlock = styled.div`
+  display: flex;
+  flex-direction: row-reverse;
+  box-sizing: border-box;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  max-width: 36rem;
+  z-index: 999;
+  padding: ${r[16]}rem;
+  margin-bottom: ${r[70]}rem;
 `;
 
 const StyledButton = styled(Button)`
-  position: fixed;
-  top: 31.17rem;
-  right: ${r[16]}rem;
   width: ${r[160]}rem;
+  margin-right: ${r[2]}rem;
 `;
 
 const Padding = styled.div`
@@ -55,64 +66,56 @@ const Padding = styled.div`
   width: ${r[3]}rem;
 `;
 
-const QuestionBlock = styled.div`
-  width: 100%;
-  height: ${r[196]}rem;
-  padding-top: ${r[16]}rem;
-  background-color: ${palette.gray[50]};
-  text-align: left;
-`;
-
-const QuestionContainer = styled.div`
-  display: flex;
-`;
-
-const StyledCallButton = styled(Button)`
-  width: ${r[114]}rem;
-  padding: 0;
-  align-items: center;
-  margin-top: ${r[8]}rem;
-`;
+const categories = ['전체 글', '만나요', '전화/카톡'];
 
 const PostList = () => {
+  const [modal, setModal] = useState(false);
+  const [selectCategory, setSelectCategory] = useState('전체 글');
+
+  const onSelect = (category) => {
+    setSelectCategory(category);
+  };
+  const onCancel = () => {
+    setModal(false);
+  };
+  const onConfirm = () => {
+    setModal(false);
+  };
+
   return (
     <>
-      <Mainboard>우리마을</Mainboard>
-      <TitleContainer>
-        <Title>서울특별시</Title>
-        <div className="titleBox">
-          <Title>서대문&마포구</Title>
-          <StyledLocationButton white>
-            <Location style={{ marginTop: '4px' }} /> <Padding />
-            지역 변경
-          </StyledLocationButton>
-        </div>
-      </TitleContainer>
-      <StyledButton>
-        <Plus style={{ marginTop: '2px' }} /> <Padding />
-        모임 만들기
-      </StyledButton>
+      <LocationModal
+        visible={modal}
+        onConfirm={onConfirm}
+        onCancel={onCancel}
+      />
+      <Sample />
+      <CategoryContainer>
+        {categories.map((category) => (
+          <StyledCategoryButton
+            key={category}
+            active={selectCategory === category}
+            onClick={() => {
+              onSelect(category);
+            }}
+          >
+            {selectCategory === category ? (
+              <OrangeCheck style={{ marginRight: `${r[8]}rem` }} />
+            ) : null}
+            {category}
+          </StyledCategoryButton>
+        ))}
+      </CategoryContainer>
+
+      <ButtonBlock>
+        <StyledButton to={'/write'}>
+          <Plus style={{ marginTop: '2px' }} /> <Padding />
+          재능 나누기
+        </StyledButton>
+      </ButtonBlock>
       <PostForm />
+      <PostForm closed />
       <PostForm />
-      <PostForm />
-      <QuestionBlock>
-        <Form background={`${palette.gray[50]}`}>
-          <QuestionContainer>
-            <Text
-              style={{ textAlign: 'left', marginRight: 'auto' }}
-              fontSize={23}
-              fontWeight={800}
-            >
-              모앗에게 궁금한 점이 <br />
-              있으신가요?
-            </Text>
-            <StyledCallButton white>
-              <Call style={{ marginTop: '4px' }} />
-              문의하기
-            </StyledCallButton>
-          </QuestionContainer>
-        </Form>
-      </QuestionBlock>
     </>
   );
 };

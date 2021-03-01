@@ -13,8 +13,6 @@ const buttonStyle = css`
   width: 100%;
   height: ${r[60]}rem;
 
-  padding: ${r[12]}rem;
-
   outline: none;
   border: none;
   border-radius: 8px;
@@ -30,10 +28,6 @@ const buttonStyle = css`
   text-align: center;
 
   cursor: pointer;
-
-  & + & {
-    margin-bottom: ${r[16]}rem;
-  }
 
   ${(props) =>
     props.full &&
