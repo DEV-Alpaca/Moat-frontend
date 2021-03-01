@@ -23,6 +23,10 @@ const SliderButtonList = styled.div`
   padding-left: ${r[22]}rem;
 `;
 
+const ArrowStyle = () => {
+  return <div style={{ display: 'none' }}></div>;
+};
+
 const Sample = () => {
   const settings = {
     dots: true,
@@ -38,8 +42,8 @@ const Sample = () => {
     pauseOnHover: true,
 
     appendDots: (dots) => <SliderButtonList>{dots}</SliderButtonList>,
-
-    // customPaging: (i) => <SButton onClick={onClick}>{i + 1}</SButton>,
+    nextArrow: <ArrowStyle />,
+    prevArrow: <ArrowStyle />,
   };
 
   return (
