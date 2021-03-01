@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import palette from '../../lib/styles/paletts';
 import r from '../../lib/styles/Rem';
 import { ReactComponent as Home } from '../../assets/home.svg';
@@ -31,7 +31,14 @@ const FootBarContainer = styled.div`
   align-items: center;
   width: 12rem;
   height: ${r[56]}rem;
-  /* opacity: 0.3; */
+  opacity: 0.3;
+  cursor: pointer;
+
+  ${(props) =>
+    props.active &&
+    css`
+      opacity: 1;
+    `}
 `;
 
 const FootBarText = styled.p`
@@ -41,7 +48,6 @@ const FootBarText = styled.p`
   font-weight: bold;
   line-height: 1.5;
   color: ${palette.black};
-  cursor: pointer;
 `;
 
 const Spacer = styled.div`
@@ -49,23 +55,44 @@ const Spacer = styled.div`
   height: ${r[56]}rem;
 `;
 
+const categories = ['홈', '모앗 가이드', '마이페이지'];
+
 const FootBar = () => {
+  const [selectCategory, setSelectCategory] = useState('홈');
+  const onSelect = (category) => {
+    setSelectCategory(category);
+  };
+
   return (
     <>
       <FootBarBlock>
         <Wrapper>
-          <FootBarContainer>
+          <FootBarContainer
+            active={selectCategory === categories[0]}
+            onClick={() => {
+              onSelect(categories[0]);
+            }}
+          >
             <Home />
-            <FootBarText>홈</FootBarText>
+            <FootBarText>{categories[0]}</FootBarText>
           </FootBarContainer>
-          <FootBarContainer>
+          <FootBarContainer
+            active={selectCategory === categories[1]}
+            onClick={() => {
+              onSelect(categories[1]);
+            }}
+          >
             <Guide />
-            <FootBarText>모앗 가이드</FootBarText>
+            <FootBarText>{categories[1]}</FootBarText>
           </FootBarContainer>
-          <FootBarContainer>
+          <FootBarContainer
+            active={selectCategory === categories[2]}
+            onClick={() => {
+              onSelect(categories[2]);
+            }}
+          >
             <Guide />
-            {/* <img src="../../assets/sample2.png" alt="??" /> */}
-            <FootBarText>마이페이지</FootBarText>
+            <FootBarText>{categories[2]}</FootBarText>
           </FootBarContainer>
         </Wrapper>
       </FootBarBlock>

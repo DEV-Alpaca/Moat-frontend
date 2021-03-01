@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import Button from '../common/Button';
 import PostForm from './PostForm';
 import { ReactComponent as Plus } from '../../assets/plus.svg';
-import { ReactComponent as Location } from '../../assets/location.svg';
+import { ReactComponent as OrangeCheck } from '../../assets/orangeCheck.svg';
 
 import Text from '../common/Text';
 import r from '../../lib/styles/Rem';
@@ -13,19 +13,35 @@ import Title from '../common/Title';
 import Sample from './mainboard/Sample';
 import LocationModal from './location/LocationModal';
 
-const StyledLocationButton = styled(Button)`
-  width: ${r[160]}rem;
-  height: ${r[40]}rem;
-  padding: ${r[5]}rem ${r[5]}rem;
+const CategoryContainer = styled(Form)`
+  display: flex;
   align-items: center;
-  font-size: 1rem;
+  padding-bottom: 0px;
+`;
+
+const StyledCategoryButton = styled(Button)`
+  width: auto;
+  padding: ${r[10]}rem ${r[10]}rem;
+
+  font-size: ${r[20]}rem;
   letter-spacing: -0.4px;
 
   border-radius: 8px;
-  border: solid 1px ${palette.orange};
-  background-color: ${palette.white};
-
-  z-index: 9999;
+  border: none;
+  background-color: ${palette.gray[50]};
+  color: ${palette.gray[400]};
+  margin-right: ${r[8]}rem;
+  &:hover {
+    font-weight: 700;
+  }
+  ${(props) =>
+    props.active &&
+    css`
+      color: ${palette.orange};
+      background: ${palette.orange5};
+      border: 2px solid ${palette.orange};
+      font-weight: 700;
+    `}
 `;
 
 const ButtonBlock = styled.div`
@@ -52,12 +68,14 @@ const Padding = styled.div`
   width: ${r[3]}rem;
 `;
 
+const categories = ['전체 글', '만나요', '전화/카톡'];
+
 const PostList = () => {
   const [modal, setModal] = useState(false);
-  const [fontColor, setFontColor] = useState(`${palette.black}`);
-  const onLocationClick = () => {
-    setModal(!modal);
-    setFontColor(!modal ? `${palette.orange}` : `${palette.black}`);
+  const [selectCategory, setSelectCategory] = useState('전체 글');
+
+  const onSelect = (category) => {
+    setSelectCategory(category);
   };
   const onCancel = () => {
     setModal(false);
@@ -74,13 +92,23 @@ const PostList = () => {
         onCancel={onCancel}
       />
       <Sample />
-      <StyledLocationButton
-        white
-        onClick={onLocationClick}
-        style={{ color: `${fontColor}` }}
-      >
-        지역 변경
-      </StyledLocationButton>
+      <CategoryContainer>
+        {categories.map((category) => (
+          <StyledCategoryButton
+            key={category}
+            active={selectCategory === category}
+            onClick={() => {
+              onSelect(category);
+            }}
+          >
+            {selectCategory === category ? (
+              <OrangeCheck style={{ marginRight: `${r[8]}rem` }} />
+            ) : null}
+            {category}
+          </StyledCategoryButton>
+        ))}
+      </CategoryContainer>
+
       <ButtonBlock>
         <StyledButton to={'/write'}>
           <Plus style={{ marginTop: '2px' }} /> <Padding />
