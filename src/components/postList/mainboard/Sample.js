@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Slider from 'react-slick';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import palette from '../../../lib/styles/paletts';
 import r from '../../../lib/styles/Rem';
-import Button from '../../common/Button';
 
 const SampleBlock = styled.div`
   width: 100%;
