@@ -1,6 +1,6 @@
 import React from 'react';
 import Nav from '../components/common/Nav';
-import PasswordChangeForm from '../components/password/PasswordChangeForm';
+import PasswordChangeForm from '../components/auth/PasswordChangeForm';
 
 const PasswordChangePage = () => {
   return (

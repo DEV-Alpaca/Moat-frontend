@@ -1,6 +1,6 @@
 import React from 'react';
 import Nav from '../components/common/Nav';
-import RegisterForm from '../components/register/RegisterForm';
+import RegisterForm from '../components/auth/RegisterForm';
 
 const RegisterPage = () => {
   return (

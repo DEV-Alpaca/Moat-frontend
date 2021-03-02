@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Button from '../../components/common/Button';
-import Input from '../../components/common/Input';
-import Title from '../../components/common/Title';
+import Button from '../common/Button';
+import Input from '../common/Input';
+import Title from '../common/Title';
 import Form from '../../lib/styles/Form';
 import r from '../../lib/styles/Rem';
 import Padding from '../common/Padding';

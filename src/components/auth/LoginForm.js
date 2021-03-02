@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Button from '../../components/common/Button';
-import Input from '../../components/common/Input';
-import Title from '../../components/common/Title';
-import Text from '../../components/common/Text';
+import Button from '../common/Button';
+import Input from '../common/Input';
+import Title from '../common/Title';
+import Text from '../common/Text';
 import Form from '../../lib/styles/Form';
 import palette from '../../lib/styles/paletts';
 import Padding from '../common/Padding';
