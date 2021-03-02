@@ -65,6 +65,23 @@ const buttonStyle = css`
     css`
       font-size: ${r[props.fontSize]}rem;
     `}
+
+    ${(props) =>
+    props.hover &&
+    css`
+      background: ${palette.orange5};
+      border: 2px solid ${palette.orange};
+      font-weight: 700;
+    `}
+    
+    ${(props) =>
+    props.active &&
+    css`
+      color: ${palette.black};
+      background: ${palette.orange5};
+      border: 2px solid ${palette.orange};
+      font-weight: 700;
+    `}
 `;
 
 const StyledButton = styled.button`
@@ -81,6 +98,8 @@ const Button = (props) => {
       white={props.white ? 1 : 0}
       closed={props.closed ? 1 : 0}
       full={props.full ? 1 : 0}
+      hover={props.hover ? 1 : 0}
+      active={props.active ? 1 : 0}
     />
   ) : (
     <StyledButton {...props} />

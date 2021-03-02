@@ -6,6 +6,12 @@ const PaddingBlock = styled.div`
   width: 100%;
   height: ${r[16]}rem;
 
+  ${({ margin }) =>
+    margin &&
+    css`
+      margin-top: ${r[margin]}rem;
+    `}
+
   ${({ height }) =>
     height &&
     css`

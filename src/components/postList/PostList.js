@@ -35,7 +35,7 @@ const StyledCategoryButton = styled(Button)`
   ${(props) =>
     props.active &&
     css`
-      color: ${palette.orange};
+      color: ${palette.black};
       background: ${palette.orange5};
       border: 2px solid ${palette.orange};
       font-weight: 700;

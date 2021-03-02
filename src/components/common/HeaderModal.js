@@ -41,7 +41,7 @@ const HeaderModal = ({ locations, visible, onConfirm, onCancel }) => {
     <FullScreen onCancel={onCancel}>
       <ModalBlock>
         <StyledButton white>
-          {locations.seoul.city} {locations.all}
+          {locations.seoul.name} {locations.all}
         </StyledButton>
         {locations.seoul.district.map((location) => (
           <StyledButton
@@ -51,12 +51,9 @@ const HeaderModal = ({ locations, visible, onConfirm, onCancel }) => {
               onConfirm(location);
             }}
           >
-            {locations.seoul.city} {location}
+            {locations.seoul.name} {location}
           </StyledButton>
         ))}
-        <StyledButton white>
-          {locations.seoul.city} {locations.etc}
-        </StyledButton>
       </ModalBlock>
     </FullScreen>
   );
