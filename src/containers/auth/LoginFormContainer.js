@@ -21,6 +21,7 @@ const LoginFormContainer = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    alert('로그인');
     console.log('LoginFormContainer/onSubmit');
   };
 
