@@ -38,14 +38,14 @@ code {
 }
 
 .slick-dots li button:before {
-  color: orange !important;
+  color: #ffbd12 !important;
 }
 .slick-dots li button:hover {
   color: green !important;
 }
 
 .slick-dots li.slick-active button:before {
-  color: orange !important;
+  color: #ffbd12 !important;
   border-radius: 8px;
   font-size: 13px;
   font-weight: bold;
