@@ -56,7 +56,7 @@ const Spacer = styled.div`
 const Header = ({ title = true }) => {
   const [modal, setModal] = useState(false);
   const [location, setLocation] = useState('전체');
-  const onNavClick = () => {
+  const onModalClick = () => {
     setModal(!modal);
   };
   const onCancel = () => {
@@ -77,7 +77,7 @@ const Header = ({ title = true }) => {
       />
       <HeaderBlock>
         <Wrapper>
-          <HeaderContainer onClick={onNavClick}>
+          <HeaderContainer onClick={onModalClick}>
             <HeaderText>서울 {location}</HeaderText>
             <DownArrow style={{ marginLeft: `${r[4]}rem` }} />
           </HeaderContainer>

@@ -12,6 +12,7 @@ import Button from '../common/Button';
 import palette from '../../lib/styles/paletts';
 import Input from '../common/Input';
 import Padding from '../common/Padding';
+import TimeSelectModal from '../common/TimeSelectModal';
 
 const StyledInput = styled(Input)`
   width: 98%;
@@ -108,174 +109,188 @@ const StyledPriceInput = styled.input`
   outline: none;
 `;
 
+const clubType = [
+  { id: 1, text: '만나요' },
+  { id: 2, text: '전화/카톡' },
+];
+
+const times = ['30분', '1시간', '1시간 30분', '2시간', '2시간 30분', '3시간'];
+
 const WriteForm = ({ style = defaultStyle }) => {
+  const [modal, setModal] = useState(false);
+  const [time, setTime] = useState('30분');
+  const onModalClick = () => {
+    setModal(!modal);
+  };
+  const onCancel = () => {
+    setModal(false);
+  };
+  const onConfirm = (time) => {
+    setModal(false);
+    setTime(time);
+  };
+
   const textareaRef = useRef(null);
   const [currentValue, setCurrentValue] = useState(''); // you can manage data with it
   const [type, setType] = useState(0);
-  const [time, setTime] = useState(30);
 
   const onTypeSelect = (type) => {
     setType(type);
   };
 
   useEffect(() => {
-    textareaRef.current.style.height = `${r[160]}rem`;
+    textareaRef.current.style.height = '0px';
     const scrollHeight = textareaRef.current.scrollHeight;
     textareaRef.current.style.height = scrollHeight + 'px';
   }, [currentValue]);
 
   return (
-    <Form>
-      <>
-        <StyledInput placeholder="제목을 한줄로 적어주세요" />
-        <Padding height={40} />
-
-        <Text gray>어떤 방식인가요?</Text>
-        <Padding height={8} />
-        <Container>
-          <Button
-            white
-            active={type === 1}
-            onClick={() => {
-              onTypeSelect(1);
-            }}
-          >
-            {type === 1 ? (
-              <OrangeCheck style={{ marginRight: `${r[8]}rem` }} />
-            ) : null}
-            만나요
-          </Button>
-          <Button
-            white
-            active={type === 2}
-            onClick={() => {
-              onTypeSelect(2);
-            }}
-          >
-            {type === 2 ? (
-              <OrangeCheck style={{ marginRight: `${r[8]}rem` }} />
-            ) : null}
-            전화/카톡
-          </Button>
-        </Container>
-        {type === 1 && (
-          <>
-            <Padding height={40} />
-            <Text gray>시간당 가격을 알려주세요.</Text>
-            <Padding height={8} />
-            <Container>
-              <Text
-                fontWeight={700}
-                fontSize={20}
-                // style={{ marginRight: '32px' }}
+    <>
+      <TimeSelectModal
+        times={times}
+        visible={modal}
+        onConfirm={onConfirm}
+        onCancel={onCancel}
+      />
+      <Form>
+        <>
+          <StyledInput placeholder="제목을 한줄로 적어주세요" />
+          <Padding height={40} />
+          <Text gray>어떤 방식인가요?</Text>
+          <Padding height={8} />
+          <Container>
+            {clubType.map((club, i) => (
+              <Button
+                key={i + 1}
+                white
+                active={club.id === type}
+                onClick={() => {
+                  onTypeSelect(i + 1);
+                }}
               >
-                10분 당
+                {club.id === type ? (
+                  <OrangeCheck style={{ marginRight: `${r[8]}rem` }} />
+                ) : null}
+                {club.text}
+              </Button>
+            ))}
+          </Container>
+          {type === 1 && (
+            <>
+              <Padding height={40} />
+              <Text gray>시간당 가격을 알려주세요.</Text>
+              <Padding height={8} />
+              <Container>
+                <StyledButton white onClick={onModalClick}>
+                  <Text fontSize={20}> {time}</Text>
+                  <DownArrow style={{ marginLeft: `${r[4]}rem` }} />
+                </StyledButton>
+                <StyledDiv style={{ width: `${r[160]}rem` }}>
+                  <StyledPriceInput />
+                  <Text style={{ color: `${palette.gray[200]}` }}>원</Text>
+                </StyledDiv>
+              </Container>
+              <Text
+                gray
+                style={{
+                  marginTop: `${r[24]}rem`,
+                }}
+              >
+                설명을 입력해주세요.
               </Text>
-              <StyledDiv>
-                <StyledPriceInput />
-                <Text style={{ color: `${palette.gray[200]}` }}>원</Text>
-              </StyledDiv>
-            </Container>
-            <Text
-              gray
-              style={{
-                marginTop: `${r[24]}rem`,
-              }}
-            >
-              설명을 입력해주세요.
-            </Text>
-            <CameraBlock>
-              <Camera />
-              <Text fontWeight={400}>사진추가</Text>
-            </CameraBlock>
-            <StyledForm style={{ padding: `${r[12]}rem ${r[12]}rem` }}>
-              <StyledTextarea
-                ref={textareaRef}
-                // value={currentValue}
-                // onChange={(e) => {
-                //   setCurrentValue(e.target.value);
-                // }}
-                placeholder="동/읍/면"
-                rows="1"
-              />
-              <StyledTextarea
-                ref={textareaRef}
-                // value={currentValue}
-                // onChange={(e) => {
-                //   setCurrentValue(e.target.value);
-                // }}
-                placeholder="장소(ex. 체육관)"
-                rows="1"
-              />
-              <StyledTextarea
-                ref={textareaRef}
-                // value={currentValue}
-                // onChange={(e) => {
-                //   setCurrentValue(e.target.value);
-                // }}
-                placeholder="날짜(ex. 매주 화/수,금/협의/미정)"
-                rows="1"
-              />
-              <StyledTextarea
-                ref={textareaRef}
-                value={currentValue}
-                onChange={(e) => {
-                  setCurrentValue(e.target.value);
-                }}
-                placeholder="어떤 모임인지 이웃들이 알기 쉽게 적어주세요!"
-                rows="6"
-              />
-            </StyledForm>
-          </>
-        )}
+              <CameraBlock>
+                <Camera />
+                <Text fontWeight={400}>사진추가</Text>
+              </CameraBlock>
+              <StyledForm style={{ padding: `${r[12]}rem ${r[12]}rem` }}>
+                <StyledTextarea
+                  ref={textareaRef}
+                  value={currentValue}
+                  onChange={(e) => {
+                    setCurrentValue(e.target.value);
+                  }}
+                  placeholder="동/읍/면"
+                  rows=""
+                />
+                <StyledTextarea
+                  ref={textareaRef}
+                  value={currentValue}
+                  onChange={(e) => {
+                    setCurrentValue(e.target.value);
+                  }}
+                  placeholder="장소(ex. 체육관)"
+                  rows=""
+                />
+                <StyledTextarea
+                  ref={textareaRef}
+                  value={currentValue}
+                  onChange={(e) => {
+                    setCurrentValue(e.target.value);
+                  }}
+                  placeholder="날짜(ex. 매주 화/수,금/협의/미정)"
+                  rows=""
+                />
+                <StyledTextarea
+                  ref={textareaRef}
+                  value={currentValue}
+                  onChange={(e) => {
+                    setCurrentValue(e.target.value);
+                  }}
+                  placeholder="어떤 모임인지 이웃들이 알기 쉽게 적어주세요!"
+                  rows="8"
+                />
+              </StyledForm>
+            </>
+          )}
 
-        {type === 2 && (
-          <>
-            <Padding height={40} />
-            <Text gray>시간과 가격을 알려주세요.</Text>
-            <Padding height={8} />
-            <Container>
-              <StyledButton white>
-                <Text fontSize={20}> {time}분</Text>
-                <DownArrow style={{ marginLeft: `${r[4]}rem` }} />
-              </StyledButton>
-              <StyledDiv style={{ width: `${r[160]}rem` }}>
-                <StyledPriceInput />
-                <Text style={{ color: `${palette.gray[200]}` }}>원</Text>
-              </StyledDiv>
-            </Container>
-            <Text
-              gray
-              style={{
-                marginTop: `${r[24]}rem`,
-              }}
-            >
-              설명을 입력해주세요.
-            </Text>
-            <CameraBlock>
-              <Camera />
-              <Text fontWeight={400}>사진추가</Text>
-            </CameraBlock>
-            <StyledForm style={{ padding: `${r[12]}rem ${r[12]}rem` }}>
-              <StyledTextarea
-                ref={textareaRef}
-                value={currentValue}
-                onChange={(e) => {
-                  setCurrentValue(e.target.value);
+          {type === 2 && (
+            <>
+              <Padding height={40} />
+              <Text gray>시간과 가격을 알려주세요.</Text>
+              <Padding height={8} />
+              <Container>
+                <Text fontWeight={700} fontSize={20}>
+                  10분 당
+                </Text>
+                <StyledDiv>
+                  <StyledPriceInput />
+                  <Text style={{ color: `${palette.gray[200]}` }}>원</Text>
+                </StyledDiv>
+              </Container>
+              <Text
+                gray
+                style={{
+                  marginTop: `${r[24]}rem`,
                 }}
-                placeholder=" - 연락이 가능한 시간대를 적어주세요
+              >
+                설명을 입력해주세요.
+              </Text>
+              <CameraBlock>
+                <Camera />
+                <Text fontWeight={400}>사진추가</Text>
+              </CameraBlock>
+
+              <StyledForm style={{ padding: `${r[12]}rem ${r[12]}rem` }}>
+                <StyledTextarea
+                  ref={textareaRef}
+                  value={currentValue}
+                  onChange={(e) => {
+                    setCurrentValue(e.target.value);
+                  }}
+                  placeholder=" - 연락이 가능한 시간대를 적어주세요
                 - 어떤 걸 나눌 수 있는지, 
-                - 나의 경력 혹은 나만의 강점이 뭔지 
-                적어주세요!"
-              />
-            </StyledForm>
-          </>
-        )}
-        <StyledTextarea style={{ display: 'none' }} ref={textareaRef} />
-        <Padding height={20} />
-        <Button closed>신청완료</Button>
-      </>
-    </Form>
+                - 나의 경력 혹은 나만의 강점이 뭔지 적어주세요!"
+                  rows="8"
+                />
+              </StyledForm>
+            </>
+          )}
+          <StyledTextarea style={{ display: 'none' }} ref={textareaRef} />
+          <Padding height={20} />
+          <Button closed>신청완료</Button>
+        </>
+      </Form>
+    </>
   );
 };
 

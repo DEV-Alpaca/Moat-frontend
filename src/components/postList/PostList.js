@@ -9,7 +9,6 @@ import r from '../../lib/styles/Rem';
 import Form from '../../lib/styles/Form';
 import palette from '../../lib/styles/paletts';
 import Sample from './mainboard/Sample';
-import LocationModal from './location/LocationModal';
 
 const CategoryContainer = styled(Form)`
   display: flex;
@@ -69,26 +68,14 @@ const Padding = styled.div`
 const categories = ['전체 글', '만나요', '전화/카톡'];
 
 const PostList = () => {
-  const [modal, setModal] = useState(false);
   const [selectCategory, setSelectCategory] = useState('전체 글');
 
   const onSelect = (category) => {
     setSelectCategory(category);
   };
-  const onCancel = () => {
-    setModal(false);
-  };
-  const onConfirm = () => {
-    setModal(false);
-  };
 
   return (
     <>
-      <LocationModal
-        visible={modal}
-        onConfirm={onConfirm}
-        onCancel={onCancel}
-      />
       <Sample />
       <CategoryContainer>
         {categories.map((category) => (
@@ -106,7 +93,6 @@ const PostList = () => {
           </StyledCategoryButton>
         ))}
       </CategoryContainer>
-
       <ButtonBlock>
         <StyledButton to={'/select'}>
           <Plus style={{ marginTop: '2px' }} /> <Padding />
