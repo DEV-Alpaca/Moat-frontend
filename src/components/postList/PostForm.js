@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import Form from '../../lib/styles/Form';
 import r from '../../lib/styles/Rem';
 
@@ -9,6 +9,7 @@ import Text from '../common/Text';
 import BoldLine from '../common/BoldLine';
 import Tag from '../common/Tag';
 import Padding from '../common/Padding';
+import { Link } from 'react-router-dom';
 
 const PostFormBlock = styled.div``;
 
@@ -35,12 +36,6 @@ const StyledTag = styled(Tag)`
   margin-bottom: ${r[10]}rem;
 `;
 
-const Block = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: center;
-`;
-
 const PostForm = ({ closed = false }) => {
   return (
     <>
@@ -64,7 +59,9 @@ const PostForm = ({ closed = false }) => {
         ) : (
           <Form>
             <ImageBlock>
-              <Image />
+              <Link to="/post">
+                <Image />
+              </Link>
               <StyledTag>전화/카톡</StyledTag>
             </ImageBlock>
             <Padding height={`${r[10]}`} />

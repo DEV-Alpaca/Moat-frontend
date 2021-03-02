@@ -10,7 +10,7 @@ const StyledText = styled.p`
   font-stretch: normal;
   font-style: normal;
   line-height: 1.6;
-  letter-spacing: -0.7px;
+  letter-spacing: -0.03em;
   text-align: left;
   ${(props) =>
     props.fontWeight &&

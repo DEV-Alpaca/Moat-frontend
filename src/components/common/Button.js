@@ -76,7 +76,12 @@ const StyledLink = styled(Link)`
 `;
 const Button = (props) => {
   return props.to ? (
-    <StyledLink {...props} cyan={props.cyan ? 1 : 0} />
+    <StyledLink
+      {...props}
+      white={props.white ? 1 : 0}
+      closed={props.closed ? 1 : 0}
+      full={props.full ? 1 : 0}
+    />
   ) : (
     <StyledButton {...props} />
   );

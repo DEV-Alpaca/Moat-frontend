@@ -18,7 +18,7 @@ const StyledDiv = styled(Form)`
   padding-top: ${r[26]}rem;
 `;
 
-const LoginForm = () => {
+const LoginForm = ({ onChange, mobile, onSubmit, password, error }) => {
   return (
     <>
       <Form>
@@ -28,31 +28,44 @@ const LoginForm = () => {
         <Text orange fontSize={16} textAlign={'left'} marginLeft={`${r[8]}`}>
           전화번호
         </Text>
-        <Input placeholder=" 전화번호를 입력하세요."></Input>
-        <Text
-          red
-          fontSize={18}
-          textAlign={'left'}
-          marginLeft={`${r[12]}`}
-          marginTop={`${r[3]}`}
-          fontWeight={700}
-        >
-          전화번호를 다시 확인해주세요.
-        </Text>
-        <Padding />
-        <Input type="password" placeholder=" 비밀번호를 입력하세요."></Input>
-        <Text
-          red
-          fontSize={18}
-          textAlign={'left'}
-          marginLeft={`${r[12]}`}
-          marginTop={`${r[3]}`}
-          fontWeight={700}
-        >
-          비밀번호를 다시 확인해주세요.
-        </Text>
-        <Padding />
-        <Button>로그인</Button>
+        <form onSubmit={onSubmit}>
+          <Input
+            name="mobile"
+            value={mobile}
+            onChange={onChange}
+            placeholder=" 전화번호를 입력하세요."
+          />
+          <Text
+            red
+            fontSize={18}
+            textAlign={'left'}
+            marginLeft={`${r[12]}`}
+            marginTop={`${r[3]}`}
+            fontWeight={700}
+          >
+            전화번호를 다시 확인해주세요.
+          </Text>
+          <Padding />
+          <Input
+            type="password"
+            name="password"
+            value={password}
+            onChange={onChange}
+            placeholder=" 비밀번호를 입력하세요."
+          />
+          <Text
+            red
+            fontSize={18}
+            textAlign={'left'}
+            marginLeft={`${r[12]}`}
+            marginTop={`${r[3]}`}
+            fontWeight={700}
+          >
+            비밀번호를 다시 확인해주세요.
+          </Text>
+          <Padding />
+          <Button>로그인</Button>
+        </form>
       </Form>
 
       <StyledDiv background={`${palette.orange5}`}>
