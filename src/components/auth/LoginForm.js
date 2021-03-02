@@ -25,7 +25,7 @@ const LoginForm = ({ onChange, mobile, onSubmit, password, error }) => {
         <Title>로그인</Title>
         <Padding />
         <Padding />
-        <Text orange fontSize={16} textAlign={'left'} marginLeft={`${r[8]}`}>
+        <Text fontSize={16} textAlign={'left'} marginLeft={`${r[8]}`}>
           전화번호
         </Text>
         <form onSubmit={onSubmit}>

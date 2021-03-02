@@ -108,7 +108,7 @@ const PostList = () => {
       </CategoryContainer>
 
       <ButtonBlock>
-        <StyledButton to={'/write'}>
+        <StyledButton to={'/select'}>
           <Plus style={{ marginTop: '2px' }} /> <Padding />
           재능 나누기
         </StyledButton>

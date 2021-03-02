@@ -9,44 +9,7 @@ import Text from '../common/Text';
 import Button from '../common/Button';
 import palette from '../../lib/styles/paletts';
 import Input from '../common/Input';
-
-const ButtonBlock = styled.div`
-  display: flex;
-`;
-
-const buttonStyle = css`
-  background: ${palette.white};
-  color: ${palette.gray[300]};
-  border-radius: 8px 8px 0 0;
-  height: ${r[52]}rem;
-`;
-
-const StyledOrangeButton = styled(Button)`
-  ${buttonStyle}
-  /* &:hover {
-    color: ${palette.orange};
-    background: ${palette.orange5};
-    border-bottom: 2px solid ${palette.orange};
-  } */
-
-  ${(props) =>
-    props.active &&
-    css`
-      color: ${palette.orange};
-      background: ${palette.orange5};
-      border-bottom: 2px solid ${palette.orange};
-    `}
-`;
-
-const StyledGreenButton = styled(Button)`
-  ${buttonStyle}
-  :hover,:active {
-    color: ${palette.green};
-    background: ${palette.green5};
-    border-bottom: ${palette.green};
-    border-bottom: 2px solid ${palette.green};
-  }
-`;
+import Padding from '../common/Padding';
 
 const StyledInput = styled(Input)`
   width: 98%;
@@ -97,9 +60,17 @@ const StyledTextarea = styled.textarea`
   }
 `;
 
+const ButtonContainer = styled.div``;
+
+const StyledButton = styled(Button)``;
+
+const status = ['만나요', '전화/카톡'];
+
 const WriteForm = () => {
   const textareaRef = useRef(null);
   const [currentValue, setCurrentValue] = useState(''); // you can manage data with it
+
+  const [selectStatus, setSelectStatus] = useState('');
 
   useEffect(() => {
     textareaRef.current.style.height = '0px';
@@ -110,20 +81,19 @@ const WriteForm = () => {
   return (
     <Form>
       <form>
-        <ButtonBlock>
-          <StyledOrangeButton active>소모임</StyledOrangeButton>
-          <StyledGreenButton>재능공유</StyledGreenButton>
-        </ButtonBlock>
         <StyledInput placeholder="모임의 제목을 한줄로 적어주세요" />
+        <Padding height={`${r[40]}`} />
+
+        <Text gray>어떤 방식인가요?</Text>
+        <Text gray>시간당 가격을 알려주세요.</Text>
+
         <Text
-          textAlign={'left'}
-          fontWeight={'400'}
+          gray
           style={{
             marginTop: `${r[24]}rem`,
-            color: `${palette.gray[300]}`,
           }}
         >
-          소개이미지를 1장 이상 추가해주세요.
+          설명을 입력해주세요.
         </Text>
         <CameraBlock>
           <Camera />

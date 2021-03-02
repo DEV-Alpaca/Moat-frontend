@@ -71,7 +71,7 @@ const AuthForm = () => {
           인증해주세요.
         </Title>
         <Padding height={`${r[60]}`} />
-        <Text orange fontSize={16} textAlign={'left'} marginLeft={`${r[8]}`}>
+        <Text fontSize={16} textAlign={'left'} marginLeft={`${r[8]}`}>
           전화번호 입력
         </Text>
         <StyledDiv>
@@ -81,7 +81,7 @@ const AuthForm = () => {
           </StyledAuthButton>
         </StyledDiv>
         <Padding />
-        <Text orange fontSize={16} textAlign={'left'} marginLeft={`${r[8]}`}>
+        <Text fontSize={16} textAlign={'left'} marginLeft={`${r[8]}`}>
           인증번호 입력
         </Text>
         <StyledDiv>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-
+import locations from '../../lib/location/locations';
 import { ReactComponent as DownArrow } from '../../assets/downArrow.svg';
 import palette from '../../lib/styles/paletts';
 import r from '../../lib/styles/Rem';
@@ -52,13 +52,6 @@ const Spacer = styled.div`
   width: 100%;
   height: ${r[48]}rem;
 `;
-
-const locations = [
-  { id: 1, value: '전체' },
-  { id: 2, value: '서대문구' },
-  { id: 3, value: '송파구' },
-  { id: 4, value: '그 외 지역' },
-];
 
 const Header = ({ title = true }) => {
   const [modal, setModal] = useState(false);

@@ -16,7 +16,7 @@ const buttonStyle = css`
   outline: none;
   border: none;
   border-radius: 8px;
-  color: white;
+  color: ${palette.black};
 
   background: ${palette.orange};
 

@@ -43,7 +43,7 @@ const RegisterForm = ({
             placeholder="비밀번호 입력 (6자리 이상)"
           />
           <Padding />
-          <Text orange fontSize={16} textAlign={'left'} marginLeft={`${r[8]}`}>
+          <Text fontSize={16} textAlign={'left'} marginLeft={`${r[8]}`}>
             비밀번호 확인
           </Text>
           <Input

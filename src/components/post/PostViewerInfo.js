@@ -26,7 +26,7 @@ const Dot = styled.div`
   height: 4px;
 
   /* font-size: ${r[36]}rem; */
-  background: orange;
+  background: ${palette.orange};
   margin-right: ${r[16]}rem;
 `;
 
@@ -42,8 +42,8 @@ const PostViewerInfo = () => {
         <Dot></Dot>
         <PostViewerInfoContainer>
           <Text fontSize={20} fontWeight={700}>
-            <span style={{ color: 'orange' }}> 신청하기 </span>를 통해 카카오톡
-            플러스 친구로 연결됩니다.
+            <span style={{ color: `${palette.orange}` }}> 신청하기 </span>를
+            통해 카카오톡 플러스 친구로 연결됩니다.
           </Text>
           <Padding height={`${r[8]}`} />
           <Text gray fontSize={16} style={{ color: `${palette.gray[300]}` }}>

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import locations, { lo } from '../../lib/location/locations';
 import Form from '../../lib/styles/Form';
 import palette from '../../lib/styles/paletts';
 import r from '../../lib/styles/Rem';
@@ -19,14 +20,16 @@ const StyledButton = styled(Button)`
 `;
 
 const SelectLocation = () => {
+  // const loaction = Array.from(locations);
   return (
     <>
+      {console.log(locations.seoul.district.map((lo) => <div>1{lo}</div>))}
       <Form>
         <Title>어느 지역의 모임인가요?</Title>
-        <StyledButton style={{ marginTop: `${r[24]}rem` }} white>
-          서대문&마포구
-        </StyledButton>
-        <StyledButton white>송파구</StyledButton>
+
+        {locations.seoul.district.map((lo) => (
+          <StyledButton>{lo}</StyledButton>
+        ))}
       </Form>
     </>
   );
