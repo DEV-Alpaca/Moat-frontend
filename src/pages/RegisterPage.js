@@ -1,12 +1,12 @@
 import React from 'react';
 import Nav from '../components/common/Nav';
-import RegisterForm from '../components/auth/RegisterForm';
+import RegisterFormContainer from '../containers/auth/RegisterFormContainer';
 
 const RegisterPage = () => {
   return (
     <>
       <Nav goback text={'회원가입'} />
-      <RegisterForm />
+      <RegisterFormContainer />
     </>
   );
 };

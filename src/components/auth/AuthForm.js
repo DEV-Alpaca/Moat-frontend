@@ -76,7 +76,9 @@ const AuthForm = () => {
         </Text>
         <StyledDiv>
           <StyledInput placeholder="전화번호를 입력해주세요."></StyledInput>
-          <StyledAuthButton>인증하기</StyledAuthButton>
+          <StyledAuthButton onClick={() => alert('인증하기')}>
+            인증하기
+          </StyledAuthButton>
         </StyledDiv>
         <Padding />
         <Text orange fontSize={16} textAlign={'left'} marginLeft={`${r[8]}`}>

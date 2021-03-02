@@ -1,11 +1,13 @@
 import { all } from 'redux-saga/effects';
 import { combineReducers } from 'redux';
 import login from './login';
+import register from './register';
 import loading from './loading';
 
 const rootReducer = combineReducers({
-  login,
   loading,
+  login,
+  register,
 });
 
 // export function* rootSaga() {

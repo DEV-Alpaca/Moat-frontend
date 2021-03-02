@@ -8,7 +8,6 @@ import Form from '../../lib/styles/Form';
 import r from '../../lib/styles/Rem';
 import Padding from '../common/Padding';
 import Text from '../common/Text';
-import { ReactComponent as Check } from '../../assets/greencheck.svg';
 
 const StyledButton = styled(Button)`
   position: fixed;
@@ -17,7 +16,13 @@ const StyledButton = styled(Button)`
   width: 100%;
 `;
 
-const RegisterForm = () => {
+const RegisterForm = ({
+  onChange,
+  onSubmit,
+  password,
+  passwordConfirm,
+  error,
+}) => {
   return (
     <>
       <Form>
@@ -28,15 +33,28 @@ const RegisterForm = () => {
           입력해주세요.
         </Title>
         <Padding height={`${r[60]}`} />
-        <Input type="password" placeholder="비밀번호 입력 (6자리 이상)"></Input>
-        <Padding />
-        <Text orange fontSize={16} textAlign={'left'} marginLeft={`${r[8]}`}>
-          비밀번호 확인
-        </Text>
-        <Input
-          type="password"
-          placeholder=" 비밀번호를 한번 더 확인해주세요."
-        ></Input>
+        <form onSubmit={onSubmit}>
+          <Input
+            onChange={onChange}
+            onSubmit={onSubmit}
+            name="password"
+            value={password}
+            type="password"
+            placeholder="비밀번호 입력 (6자리 이상)"
+          />
+          <Padding />
+          <Text orange fontSize={16} textAlign={'left'} marginLeft={`${r[8]}`}>
+            비밀번호 확인
+          </Text>
+          <Input
+            onChange={onChange}
+            onSubmit={onSubmit}
+            name="passwordConfirm"
+            value={passwordConfirm}
+            type="password"
+            placeholder=" 비밀번호를 한번 더 확인해주세요."
+          />
+        </form>
         <Text
           red
           fontSize={18}
