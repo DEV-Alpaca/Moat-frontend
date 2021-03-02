@@ -97,9 +97,12 @@ const AuthForm = () => {
           인증번호를 다시 확인해주세요.
         </Text>
       </Form>
-      <StyledButton closed full fontSize={23} fontWeight={500}>
+      <StyledButton full fontSize={23} fontWeight={500} to="/register">
         다음으로
       </StyledButton>
+      {/* <StyledButton closed full fontSize={23} fontWeight={500}>
+        다음으로
+      </StyledButton> */}
     </>
   );
 };

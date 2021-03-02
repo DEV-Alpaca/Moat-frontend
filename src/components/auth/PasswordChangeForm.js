@@ -34,9 +34,12 @@ const PasswordChangeForm = () => {
           placeholder=" 비밀번호를 한번 더 확인해주세요."
         ></Input>
       </Form>
-      <StyledButton closed full>
+      <StyledButton full to="/login">
         완료
       </StyledButton>
+      {/*  <StyledButton closed full to="/login">
+        완료
+      </StyledButton> */}
     </>
   );
 };

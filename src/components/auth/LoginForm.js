@@ -9,6 +9,7 @@ import Form from '../../lib/styles/Form';
 import palette from '../../lib/styles/paletts';
 import Padding from '../common/Padding';
 import r from '../../lib/styles/Rem';
+import { Link } from 'react-router-dom';
 
 const StyledDiv = styled(Form)`
   box-sizing: border-box;
@@ -62,23 +63,26 @@ const LoginForm = () => {
         <Padding />
 
         <Button
+          to="/auth"
           white
           style={{ border: `1px solid ${palette.orange}`, fontWeight: '800' }}
         >
           회원가입{' '}
         </Button>
         <Padding />
-        <Text
-          gray
-          style={{
-            cursor: 'pointer',
-            textAlign: 'center',
-            marginBottom: `${r[28]}rem`,
-          }}
-          fontSize={18}
-        >
-          비밀번호를 잊어버렸어요
-        </Text>
+        <Link to="passwordChange">
+          <Text
+            gray
+            style={{
+              cursor: 'pointer',
+              textAlign: 'center',
+              marginBottom: `${r[28]}rem`,
+            }}
+            fontSize={18}
+          >
+            비밀번호를 잊어버렸어요
+          </Text>
+        </Link>
       </StyledDiv>
     </>
   );

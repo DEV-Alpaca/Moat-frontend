@@ -50,7 +50,7 @@ const ButtonBlock = styled.div`
   bottom: 0;
   width: 100%;
   max-width: 36rem;
-  z-index: 999;
+  z-index: 10;
   padding: ${r[16]}rem;
   margin-bottom: ${r[70]}rem;
 `;

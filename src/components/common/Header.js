@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { ReactComponent as DownArrow } from '../../assets/downArrow.svg';
@@ -87,7 +88,10 @@ const Header = ({ title = true }) => {
             <HeaderText>서울 {location}</HeaderText>
             <DownArrow style={{ marginLeft: `${r[4]}rem` }} />
           </HeaderContainer>
-          <DownArrow />
+          <Link to="/login">
+            로그인
+            <DownArrow />
+          </Link>
         </Wrapper>
       </HeaderBlock>
       <Spacer />

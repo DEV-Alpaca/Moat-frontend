@@ -19,8 +19,8 @@ const FullScreenBlock = styled.div`
   background: rgba(0, 0, 0, 0.25);
 `;
 
-const FullScreen = ({ children }) => {
-  return <FullScreenBlock>{children}</FullScreenBlock>;
+const FullScreen = ({ children, onCancel }) => {
+  return <FullScreenBlock onClick={onCancel}>{children}</FullScreenBlock>;
 };
 
 export default FullScreen;

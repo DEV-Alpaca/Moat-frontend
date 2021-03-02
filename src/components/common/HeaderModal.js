@@ -38,7 +38,7 @@ const StyledButton = styled(Button)`
 const HeaderModal = ({ locations, visible, onConfirm, onCancel }) => {
   if (!visible) return null;
   return (
-    <FullScreen>
+    <FullScreen onCancel={onCancel}>
       <ModalBlock>
         {locations.map((location) => (
           <StyledButton

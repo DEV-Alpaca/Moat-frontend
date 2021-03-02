@@ -82,9 +82,12 @@ const RegisterConfirmForm = () => {
           ))}
         </CategoryContainer>
       </RegisterConfirmFormBlock>
-      <StyledButton closed full>
+      <StyledButton full to="/">
         가입완료
       </StyledButton>
+      {/* <StyledButton closed full>
+        가입완료
+      </StyledButton> */}
     </>
   );
 };

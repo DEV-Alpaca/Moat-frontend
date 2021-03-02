@@ -22,7 +22,7 @@ const App = () => {
       <Route component={AuthPage} path="/auth" />
       <Route component={RegisterPage} path="/register" />
       <Route component={RegisterConfirmPage} path="/registerConfirm" />
-      <Route component={PasswordChangePage} path="/password" />
+      <Route component={PasswordChangePage} path="/passwordChange" />
       <Route component={PostListPage} path={['/@:username', '/']} exact />
       <Route component={PostPage} path="/post" />
       <Route component={SelectLocationPage} path="/select" />

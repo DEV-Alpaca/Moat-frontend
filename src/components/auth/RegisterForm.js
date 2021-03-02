@@ -28,7 +28,7 @@ const RegisterForm = () => {
           입력해주세요.
         </Title>
         <Padding height={`${r[60]}`} />
-        <Input placeholder="비밀번호 입력 (6자리 이상)"></Input>
+        <Input type="password" placeholder="비밀번호 입력 (6자리 이상)"></Input>
         <Padding />
         <Text orange fontSize={16} textAlign={'left'} marginLeft={`${r[8]}`}>
           비밀번호 확인
@@ -48,9 +48,12 @@ const RegisterForm = () => {
           비밀번호를 다시 확인해주세요.
         </Text>
       </Form>
-      <StyledButton closed full>
-        회원가입
+      <StyledButton full to="/registerConfirm">
+        다음으로
       </StyledButton>
+      {/* <StyledButton closed full>
+        회원가입
+      </StyledButton> */}
     </>
   );
 };
