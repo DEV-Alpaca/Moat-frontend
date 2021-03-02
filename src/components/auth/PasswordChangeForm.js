@@ -26,7 +26,7 @@ const PasswordChangeForm = () => {
           <br />
           입력해주세요.
         </Title>
-        <Padding height={`${r[60]}`} />
+        <Padding height={60} />
         <Input placeholder="비밀번호 입력 (6자리 이상)"></Input>
         <Padding />
         <Input

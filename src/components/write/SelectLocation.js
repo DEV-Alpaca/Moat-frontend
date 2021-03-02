@@ -37,7 +37,7 @@ const SelectLocation = () => {
         <Text fontSize={26} fontWeight={700}>
           어느 지역의 모임인가요?
         </Text>
-        <Padding margin={10} />
+        <Padding height={10} />
         {locations.seoul.district.map((location) => (
           <StyledButton
             to="/write"

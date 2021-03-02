@@ -46,15 +46,15 @@ const PostForm = ({ closed = false }) => {
               <Image />
               <StyledTag closed>신청 마감</StyledTag>
             </ImageBlock>
-            <Padding height={`${r[10]}`} />
+            <Padding height={10} />
             <Text fontSize={23} fontWeight={500}>
               서대문구 마을공동체!! 음악 밴드 {'<'}모앗{'>'}새 멤버 모집합니다.
             </Text>
-            <Padding height={`${r[10]}`} />
+            <Padding height={10} />
             <Text fontSize={20} fontWeight={600}>
               2,000원 (10분)
             </Text>
-            <Padding height={`${r[8]}`} />
+            <Padding height={8} />
           </Form>
         ) : (
           <Form>
@@ -64,15 +64,15 @@ const PostForm = ({ closed = false }) => {
               </Link>
               <StyledTag>전화/카톡</StyledTag>
             </ImageBlock>
-            <Padding height={`${r[10]}`} />
+            <Padding height={10} />
             <Text fontSize={23} fontWeight={500}>
               잠실 재개발위원회 소속입니다. 부동산 궁금한 점 물어보세요
             </Text>
-            <Padding height={`${r[10]}`} />
+            <Padding height={10} />
             <Text fontSize={20} fontWeight={600}>
               2,000원 (10분)
             </Text>
-            <Padding height={`${r[8]}`} />
+            <Padding height={8} />
           </Form>
         )}
         <BoldLine />

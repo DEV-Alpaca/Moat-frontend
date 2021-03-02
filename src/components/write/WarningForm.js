@@ -127,7 +127,7 @@ const WarningForm = () => {
           상기 안내한 가이드라인에 어긋나는 글은 무통보 삭제될 수 있습니다.
         </WaringText>
       </RedContainer>
-      <Padding height={`${r[24]}`} />
+      <Padding height={24} />
       <CheckBox onClick={handleChecked}>
         {!checked && <StyledNotCheck />}
 
@@ -146,7 +146,7 @@ const WarningForm = () => {
           모든 주의사항을 읽고, 확인하였습니다.
         </Text>
       </CheckBox>
-      <Padding height={`${r[24]}`} />
+      <Padding height={24} />
       <Button>작성하기</Button>
     </WarningFormBlock>
   );

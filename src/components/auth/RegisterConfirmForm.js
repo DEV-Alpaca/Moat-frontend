@@ -61,7 +61,7 @@ const RegisterConfirmForm = () => {
         <Text fontSize={30} fontWeight={700} style={{ lineHeight: '1.4' }}>
           이제 마지막! <br /> 정보를 알려주세요.
         </Text>
-        <Padding height={`${r[48]}`} />
+        <Padding height={48} />
         <Input placeholder="생년월일 8자리를 입력해주세요." />
         <Padding />
         <CategoryContainer>

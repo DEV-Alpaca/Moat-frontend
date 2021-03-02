@@ -32,7 +32,7 @@ const RegisterForm = ({
           <br />
           입력해주세요.
         </Title>
-        <Padding height={`${r[60]}`} />
+        <Padding height={60} />
         <form onSubmit={onSubmit}>
           <Input
             onChange={onChange}

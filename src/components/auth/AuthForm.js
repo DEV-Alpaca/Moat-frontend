@@ -70,7 +70,7 @@ const AuthForm = () => {
           <br />
           인증해주세요.
         </Title>
-        <Padding height={`${r[60]}`} />
+        <Padding height={60} />
         <Text fontSize={16} textAlign={'left'} marginLeft={`${r[8]}`}>
           전화번호 입력
         </Text>

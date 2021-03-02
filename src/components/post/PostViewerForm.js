@@ -40,18 +40,18 @@ const PostViewerForm = () => {
         <StyledTag>전화/카톡</StyledTag>
       </ImageBlock>
       <Form>
-        <Padding height={`${r[10]}`} />
+        <Padding height={10} />
         <Text fontSize={26} fontWeight={800}>
           치킨집 창업을 앞두고 있다면... 월매출 1억 사장에게 물어봐요
         </Text>
         <Text fontSize={18} style={{ color: `${palette.gray[300]}` }}>
           ty8271・서대문구
         </Text>
-        <Padding height={`${r[10]}`} />
+        <Padding height={10} />
         <Text fontSize={23} fontWeight={800}>
           2,000원 (10분)
         </Text>
-        <Padding height={`${r[8]}`} />
+        <Padding height={8} />
       </Form>
       <Line />
     </PostViewerBlock>
