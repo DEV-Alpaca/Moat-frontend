@@ -123,62 +123,29 @@ const StyledImg = styled.img`
   border-radius: 8px;
 `;
 
-const clubType = [
-  { id: 1, text: '만나요' },
-  { id: 2, text: '전화/카톡' },
-];
-
-const times = ['30분', '1시간', '1시간 30분', '2시간', '2시간 30분', '3시간'];
-
-const WriteForm = () => {
-  const [modal, setModal] = useState(false);
-  const [time, setTime] = useState('30분');
-  const onModalClick = () => {
-    setModal(!modal);
-  };
-  const onCancel = () => {
-    setModal(false);
-  };
-  const onConfirm = (time) => {
-    setModal(false);
-    setTime(time);
-  };
+const WriteForm = (props) => {
+  const {
+    clubType,
+    times,
+    onModalClick,
+    onCancel,
+    onConfirm,
+    modal,
+    time,
+    type,
+    onTypeSelect,
+    imgUrls,
+    handleImageUpload,
+  } = props;
 
   const textareaRef = useRef(null);
   const [currentValue, setCurrentValue] = useState(''); // you can manage data with it
-  const [type, setType] = useState(0);
-
-  const onTypeSelect = (type) => {
-    setType(type);
-  };
 
   useEffect(() => {
     textareaRef.current.style.height = '0px';
     const scrollHeight = textareaRef.current.scrollHeight;
     textareaRef.current.style.height = scrollHeight + 'px';
   }, [currentValue]);
-
-  const [imgUrls, setImgUrls] = useState(['']);
-
-  const handleImageUpload = (e) => {
-    const fileArr = e.target.files;
-
-    let fileUrls = [];
-
-    let file;
-    let filesLength = fileArr.length > 10 ? 10 : fileArr.length;
-
-    for (let i = 0; i < filesLength; i++) {
-      file = fileArr[i];
-
-      let reader = new FileReader();
-      reader.onload = () => {
-        fileUrls[i] = reader.result;
-        setImgUrls([...imgUrls, ...fileUrls]);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
 
   return (
     <>
