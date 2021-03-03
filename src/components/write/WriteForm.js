@@ -16,11 +16,10 @@ import TimeSelectModal from '../common/TimeSelectModal';
 
 const StyledInput = styled(Input)`
   width: 98%;
-
   height: ${r[52]}rem;
 `;
 
-const CameraBlock = styled.div`
+const CameraBlock = styled.label`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -28,13 +27,14 @@ const CameraBlock = styled.div`
 
   width: ${r[70]}rem;
   height: ${r[70]}rem;
-  margin-top: 1rem;
   padding: 15px 11px 7px 12px;
   border-radius: 8px;
   border: solid 1px ${palette.gray[100]};
   background-color: ${palette.gray[50]};
   letter-spacing: -0.7px;
   color: #808080;
+
+  cursor: pointer;
 `;
 
 const StyledForm = styled(Form)`
@@ -62,9 +62,17 @@ const StyledTextarea = styled.textarea`
   }
 `;
 
-const defaultStyle = {
-  width: '100%',
-};
+const ImgContainer = styled.div`
+  display: flex;
+  align-items: center;
+  label + img {
+    margin-left: ${r[16]}rem;
+  }
+
+  img + img {
+    margin-left: ${r[16]}rem;
+  }
+`;
 
 const Container = styled.div`
   display: flex;
@@ -109,6 +117,12 @@ const StyledPriceInput = styled.input`
   outline: none;
 `;
 
+const StyledImg = styled.img`
+  width: ${r[88]}rem;
+  height: ${r[88]}rem;
+  border-radius: 8px;
+`;
+
 const clubType = [
   { id: 1, text: '만나요' },
   { id: 2, text: '전화/카톡' },
@@ -116,7 +130,7 @@ const clubType = [
 
 const times = ['30분', '1시간', '1시간 30분', '2시간', '2시간 30분', '3시간'];
 
-const WriteForm = ({ style = defaultStyle }) => {
+const WriteForm = () => {
   const [modal, setModal] = useState(false);
   const [time, setTime] = useState('30분');
   const onModalClick = () => {
@@ -143,6 +157,28 @@ const WriteForm = ({ style = defaultStyle }) => {
     const scrollHeight = textareaRef.current.scrollHeight;
     textareaRef.current.style.height = scrollHeight + 'px';
   }, [currentValue]);
+
+  const [imgUrls, setImgUrls] = useState(['']);
+
+  const handleImageUpload = (e) => {
+    const fileArr = e.target.files;
+
+    let fileUrls = [];
+
+    let file;
+    let filesLength = fileArr.length > 10 ? 10 : fileArr.length;
+
+    for (let i = 0; i < filesLength; i++) {
+      file = fileArr[i];
+
+      let reader = new FileReader();
+      reader.onload = () => {
+        fileUrls[i] = reader.result;
+        setImgUrls([...imgUrls, ...fileUrls]);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   return (
     <>
@@ -198,10 +234,23 @@ const WriteForm = ({ style = defaultStyle }) => {
               >
                 설명을 입력해주세요.
               </Text>
-              <CameraBlock>
-                <Camera />
-                <Text fontWeight={400}>사진추가</Text>
-              </CameraBlock>
+              <Padding height={8} />
+              <ImgContainer>
+                <CameraBlock>
+                  <Camera />
+                  <Text fontWeight={400}>사진추가</Text>
+                  <input
+                    style={{ display: 'none' }}
+                    type="file"
+                    multiple
+                    accept="image/jpg,image/png,image/jpeg,image/gif"
+                    onChange={handleImageUpload}
+                  />
+                </CameraBlock>
+                {imgUrls.map((imgUrl, i) => (
+                  <>{i === 0 ? null : <StyledImg key={i + 1} src={imgUrl} />}</>
+                ))}
+              </ImgContainer>
               <StyledForm style={{ padding: `${r[12]}rem ${r[12]}rem` }}>
                 <StyledTextarea
                   ref={textareaRef}

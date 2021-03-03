@@ -42,6 +42,7 @@ const TimeSelectModal = ({ times, visible, onConfirm, onCancel }) => {
       <ModalBlock>
         {times.map((time) => (
           <StyledButton
+            key={time}
             white
             onClick={() => {
               onConfirm(time);
