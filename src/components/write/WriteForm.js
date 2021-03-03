@@ -31,6 +31,7 @@ const CameraBlock = styled.label`
   border-radius: 8px;
   border: solid 1px ${palette.gray[100]};
   background-color: ${palette.gray[50]};
+  letter-spacing: -0.7px;
   color: #808080;
 
   cursor: pointer;
@@ -64,14 +65,15 @@ const StyledTextarea = styled.textarea`
 const ImgContainer = styled.div`
   display: flex;
   align-items: center;
+  flex-direction: flex-end;
   overflow: auto;
-  /* label + img {
+  label + img {
     margin-left: ${r[16]}rem;
   }
 
   img + img {
     margin-left: ${r[16]}rem;
-  } */
+  }
 `;
 
 const Container = styled.div`
