@@ -93,11 +93,7 @@ const WriteInfoSlider = () => {
           <SliderItem page={page} />
           <SliderItem page={page} />
         </Slider>
-        <Padding
-          className="Block2"
-          height={92}
-          style={{ background: `${palette.orange5}` }}
-        />
+        <Padding className="Block2" height={92} />
       </WriteInfoSliderBlock>
     </Block>
   );

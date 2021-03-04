@@ -329,7 +329,8 @@ const WriteForm = (props) => {
           )}
           <StyledTextarea style={{ display: 'none' }} ref={textareaRef} />
           <Padding height={20} />
-          <Button closed>신청완료</Button>
+          <Button to="/writeComplete">신청완료</Button>
+          {/* <Button closed>신청완료</Button> */}
         </>
       </Form>
     </>
