@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 import WriteForm from '../../components/write/WriteForm';
 
@@ -15,11 +15,11 @@ const WriteFormContainer = () => {
   const [type, setType] = useState(0);
   const [modal, setModal] = useState(false);
   const [time, setTime] = useState('30분');
-  const [imgUrls, setImgUrls] = useState(['']);
+  const [imgUrls, setImgUrls] = useState([{ id: '', fileUrl: '' }]);
   const MAX = 3;
 
-  const handleImageUpload = (e) => {
-    console.log('before', imgUrls.length);
+  const nextId = useRef(1);
+  const onInsert = (e) => {
     if (imgUrls.length > MAX) {
       alert('사진은 3개 까지만 업로드 가능합니다.');
       return;
@@ -30,8 +30,7 @@ const WriteFormContainer = () => {
     let fileUrls = [];
 
     let file;
-    let filesLength =
-      imgUrls.length + fileArr.length > 4 ? MAX : fileArr.length;
+    let filesLength = fileArr.length;
 
     for (let i = 0; i < filesLength; i++) {
       file = fileArr[i];
@@ -39,10 +38,17 @@ const WriteFormContainer = () => {
       let reader = new FileReader();
       reader.onload = () => {
         fileUrls[i] = reader.result;
-        setImgUrls([...imgUrls, ...fileUrls]);
+        const image = {
+          id: nextId.current,
+          fileUrl: fileUrls[i],
+        };
+
+        console.log('for in image i nextId.current ', image, i, nextId.current);
+
+        setImgUrls(imgUrls.concat(image));
+        nextId.current += 1;
       };
       reader.readAsDataURL(file);
-      console.log('after', imgUrls.length);
     }
   };
 
@@ -61,7 +67,10 @@ const WriteFormContainer = () => {
     setType(type);
   };
 
-  const onRemove = (id) => {};
+  const onRemove = (id) => {
+    console.log('onRemove', imgUrls, id);
+    setImgUrls(imgUrls.filter((img) => img.id !== id));
+  };
 
   return (
     <WriteFormContainerBlock>
@@ -76,7 +85,8 @@ const WriteFormContainer = () => {
         {...{ type }}
         {...{ onTypeSelect }}
         {...{ imgUrls }}
-        {...{ handleImageUpload }}
+        {...{ onInsert }}
+        {...{ onRemove }}
       />
     </WriteFormContainerBlock>
   );

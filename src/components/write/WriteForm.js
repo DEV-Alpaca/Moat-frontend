@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import Form from '../../lib/styles/Form';
 import r from '../../lib/styles/Rem';
 
 import { ReactComponent as OrangeCheck } from '../../assets/orangeCheck.svg';
 import { ReactComponent as DownArrow } from '../../assets/downArrow.svg';
 import { ReactComponent as Camera } from '../../assets/camera.svg';
+import { ReactComponent as WhiteClose } from '../../assets/WhiteClose.svg';
 
 import Text from '../common/Text';
 import Button from '../common/Button';
@@ -119,25 +120,39 @@ const StyledPriceInput = styled.input`
   outline: none;
 `;
 
+const ImBlock = styled.div`
+  position: relative;
+`;
+
 const StyledImg = styled.img`
   width: ${r[88]}rem;
   height: ${r[88]}rem;
   border-radius: 8px;
 `;
 
+const CloseBox = styled(Button)`
+  width: ${r[32]}rem;
+  height: ${r[32]}rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: ${palette.black};
+`;
+
 const WriteForm = (props) => {
   const {
     clubType,
     times,
-    onModalClick,
-    onCancel,
-    onConfirm,
     modal,
     time,
     type,
-    onTypeSelect,
     imgUrls,
-    handleImageUpload,
+    onModalClick,
+    onCancel,
+    onConfirm,
+    onTypeSelect,
+    onRemove,
+    onInsert,
   } = props;
 
   const textareaRef = useRef(null);
@@ -213,11 +228,20 @@ const WriteForm = (props) => {
                     type="file"
                     multiple
                     accept="image/jpg,image/png,image/jpeg,image/gif"
-                    onChange={handleImageUpload}
+                    onChange={onInsert}
                   />
                 </CameraBlock>
                 {imgUrls.map((imgUrl, i) => (
-                  <>{i === 0 ? null : <StyledImg key={i + 1} src={imgUrl} />}</>
+                  <>
+                    {i === 0 ? null : (
+                      <ImBlock>
+                        <StyledImg key={i + 1} src={imgUrl.fileUrl} />
+                        <CloseBox onClick={() => onRemove(imgUrl.id)}>
+                          <WhiteClose />
+                        </CloseBox>
+                      </ImBlock>
+                    )}
+                  </>
                 ))}
               </ImgContainer>
               <StyledForm style={{ padding: `${r[12]}rem ${r[12]}rem` }}>

@@ -73,7 +73,6 @@ const RegisterConfirmForm = () => {
                 onSelect(category);
               }}
             >
-              {' '}
               {selectCategory === category ? (
                 <OrangeCheck style={{ marginRight: `${r[8]}rem` }} />
               ) : null}
