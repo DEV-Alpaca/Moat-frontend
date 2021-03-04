@@ -1,65 +1,105 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Slider from 'react-slick';
 import styled from 'styled-components';
 import palette from '../../../lib/styles/paletts';
 import r from '../../../lib/styles/Rem';
+import Button from '../../common/Button';
+import Padding from '../../common/Padding';
+import SliderItem from './SliderItem';
 
-const WriteInfoSliderBlock = styled.div`
+const Block = styled.div`
   width: 100%;
-  height: ${r[332]}rem;
-  background: ${palette.orange5};
+  min-height: 100%;
 `;
 
 const Div = styled.div`
-  margin: 0 auto;
-  height: ${r[300]}rem;
+  position: absolute;
+  z-index: 10;
+  bottom: 0;
+  height: 500px;
+  width: 100%;
+  background: ${palette.orange5};
+`;
+
+const WriteInfoSliderBlock = styled.div`
+  width: 100%;
+  position: static;
 `;
 
 const SliderButtonList = styled.div`
-  padding-bottom: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: static;
   box-sizing: border-box;
-  text-align: left;
-  padding-left: ${r[22]}rem;
+  background: ${palette.orange5};
+  z-index: 9999;
 `;
 
-const ArrowStyle = () => {
+const ArrowDiv = styled.div`
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  z-index: 13;
+  padding: ${r[16]}rem ${r[16]}rem;
+  background: ${palette.orange5};
+`;
+
+const NextArrowButton = styled(Button)``;
+
+const ArrowNoneStyle = () => {
   return <div style={{ display: 'none' }}></div>;
 };
 
 const WriteInfoSlider = () => {
+  const [page, setPage] = useState(0);
+  const buttonText = [
+    { id: 0, text: '알아보기' },
+    { id: 1, text: '다음으로' },
+    { id: 2, text: '신청으로' },
+  ];
+  const NextArrowStyle = ({ onClick }) => {
+    return (
+      <ArrowDiv>
+        <NextArrowButton onClick={onClick} to={page === 2 ? '/write' : null}>
+          {buttonText[page].text}
+        </NextArrowButton>
+      </ArrowDiv>
+    );
+  };
+
   const settings = {
     dots: true,
-    infinite: true,
+    infinite: false,
     slidesToShow: 1,
     slidesToScroll: 1,
 
-    // autoplay: true,
     speed: 300,
-    autoplaySpeed: 5000,
     cssEase: 'linear',
 
-    pauseOnHover: true,
-
     appendDots: (dots) => <SliderButtonList>{dots}</SliderButtonList>,
-    nextArrow: <ArrowStyle />,
-    prevArrow: <ArrowStyle />,
+    nextArrow: <NextArrowStyle />,
+    prevArrow: <ArrowNoneStyle />,
+
+    afterChange: (current) => setPage(current),
   };
 
   return (
-    <WriteInfoSliderBlock>
-      <Slider {...settings}>
-        <Div>
-          <h3>편안한밥집</h3>
-        </Div>
-        <Div>
-          <h3>배달</h3>
-        </Div>
-
-        <Div>
-          <h3>순대국밥</h3>
-        </Div>
-      </Slider>
-    </WriteInfoSliderBlock>
+    <Block className="Block">
+      <WriteInfoSliderBlock className="WriteInfoSliderBlock">
+        <Slider {...settings} className="Slider">
+          <SliderItem page={page} />
+          <SliderItem page={page} />
+          <SliderItem page={page} />
+        </Slider>
+        <Padding
+          className="Block2"
+          height={92}
+          style={{ background: `${palette.orange5}` }}
+        />
+      </WriteInfoSliderBlock>
+    </Block>
   );
 };
 

@@ -16,10 +16,8 @@ const Div = styled.div`
 `;
 
 const SliderButtonList = styled.div`
-  padding-bottom: 0px;
+  position: static;
   box-sizing: border-box;
-  text-align: left;
-  padding-left: ${r[22]}rem;
 `;
 
 const ArrowStyle = () => {

@@ -44,6 +44,10 @@ code {
   color: green !important;
 }
 
+.slick-slider {
+  position: static !important;
+}
+
 .slick-dots li.slick-active button:before {
   color: #ffbd12 !important;
   border-radius: 8px;
