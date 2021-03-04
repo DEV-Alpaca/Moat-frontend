@@ -8,7 +8,7 @@ import { ReactComponent as OrangeCheck } from '../../assets/orangeCheck.svg';
 import r from '../../lib/styles/Rem';
 import Form from '../../lib/styles/Form';
 import palette from '../../lib/styles/paletts';
-import Sample from './mainboard/Sample';
+import MainboardSlider from './mainboard/MainboardSlider';
 
 const CategoryContainer = styled(Form)`
   display: flex;
@@ -76,7 +76,7 @@ const PostList = () => {
 
   return (
     <>
-      <Sample />
+      <MainboardSlider />
       <CategoryContainer>
         {categories.map((category) => (
           <StyledCategoryButton

@@ -14,6 +14,8 @@ import WritePage from './pages/WritePage';
 import WarningPage from './pages/WarningPage';
 import PasswordChangePage from './pages/PasswordChangePage';
 import PostPage from './pages/PostPage';
+import WriteInfoPage from './pages/WriteInfoPage';
+import WriteCompletePage from './pages/WriteCompletePage';
 
 const App = () => {
   return (
@@ -27,6 +29,9 @@ const App = () => {
       <Route component={PostPage} path="/post" />
       <Route component={SelectLocationPage} path="/select" />
       <Route component={WritePage} path="/write" />
+      <Route component={WriteInfoPage} path="/writeInfo" />
+      <Route component={WriteCompletePage} path="/writeComplete" />
+
       <Route component={WarningPage} path="/warning" />
       <Route component={MyPage} path="/@:username/:postId" />
     </Template>

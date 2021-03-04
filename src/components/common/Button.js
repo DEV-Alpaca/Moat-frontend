@@ -21,7 +21,7 @@ const buttonStyle = css`
   background: ${palette.orange};
 
   font-size: ${r[20]}rem;
-  font-weight: normal;
+  font-weight: 700;
   font-stretch: normal;
   line-height: 1.4;
   letter-spacing: -0.4px;

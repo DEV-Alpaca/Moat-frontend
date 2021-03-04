@@ -40,7 +40,7 @@ const SelectLocation = () => {
         <Padding height={10} />
         {locations.seoul.district.map((location) => (
           <StyledButton
-            to="/write"
+            to="/writeInfo"
             white
             key={location}
             hover={selectCategory === location}

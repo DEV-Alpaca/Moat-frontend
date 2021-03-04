@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import palette from '../../../lib/styles/paletts';
 import r from '../../../lib/styles/Rem';
 
-const SampleBlock = styled.div`
+const WriteInfoSliderBlock = styled.div`
   width: 100%;
   height: ${r[332]}rem;
   background: ${palette.orange5};
@@ -26,7 +26,7 @@ const ArrowStyle = () => {
   return <div style={{ display: 'none' }}></div>;
 };
 
-const Sample = () => {
+const WriteInfoSlider = () => {
   const settings = {
     dots: true,
     infinite: true,
@@ -46,7 +46,7 @@ const Sample = () => {
   };
 
   return (
-    <SampleBlock>
+    <WriteInfoSliderBlock>
       <Slider {...settings}>
         <Div>
           <h3>편안한밥집</h3>
@@ -59,8 +59,8 @@ const Sample = () => {
           <h3>순대국밥</h3>
         </Div>
       </Slider>
-    </SampleBlock>
+    </WriteInfoSliderBlock>
   );
 };
 
-export default Sample;
+export default WriteInfoSlider;

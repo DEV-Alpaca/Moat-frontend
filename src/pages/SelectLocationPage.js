@@ -5,7 +5,7 @@ import SelectLocation from '../components/write/SelectLocation';
 const SelectLocationPage = () => {
   return (
     <>
-      <Nav close text={'모임 만들기'} />
+      <Nav close text={'재능 나누기 신청'} />
       <SelectLocation />
     </>
   );
