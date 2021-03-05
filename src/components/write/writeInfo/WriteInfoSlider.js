@@ -78,7 +78,7 @@ const WriteInfoSlider = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
 
-    speed: 200,
+    speed: 100,
     cssEase: 'linear',
 
     appendDots: (dots) => (

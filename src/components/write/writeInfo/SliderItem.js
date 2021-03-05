@@ -67,8 +67,8 @@ const Block = styled.div`
 `;
 
 const Profile = styled.img`
-  width: ${r[56]}rem;
-  height: ${r[80]}rem;
+  width: 56px;
+  height: 80px;
 `;
 
 const Img = styled.img`
