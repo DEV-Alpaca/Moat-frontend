@@ -1,25 +1,17 @@
 import React, { useState } from 'react';
 import Slider from 'react-slick';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import palette from '../../../lib/styles/paletts';
 import r from '../../../lib/styles/Rem';
 import Button from '../../common/Button';
 import Padding from '../../common/Padding';
-import SliderItem from './SliderItem';
+import {
+  SliderItemPage1,
+  SliderItemPage2,
+  SliderItemPage3,
+} from './SliderItem';
 
-const Block = styled.div`
-  width: 100%;
-  min-height: 100%;
-`;
-
-const Div = styled.div`
-  position: absolute;
-  z-index: 10;
-  bottom: 0;
-  height: 500px;
-  width: 100%;
-  background: ${palette.orange5};
-`;
+const Block = styled.div``;
 
 const WriteInfoSliderBlock = styled.div`
   width: 100%;
@@ -32,8 +24,14 @@ const SliderButtonList = styled.div`
   justify-content: center;
   position: static;
   box-sizing: border-box;
-  background: ${palette.orange5};
   z-index: 9999;
+  padding-top: ${r[16]}rem;
+
+  ${(props) =>
+    props.orange &&
+    css`
+      background: ${palette.orange5};
+    `}
 `;
 
 const ArrowDiv = styled.div`
@@ -43,7 +41,12 @@ const ArrowDiv = styled.div`
   bottom: 0;
   z-index: 13;
   padding: ${r[16]}rem ${r[16]}rem;
-  background: ${palette.orange5};
+
+  ${(props) =>
+    props.orange &&
+    css`
+      background: ${palette.orange5};
+    `}
 `;
 
 const NextArrowButton = styled(Button)``;
@@ -61,7 +64,7 @@ const WriteInfoSlider = () => {
   ];
   const NextArrowStyle = ({ onClick }) => {
     return (
-      <ArrowDiv>
+      <ArrowDiv orange={page === 1 ? 1 : 0}>
         <NextArrowButton onClick={onClick} to={page === 2 ? '/write' : null}>
           {buttonText[page].text}
         </NextArrowButton>
@@ -78,7 +81,9 @@ const WriteInfoSlider = () => {
     speed: 200,
     cssEase: 'linear',
 
-    appendDots: (dots) => <SliderButtonList>{dots}</SliderButtonList>,
+    appendDots: (dots) => (
+      <SliderButtonList orange={page === 1 ? 1 : 0}>{dots}</SliderButtonList>
+    ),
     nextArrow: <NextArrowStyle />,
     prevArrow: <ArrowNoneStyle />,
 
@@ -89,11 +94,11 @@ const WriteInfoSlider = () => {
     <Block className="Block">
       <WriteInfoSliderBlock className="WriteInfoSliderBlock">
         <Slider {...settings} className="Slider">
-          <SliderItem page={page} />
-          <SliderItem page={page} />
-          <SliderItem page={page} />
+          <SliderItemPage1 page={page} />
+          <SliderItemPage2 page={page} />
+          <SliderItemPage3 page={page} />
         </Slider>
-        <Padding className="Block2" height={92} />
+        <Padding className="Absolute_Padding" height={92} />
       </WriteInfoSliderBlock>
     </Block>
   );
