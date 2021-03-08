@@ -81,6 +81,11 @@ const WriteCompleteForm = () => {
           카카오톡 채널 추가하기
         </StyeldButton>
       </Block>
+      <a href="http://pf.kakao.com/_kfNLK" target="_blank">
+        모앗 채널 새로열기
+      </a>
+      <br />
+      <a href="http://pf.kakao.com/_kfNLK">모앗 채널로 바로이동</a>
     </WriteCompleteFormBlock>
   );
 };
