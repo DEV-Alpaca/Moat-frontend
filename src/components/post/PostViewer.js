@@ -9,15 +9,20 @@ import PostViewerIntroduce from './PostViewerIntroduce';
 
 const PostViewerBlock = styled.div``;
 
-const PostViewer = () => {
+const PostViewer = ({ closed = false }) => {
   return (
     <PostViewerBlock>
-      <PostViewerForm />
+      <PostViewerForm {...{ closed }} />
       <BoldLine />
-      <PostViewerIntroduce />
+      <PostViewerIntroduce {...{ closed }} />
       <Line />
       <PostViewerInfo />
-      <Button full>신청하기</Button>
+      {!closed && <Button full>신청하기</Button>}
+      {closed && (
+        <Button full closed>
+          신청하기
+        </Button>
+      )}
     </PostViewerBlock>
   );
 };

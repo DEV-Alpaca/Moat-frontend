@@ -43,7 +43,9 @@ const PostForm = ({ closed = false }) => {
         {closed ? (
           <Form style={{ opacity: '0.3' }}>
             <ImageBlock>
-              <Image />
+              <Link to="/post">
+                <Image />
+              </Link>
               <StyledTag closed>신청 마감</StyledTag>
             </ImageBlock>
             <Padding height={10} />

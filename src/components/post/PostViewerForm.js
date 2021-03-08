@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { ReactComponent as PostViewerSampleImage } from '../../assets/postViewerSampleImage.svg';
 import Form from '../../lib/styles/Form';
 import palette from '../../lib/styles/paletts';
@@ -14,6 +14,11 @@ const PostViewerBlock = styled.div``;
 const ImageBlock = styled.div`
   position: relative;
   width: 100%;
+  ${({ closed }) =>
+    closed &&
+    css`
+      opacity: 0.4;
+    `}
 `;
 
 const PostViewerImage = styled(PostViewerSampleImage)`
@@ -32,12 +37,13 @@ const StyledTag = styled(Tag)`
   margin-bottom: ${r[22]}rem;
 `;
 
-const PostViewerForm = () => {
+const PostViewerForm = ({ closed }) => {
   return (
     <PostViewerBlock>
-      <ImageBlock>
+      <ImageBlock closed={closed === true ? 1 : 0}>
         <PostViewerImage />
-        <StyledTag>전화/카톡</StyledTag>
+        {!closed && <StyledTag>전화/카톡</StyledTag>}
+        {closed && <StyledTag closed>신청 마감</StyledTag>}
       </ImageBlock>
       <Form>
         <Padding height={10} />
