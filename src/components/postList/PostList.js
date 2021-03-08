@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import Button from '../common/Button';
 import PostForm from './PostForm';
-import { ReactComponent as Plus } from '../../assets/Plus.svg';
+import { ReactComponent as Plus } from '../../assets/plus.svg';
 import { ReactComponent as OrangeCheck } from '../../assets/orangeCheck.svg';
 
 import r from '../../lib/styles/Rem';
