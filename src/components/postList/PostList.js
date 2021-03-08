@@ -96,7 +96,7 @@ const PostList = () => {
       <ButtonBlock>
         <StyledButton to={'/select'}>
           <Plus style={{ marginTop: '0px' }} /> <Padding />
-          재능 나누기
+          재능 나누기aa
         </StyledButton>
       </ButtonBlock>
       <PostForm />
