@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Form from '../../lib/styles/Form';
 import palette from '../../lib/styles/paletts';
@@ -8,7 +8,6 @@ import Text from '../common/Text';
 import { ReactComponent as Warning } from '../../assets/redalert.svg';
 import { ReactComponent as Chkakao } from '../../assets/Chkakao.svg';
 import r from '../../lib/styles/Rem';
-import { Link } from 'react-router-dom';
 
 const WriteCompleteFormBlock = styled(Form)``;
 
@@ -59,8 +58,6 @@ const Img = styled.img`
 `;
 
 const WriteCompleteForm = () => {
-  useEffect(() => {}, []);
-
   return (
     <WriteCompleteFormBlock>
       <Text fontSize={30} textAlign="center">
@@ -85,8 +82,8 @@ const WriteCompleteForm = () => {
         <Img src={process.env.PUBLIC_URL + 'MoatCS.png'} alt="안내서" />
         <StyledA
           rel="noopener noreferrer"
-          onClick="location.href='intent://http://pf.kakao.com/_kfNLK#Intent;scheme=http;package=com.android.chrome;end'"
           target="_blank"
+          href="http://pf.kakao.com/_kfNLK"
         >
           <StyeldButton>
             <Chkakao style={{ marginRight: `${r[6]}rem` }} />
