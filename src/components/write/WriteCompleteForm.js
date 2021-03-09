@@ -85,7 +85,6 @@ const WriteCompleteForm = () => {
         <Img src={process.env.PUBLIC_URL + 'MoatCS.png'} alt="안내서" />
         <StyledA
           rel="noopener noreferrer"
-          href="#"
           onClick="location.href='intent://http://pf.kakao.com/_kfNLK#Intent;scheme=http;package=com.android.chrome;end'"
           target="_blank"
         >
