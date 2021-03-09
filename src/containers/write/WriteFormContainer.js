@@ -1,6 +1,8 @@
 import React, { useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import WriteForm from '../../components/write/WriteForm';
+import { changeField } from '../../modules/write';
 
 const WriteFormContainerBlock = styled.div``;
 
@@ -11,46 +13,41 @@ const clubType = [
 
 const times = ['30분', '1시간', '1시간 30분', '2시간', '2시간 30분', '3시간'];
 
-const WriteFormContainer = ({ district }) => {
+const WriteFormContainer = () => {
+  const dispatch = useDispatch();
+  const {
+    name,
+    club_type,
+    session_time,
+    cost,
+    address,
+    description,
+    d_date,
+  } = useSelector(({ write }) => ({
+    name: write.name,
+    club_type: write.club_type,
+    session_time: write.session_time,
+    cost: write.cost,
+    address: write.address,
+    description: write.description,
+    d_date: write.d_date,
+  }));
+
+  const onChange = (e) => {
+    const { value, name } = e.target;
+    console.log(name, value);
+    dispatch(changeField({ key: name, value }));
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    alert('글쓰기');
+    console.log('WriteFormContainer/onSubmit');
+  };
+
   const [type, setType] = useState(null);
   const [modal, setModal] = useState(false);
   const [time, setTime] = useState('30분');
-  const [imgUrls, setImgUrls] = useState([{ id: '', fileUrl: '' }]);
-  const MAX = 3;
-
-  const nextId = useRef(1);
-  const onInsert = (e) => {
-    if (imgUrls.length > MAX) {
-      alert('사진은 3개 까지만 업로드 가능합니다.');
-      return;
-    }
-
-    const fileArr = e.target.files;
-
-    let fileUrls = [];
-
-    let file;
-    let filesLength = fileArr.length;
-
-    for (let i = 0; i < filesLength; i++) {
-      file = fileArr[i];
-
-      let reader = new FileReader();
-      reader.onload = () => {
-        fileUrls[i] = reader.result;
-        const image = {
-          id: nextId.current,
-          fileUrl: fileUrls[i],
-        };
-
-        console.log('for in image i nextId.current ', image, i, nextId.current);
-
-        setImgUrls(imgUrls.concat(image));
-        nextId.current += 1;
-      };
-      reader.readAsDataURL(file);
-    }
-  };
 
   const onModalClick = () => {
     setModal(!modal);
@@ -67,11 +64,6 @@ const WriteFormContainer = ({ district }) => {
     setType(type);
   };
 
-  const onRemove = (id) => {
-    console.log('onRemove', imgUrls, id);
-    setImgUrls(imgUrls.filter((img) => img.id !== id));
-  };
-
   return (
     <WriteFormContainerBlock>
       <WriteForm
@@ -84,9 +76,15 @@ const WriteFormContainer = ({ district }) => {
         {...{ time }}
         {...{ type }}
         {...{ onTypeSelect }}
-        {...{ imgUrls }}
-        {...{ onInsert }}
-        {...{ onRemove }}
+        {...{ onChange }}
+        {...{ onSubmit }}
+        {...{ name }}
+        {...{ club_type }}
+        {...{ session_time }}
+        {...{ cost }}
+        {...{ address }}
+        {...{ description }}
+        {...{ d_date }}
       />
     </WriteFormContainerBlock>
   );
