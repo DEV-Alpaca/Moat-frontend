@@ -47,6 +47,11 @@ const MainboardSlider = () => {
     <MainboardSliderBlock>
       <Slider {...settings}>
         <Div>
+          <img
+            style={{ width: '320px' }}
+            src={process.env.PUBLIC_URL + 'Mainboard1.jpg'}
+            alt="Mainboard1"
+          ></img>
           <h3>편안한밥집</h3>
         </Div>
         <Div>

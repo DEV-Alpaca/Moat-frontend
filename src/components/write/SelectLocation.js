@@ -38,21 +38,21 @@ const SelectLocation = () => {
           어느 지역의 모임인가요?
         </Text>
         <Padding height={10} />
-        {locations.seoul.district.map((location) => (
+        {locations.seoul.district.map((district) => (
           <StyledButton
-            to="/writeInfo"
+            to={`/writeInfo?district=${district}`}
             white
-            key={location}
-            hover={selectCategory === location}
-            active={selectCategory === location}
+            key={district}
+            hover={selectCategory === district}
+            active={selectCategory === district}
             onClick={() => {
-              onSelect(location);
+              onSelect(district);
             }}
           >
-            {selectCategory === location ? (
+            {selectCategory === district ? (
               <OrangeCheck style={{ marginRight: `${r[8]}rem` }} />
             ) : null}
-            {location === '그 외 지역' ? locations.seoul.name : null} {location}
+            {district === '그 외 지역' ? locations.seoul.name : null} {district}
           </StyledButton>
         ))}
       </Form>

@@ -81,10 +81,7 @@ const Header = ({ title = true }) => {
             <HeaderText>서울 {location}</HeaderText>
             <DownArrow style={{ marginLeft: `${r[4]}rem` }} />
           </HeaderContainer>
-          <Link to="/login">
-            로그인
-            <DownArrow />
-          </Link>
+          <Link to="/login">로그인</Link>
         </Wrapper>
       </HeaderBlock>
       <Spacer />

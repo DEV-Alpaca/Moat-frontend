@@ -11,7 +11,7 @@ const clubType = [
 
 const times = ['30분', '1시간', '1시간 30분', '2시간', '2시간 30분', '3시간'];
 
-const WriteFormContainer = () => {
+const WriteFormContainer = ({ district }) => {
   const [type, setType] = useState(0);
   const [modal, setModal] = useState(false);
   const [time, setTime] = useState('30분');
@@ -74,6 +74,7 @@ const WriteFormContainer = () => {
 
   return (
     <WriteFormContainerBlock>
+      {district}
       <WriteForm
         {...{ clubType }}
         {...{ times }}

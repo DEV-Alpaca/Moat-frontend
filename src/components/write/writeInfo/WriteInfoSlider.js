@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { withRouter } from 'react-router';
 import Slider from 'react-slick';
 import styled, { css } from 'styled-components';
 import palette from '../../../lib/styles/paletts';
@@ -10,6 +11,7 @@ import {
   SliderItemPage2,
   SliderItemPage3,
 } from './SliderItem';
+import qs from 'qs';
 
 const Block = styled.div``;
 
@@ -55,7 +57,11 @@ const ArrowNoneStyle = () => {
   return <div style={{ display: 'none' }}></div>;
 };
 
-const WriteInfoSlider = () => {
+const WriteInfoSlider = ({ location }) => {
+  const query = qs.parse(location.search, {
+    ignoreQueryPrefix: true,
+  });
+
   const [page, setPage] = useState(0);
   const buttonText = [
     { id: 0, text: '알아보기' },
@@ -65,7 +71,10 @@ const WriteInfoSlider = () => {
   const NextArrowStyle = ({ onClick }) => {
     return (
       <ArrowDiv orange={page === 1 ? 1 : 0}>
-        <NextArrowButton onClick={onClick} to={page === 2 ? '/write' : null}>
+        <NextArrowButton
+          onClick={onClick}
+          to={page === 2 ? `/write?district=${query.district}` : null}
+        >
           {buttonText[page].text}
         </NextArrowButton>
       </ArrowDiv>
@@ -104,4 +113,4 @@ const WriteInfoSlider = () => {
   );
 };
 
-export default WriteInfoSlider;
+export default withRouter(WriteInfoSlider);
