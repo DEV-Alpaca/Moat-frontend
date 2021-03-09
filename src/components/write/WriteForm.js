@@ -174,7 +174,7 @@ const WriteForm = (props) => {
       />
       <Form>
         <>
-          <StyledInput placeholder="제목을 한줄로 적어주세요" />
+          <StyledInput name="name" placeholder="제목을 한줄로 적어주세요" />
           <Padding height={40} />
           <Text gray>어떤 방식인가요?</Text>
           <Padding height={8} />
@@ -195,21 +195,37 @@ const WriteForm = (props) => {
               </Button>
             ))}
           </Container>
-          {type === 1 && (
+          {type && (
             <>
               <Padding height={40} />
-              <Text gray>시간당 가격을 알려주세요.</Text>
+              <Text gray>
+                시간
+                {type === 1 ? '당 ' : type === 2 ? '과 ' : null}
+                가격을 알려주세요.
+              </Text>
               <Padding height={8} />
-              <Container>
-                <StyledButton white onClick={onModalClick}>
-                  <Text fontSize={20}> {time}</Text>
-                  <DownArrow style={{ marginLeft: `${r[4]}rem` }} />
-                </StyledButton>
-                <StyledDiv style={{ width: `${r[160]}rem` }}>
-                  <StyledPriceInput />
-                  <Text style={{ color: `${palette.gray[200]}` }}>원</Text>
-                </StyledDiv>
-              </Container>
+              {type === 1 ? (
+                <Container>
+                  <StyledButton white onClick={onModalClick}>
+                    <Text fontSize={20}> {time}</Text>
+                    <DownArrow style={{ marginLeft: `${r[4]}rem` }} />
+                  </StyledButton>
+                  <StyledDiv style={{ width: `${r[160]}rem` }}>
+                    <StyledPriceInput />
+                    <Text style={{ color: `${palette.gray[200]}` }}>원</Text>
+                  </StyledDiv>
+                </Container>
+              ) : type === 2 ? (
+                <Container>
+                  <Text fontWeight={700} fontSize={20}>
+                    10분 당
+                  </Text>
+                  <StyledDiv>
+                    <StyledPriceInput />
+                    <Text style={{ color: `${palette.gray[200]}` }}>원</Text>
+                  </StyledDiv>
+                </Container>
+              ) : null}
               <Text
                 gray
                 style={{
@@ -245,79 +261,53 @@ const WriteForm = (props) => {
                 ))}
               </ImgContainer>
               <StyledForm style={{ padding: `${r[12]}rem ${r[12]}rem` }}>
-                <StyledTextarea
-                  ref={textareaRef}
-                  value={currentValue}
-                  onChange={(e) => {
-                    setCurrentValue(e.target.value);
-                  }}
-                  placeholder="장소(ex. 체육관)"
-                  rows=""
-                />
-                <StyledTextarea
-                  ref={textareaRef}
-                  value={currentValue}
-                  onChange={(e) => {
-                    setCurrentValue(e.target.value);
-                  }}
-                  placeholder="날짜(ex. 매주 화/수,금/협의/미정)"
-                  rows=""
-                />
-                <StyledTextarea
-                  ref={textareaRef}
-                  value={currentValue}
-                  onChange={(e) => {
-                    setCurrentValue(e.target.value);
-                  }}
-                  placeholder="어떤 모임인지 이웃들이 알기 쉽게 적어주세요!"
-                  rows="8"
-                />
-              </StyledForm>
-            </>
-          )}
-
-          {type === 2 && (
-            <>
-              <Padding height={40} />
-              <Text gray>시간과 가격을 알려주세요.</Text>
-              <Padding height={8} />
-              <Container>
-                <Text fontWeight={700} fontSize={20}>
-                  10분 당
-                </Text>
-                <StyledDiv>
-                  <StyledPriceInput />
-                  <Text style={{ color: `${palette.gray[200]}` }}>원</Text>
-                </StyledDiv>
-              </Container>
-              <Text
-                gray
-                style={{
-                  marginTop: `${r[24]}rem`,
-                }}
-              >
-                설명을 입력해주세요.
-              </Text>
-              <CameraBlock>
-                <Camera />
-                <Text fontWeight={400}>사진추가</Text>
-              </CameraBlock>
-
-              <StyledForm style={{ padding: `${r[12]}rem ${r[12]}rem` }}>
-                <StyledTextarea
-                  ref={textareaRef}
-                  value={currentValue}
-                  onChange={(e) => {
-                    setCurrentValue(e.target.value);
-                  }}
-                  placeholder=" - 연락이 가능한 시간대를 적어주세요
+                {type === 1 ? (
+                  <>
+                    <StyledTextarea
+                      ref={textareaRef}
+                      value={currentValue}
+                      onChange={(e) => {
+                        setCurrentValue(e.target.value);
+                      }}
+                      placeholder="장소(ex. 체육관)"
+                      rows=""
+                    />
+                    <StyledTextarea
+                      ref={textareaRef}
+                      value={currentValue}
+                      onChange={(e) => {
+                        setCurrentValue(e.target.value);
+                      }}
+                      placeholder="날짜(ex. 매주 화/수,금/협의/미정)"
+                      rows=""
+                    />
+                    <StyledTextarea
+                      ref={textareaRef}
+                      value={currentValue}
+                      onChange={(e) => {
+                        setCurrentValue(e.target.value);
+                      }}
+                      placeholder="어떤 모임인지 이웃들이 알기 쉽게 적어주세요!"
+                      rows="8"
+                    />
+                  </>
+                ) : type === 2 ? (
+                  <StyledTextarea
+                    ref={textareaRef}
+                    value={currentValue}
+                    onChange={(e) => {
+                      setCurrentValue(e.target.value);
+                    }}
+                    placeholder=" - 연락이 가능한 시간대를 적어주세요
                 - 어떤 걸 나눌 수 있는지, 
                 - 나의 경력 혹은 나만의 강점이 뭔지 적어주세요!"
-                  rows="8"
-                />
-              </StyledForm>
+                    rows="8"
+                  />
+                ) : null}
+              </StyledForm>{' '}
             </>
           )}
+
           <StyledTextarea style={{ display: 'none' }} ref={textareaRef} />
           <Padding height={20} />
           <Button to="/writeComplete">신청완료</Button>

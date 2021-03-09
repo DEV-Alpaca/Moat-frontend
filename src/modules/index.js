@@ -1,13 +1,15 @@
 import { all } from 'redux-saga/effects';
 import { combineReducers } from 'redux';
+import loading from './loading';
 import login from './login';
 import register from './register';
-import loading from './loading';
+import write from './write';
 
 const rootReducer = combineReducers({
   loading,
   login,
   register,
+  write,
 });
 
 // export function* rootSaga() {

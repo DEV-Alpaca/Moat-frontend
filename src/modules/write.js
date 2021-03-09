@@ -23,6 +23,15 @@ const initialState = {
   d_date: '',
 };
 
-const write = handleActions({}, initialState);
+const write = handleActions(
+  {
+    [CHANGE_FIELD]: (state, { payload: { key, value } }) => ({
+      ...state,
+      [key]: value,
+    }),
+    [INITIALIZE_FORM]: (state) => initialState,
+  },
+  initialState,
+);
 
 export default write;
