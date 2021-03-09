@@ -1,12 +1,12 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import WriteForm from '../../components/write/WriteForm';
-import { changeField } from '../../modules/write';
+import { changeField, selectType } from '../../modules/write';
 
 const WriteFormContainerBlock = styled.div``;
 
-const clubType = [
+const typeList = [
   { id: 1, text: '만나요' },
   { id: 2, text: '전화/카톡' },
 ];
@@ -15,22 +15,11 @@ const times = ['30분', '1시간', '1시간 30분', '2시간', '2시간 30분', 
 
 const WriteFormContainer = () => {
   const dispatch = useDispatch();
-  const {
-    name,
-    club_type,
-    session_time,
-    cost,
-    address,
-    description,
-    d_date,
-  } = useSelector(({ write }) => ({
+  const { name, club_type, session_time, cost } = useSelector(({ write }) => ({
     name: write.name,
     club_type: write.club_type,
     session_time: write.session_time,
     cost: write.cost,
-    address: write.address,
-    description: write.description,
-    d_date: write.d_date,
   }));
 
   const onChange = (e) => {
@@ -62,12 +51,13 @@ const WriteFormContainer = () => {
 
   const onTypeSelect = (type) => {
     setType(type);
+    dispatch(selectType({ type }));
   };
 
   return (
     <WriteFormContainerBlock>
       <WriteForm
-        {...{ clubType }}
+        {...{ typeList }}
         {...{ times }}
         {...{ onModalClick }}
         {...{ onCancel }}
@@ -82,9 +72,6 @@ const WriteFormContainer = () => {
         {...{ club_type }}
         {...{ session_time }}
         {...{ cost }}
-        {...{ address }}
-        {...{ description }}
-        {...{ d_date }}
       />
     </WriteFormContainerBlock>
   );

@@ -18,31 +18,6 @@ const StyledInput = styled(Input)`
   height: ${r[52]}rem;
 `;
 
-const StyledForm = styled(Form)`
-  margin-top: ${r[16]}rem;
-  border-radius: 8px;
-  border: 1px solid ${palette.gray[200]};
-`;
-
-const StyledTextarea = styled.textarea`
-  width: 100%;
-  border: none;
-  outline: none;
-  overflow: visible;
-  font-size: ${r[20]}rem;
-  font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.6;
-  letter-spacing: -0.7px;
-  color: ${palette.black};
-  resize: none;
-
-  &:focus {
-    color: black;
-  }
-`;
-
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
@@ -88,7 +63,7 @@ const StyledPriceInput = styled.input`
 
 const WriteForm = (props) => {
   const {
-    clubType,
+    typeList,
     times,
     modal,
     time,
@@ -100,20 +75,8 @@ const WriteForm = (props) => {
     onChange,
     onSubmit,
     name,
-    d_date,
     cost,
-    address,
-    description,
   } = props;
-
-  const textareaRef = useRef(null);
-  const [currentValue, setCurrentValue] = useState(''); // you can manage data with it
-
-  useEffect(() => {
-    textareaRef.current.style.height = '0px';
-    const scrollHeight = textareaRef.current.scrollHeight;
-    textareaRef.current.style.height = scrollHeight + 'px';
-  }, [currentValue]);
 
   return (
     <>
@@ -123,14 +86,13 @@ const WriteForm = (props) => {
         onConfirm={onConfirm}
         onCancel={onCancel}
       />
-
       <>
         <StyledInput name="name" placeholder="제목을 한줄로 적어주세요" />
         <Padding height={40} />
         <Text gray>어떤 방식인가요?</Text>
         <Padding height={8} />
         <Container>
-          {clubType.map((club, i) => (
+          {typeList.map((club, i) => (
             <Button
               key={i + 1}
               white
@@ -177,61 +139,11 @@ const WriteForm = (props) => {
                 </StyledDiv>
               </Container>
             ) : null}
-            <Text
-              gray
-              style={{
-                marginTop: `${r[24]}rem`,
-              }}
-            >
-              설명을 입력해주세요.
-            </Text>
+            <Padding height={24} />
+            <Text gray>설명을 입력해주세요.</Text>
             <Padding height={8} />
-            <StyledForm style={{ padding: `${r[12]}rem ${r[12]}rem` }}>
-              {type === 1 ? (
-                <>
-                  <StyledTextarea
-                    ref={textareaRef}
-                    name="address"
-                    value={currentValue}
-                    onChange={onChange}
-                    placeholder="장소(ex. 체육관)"
-                    rows=""
-                  />
-                  <StyledTextarea
-                    ref={textareaRef}
-                    name="d_date"
-                    value={currentValue}
-                    onChange={onChange}
-                    placeholder="날짜(ex. 매주 화/수,금/협의/미정)"
-                    rows=""
-                  />
-                  <StyledTextarea
-                    ref={textareaRef}
-                    name="description"
-                    value={currentValue}
-                    onChange={onChange}
-                    placeholder="어떤 모임인지 이웃들이 알기 쉽게 적어주세요!"
-                    rows="8"
-                  />
-                </>
-              ) : type === 2 ? (
-                <StyledTextarea
-                  ref={textareaRef}
-                  name="description"
-                  value={currentValue}
-                  onChange={onChange}
-                  placeholder=" - 연락이 가능한 시간대를 적어주세요
-                - 어떤 걸 나눌 수 있는지, 
-                - 나의 경력 혹은 나만의 강점이 뭔지 적어주세요!"
-                  rows="8"
-                />
-              ) : null}
-            </StyledForm>{' '}
           </>
         )}
-
-        <StyledTextarea style={{ display: 'none' }} ref={textareaRef} />
-        <Padding height={20} />
       </>
     </>
   );

@@ -1,10 +1,16 @@
 import React, { useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import UploadPictureForm from '../../components/write/UploadPictureForm';
 
 const UploadPictureContainerBlock = styled.div``;
 
 const UploadPictureContainer = () => {
+  const dispatch = useDispatch();
+  const { club_type } = useSelector(({ write }) => ({
+    club_type: write.club_type,
+  }));
+
   const [imgUrls, setImgUrls] = useState([{ id: '', fileUrl: '' }]);
   const MAX = 3;
 
@@ -48,7 +54,13 @@ const UploadPictureContainer = () => {
   };
   return (
     <UploadPictureContainerBlock>
-      <UploadPictureForm {...{ imgUrls }} {...{ onInsert }} {...{ onRemove }} />
+      {club_type && (
+        <UploadPictureForm
+          {...{ imgUrls }}
+          {...{ onInsert }}
+          {...{ onRemove }}
+        />
+      )}
     </UploadPictureContainerBlock>
   );
 };
