@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import Form from '../../lib/styles/Form';
 import palette from '../../lib/styles/paletts';
@@ -59,6 +59,8 @@ const Img = styled.img`
 `;
 
 const WriteCompleteForm = () => {
+  useEffect(() => {}, []);
+
   return (
     <WriteCompleteFormBlock>
       <Text fontSize={30} textAlign="center">
@@ -83,7 +85,8 @@ const WriteCompleteForm = () => {
         <Img src={process.env.PUBLIC_URL + 'MoatCS.png'} alt="안내서" />
         <StyledA
           rel="noopener noreferrer"
-          href="http://pf.kakao.com/_kfNLK"
+          href="#"
+          onClick="location.href='intent://http://pf.kakao.com/_kfNLK#Intent;scheme=http;package=com.android.chrome;end'"
           target="_blank"
         >
           <StyeldButton>
