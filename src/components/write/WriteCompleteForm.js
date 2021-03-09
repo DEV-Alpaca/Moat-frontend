@@ -59,8 +59,6 @@ const Img = styled.img`
 `;
 
 const WriteCompleteForm = () => {
-  const [];
-
   return (
     <WriteCompleteFormBlock>
       <Text fontSize={30} textAlign="center">
