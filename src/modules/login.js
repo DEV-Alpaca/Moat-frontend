@@ -11,7 +11,7 @@ export const changeField = createAction(CHANGE_FIELD, ({ key, value }) => ({
 export const initializeForm = createAction(INITIALIZE_FORM);
 
 const initialState = {
-  mobile: '',
+  phone_number: '',
   password: '',
 
   login: null,

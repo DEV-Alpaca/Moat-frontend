@@ -251,15 +251,6 @@ const WriteForm = (props) => {
                   onChange={(e) => {
                     setCurrentValue(e.target.value);
                   }}
-                  placeholder="동/읍/면"
-                  rows=""
-                />
-                <StyledTextarea
-                  ref={textareaRef}
-                  value={currentValue}
-                  onChange={(e) => {
-                    setCurrentValue(e.target.value);
-                  }}
                   placeholder="장소(ex. 체육관)"
                   rows=""
                 />
