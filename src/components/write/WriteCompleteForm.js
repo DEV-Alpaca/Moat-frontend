@@ -40,11 +40,15 @@ const Flex = styled.div`
   flex-direction: column;
 `;
 
-const StyeldButton = styled(Button)`
+const StyledA = styled.a`
   position: absolute;
+  bottom: 0;
+  z-index: 1;
+`;
+
+const StyeldButton = styled(Button)`
   width: ${r[300]}rem;
   bottom: ${r[32]}rem;
-  z-index: 1;
 `;
 
 const Img = styled.img`
@@ -55,6 +59,8 @@ const Img = styled.img`
 `;
 
 const WriteCompleteForm = () => {
+  const [];
+
   return (
     <WriteCompleteFormBlock>
       <Text fontSize={30} textAlign="center">
@@ -77,21 +83,17 @@ const WriteCompleteForm = () => {
           </Flex>
         </RedContainer>
         <Img src={process.env.PUBLIC_URL + 'MoatCS.png'} alt="안내서" />
-        <StyeldButton to={'/'}>
-          <Chkakao style={{ marginRight: `${r[6]}rem` }} />
-          카카오톡 채널 추가하기
-        </StyeldButton>
+        <StyledA
+          rel="noopener noreferrer"
+          href="http://pf.kakao.com/_kfNLK"
+          target="_blank"
+        >
+          <StyeldButton>
+            <Chkakao style={{ marginRight: `${r[6]}rem` }} />
+            카카오톡 채널 추가하기
+          </StyeldButton>
+        </StyledA>
       </Block>
-      <a href="http://pf.kakao.com/_kfNLK" target="_blank">
-        모앗 채널 새로열기
-      </a>
-      <br />
-      <Link to="http://pf.kakao.com/_kfNLK" target="_blank">
-        {' '}
-        a
-      </Link>{' '}
-      <br />
-      <a href="http://pf.kakao.com/_kfNLK">모앗 채널로 바로이동</a>
     </WriteCompleteFormBlock>
   );
 };
