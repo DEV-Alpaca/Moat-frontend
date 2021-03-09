@@ -8,6 +8,7 @@ import Text from '../common/Text';
 import { ReactComponent as Warning } from '../../assets/redalert.svg';
 import { ReactComponent as Chkakao } from '../../assets/Chkakao.svg';
 import r from '../../lib/styles/Rem';
+import { Link } from 'react-router-dom';
 
 const WriteCompleteFormBlock = styled(Form)``;
 
@@ -84,6 +85,11 @@ const WriteCompleteForm = () => {
       <a href="http://pf.kakao.com/_kfNLK" target="_blank">
         모앗 채널 새로열기
       </a>
+      <br />
+      <Link to="http://pf.kakao.com/_kfNLK" target="_blank">
+        {' '}
+        a
+      </Link>{' '}
       <br />
       <a href="http://pf.kakao.com/_kfNLK">모앗 채널로 바로이동</a>
     </WriteCompleteFormBlock>
