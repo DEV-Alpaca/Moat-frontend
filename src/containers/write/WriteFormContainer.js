@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import WriteForm from '../../components/write/WriteForm';
-import { changeField, selectType } from '../../modules/write';
+import { changeField, initializeForm, selectType } from '../../modules/write';
 
 const WriteFormContainerBlock = styled.div``;
 
@@ -11,7 +11,14 @@ const typeList = [
   { id: 2, text: '전화/카톡' },
 ];
 
-const times = ['30분', '1시간', '1시간 30분', '2시간', '2시간 30분', '3시간'];
+const timeList = [
+  '30분',
+  '1시간',
+  '1시간 30분',
+  '2시간',
+  '2시간 30분',
+  '3시간',
+];
 
 const WriteFormContainer = () => {
   const dispatch = useDispatch();
@@ -54,11 +61,15 @@ const WriteFormContainer = () => {
     dispatch(selectType({ type }));
   };
 
+  useEffect(() => {
+    return dispatch(initializeForm());
+  }, [dispatch]);
+
   return (
     <WriteFormContainerBlock>
       <WriteForm
         {...{ typeList }}
-        {...{ times }}
+        {...{ timeList }}
         {...{ onModalClick }}
         {...{ onCancel }}
         {...{ onConfirm }}

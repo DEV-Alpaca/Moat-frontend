@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import Button from '../../components/common/Button';
+import Form from '../../lib/styles/Form';
 
-const WriteActionButtonBlock = styled.div``;
+const WriteActionButtonBlock = styled(Form)``;
 
 const WriteActionButton = () => {
   return (

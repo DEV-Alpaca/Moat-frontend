@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Form from '../../lib/styles/Form';
 import r from '../../lib/styles/Rem';
@@ -64,7 +64,7 @@ const StyledPriceInput = styled.input`
 const WriteForm = (props) => {
   const {
     typeList,
-    times,
+    timeList,
     modal,
     time,
     type,
@@ -73,7 +73,6 @@ const WriteForm = (props) => {
     onConfirm,
     onTypeSelect,
     onChange,
-    onSubmit,
     name,
     cost,
   } = props;
@@ -81,13 +80,18 @@ const WriteForm = (props) => {
   return (
     <>
       <TimeSelectModal
-        times={times}
+        timeList={timeList}
         visible={modal}
         onConfirm={onConfirm}
         onCancel={onCancel}
       />
-      <>
-        <StyledInput name="name" placeholder="제목을 한줄로 적어주세요" />
+      <Form>
+        <StyledInput
+          name="name"
+          value={name}
+          onChange={onChange}
+          placeholder="제목을 한줄로 적어주세요"
+        />
         <Padding height={40} />
         <Text gray>어떤 방식인가요?</Text>
         <Padding height={8} />
@@ -117,34 +121,25 @@ const WriteForm = (props) => {
               가격을 알려주세요.
             </Text>
             <Padding height={8} />
-            {type === 1 ? (
-              <Container>
+            <Container>
+              {type === 1 ? (
                 <StyledButton white onClick={onModalClick}>
                   <Text fontSize={20}> {time}</Text>
                   <DownArrow style={{ marginLeft: `${r[4]}rem` }} />
                 </StyledButton>
-                <StyledDiv style={{ width: `${r[160]}rem` }}>
-                  <StyledPriceInput name="cost" />
-                  <Text style={{ color: `${palette.gray[200]}` }}>원</Text>
-                </StyledDiv>
-              </Container>
-            ) : type === 2 ? (
-              <Container>
+              ) : type === 2 ? (
                 <Text fontWeight={700} fontSize={20}>
                   10분 당
                 </Text>
-                <StyledDiv>
-                  <StyledPriceInput name="cost" />
-                  <Text style={{ color: `${palette.gray[200]}` }}>원</Text>
-                </StyledDiv>
-              </Container>
-            ) : null}
-            <Padding height={24} />
-            <Text gray>설명을 입력해주세요.</Text>
-            <Padding height={8} />
+              ) : null}
+              <StyledDiv>
+                <StyledPriceInput name="cost" />
+                <Text style={{ color: `${palette.gray[200]}` }}>원</Text>
+              </StyledDiv>
+            </Container>
           </>
         )}
-      </>
+      </Form>
     </>
   );
 };

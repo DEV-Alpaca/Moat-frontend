@@ -6,9 +6,24 @@ import Button from '../common/Button';
 import { ReactComponent as Camera } from '../../assets/camera.svg';
 import { ReactComponent as WhiteClose } from '../../assets/WhiteClose.svg';
 import Text from '../common/Text';
+import Form from '../../lib/styles/Form';
+import Padding from '../common/Padding';
 
-const UploadPictureFormBlock = styled.div``;
+const Block = styled.div;
 
+const ImgContainer = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: flex-end;
+  overflow: auto;
+  label + img {
+    margin-left: ${r[16]}rem;
+  }
+
+  img + img {
+    margin-left: ${r[16]}rem;
+  }
+`;
 const CameraBlock = styled.label`
   display: flex;
   flex-direction: column;
@@ -27,19 +42,6 @@ const CameraBlock = styled.label`
   cursor: pointer;
 `;
 
-const ImgContainer = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: flex-end;
-  overflow: auto;
-  label + img {
-    margin-left: ${r[16]}rem;
-  }
-
-  img + img {
-    margin-left: ${r[16]}rem;
-  }
-`;
 const ImBlock = styled.div`
   position: relative;
 `;
@@ -61,7 +63,9 @@ const CloseBox = styled(Button)`
 
 const UploadPictureForm = ({ onInsert, imgUrls, onRemove }) => {
   return (
-    <UploadPictureFormBlock>
+    <div style={{ padding: `${r[16]}rem` }}>
+      <Text gray>설명을 입력해주세요.</Text>
+      <Padding height={8} />
       <ImgContainer>
         <CameraBlock>
           <Camera />
@@ -77,17 +81,17 @@ const UploadPictureForm = ({ onInsert, imgUrls, onRemove }) => {
         {imgUrls.map((imgUrl, i) => (
           <>
             {i === 0 ? null : (
-              <ImBlock>
+              <ImBlock key={i + 1}>
                 <StyledImg key={i + 1} src={imgUrl.fileUrl} />
-                <CloseBox onClick={() => onRemove(imgUrl.id)}>
-                  <WhiteClose />
+                <CloseBox key={i + 1} onClick={() => onRemove(imgUrl.id)}>
+                  <WhiteClose key={i + 1} />
                 </CloseBox>
               </ImBlock>
             )}
           </>
         ))}
       </ImgContainer>
-    </UploadPictureFormBlock>
+    </div>
   );
 };
 

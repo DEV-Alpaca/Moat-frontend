@@ -35,12 +35,12 @@ const StyledButton = styled(Button)`
   }
 `;
 
-const TimeSelectModal = ({ times, visible, onConfirm, onCancel }) => {
+const TimeSelectModal = ({ timeList, visible, onConfirm, onCancel }) => {
   if (!visible) return null;
   return (
     <FullScreen onCancel={onCancel}>
       <ModalBlock>
-        {times.map((time) => (
+        {timeList.map((time) => (
           <StyledButton
             key={time}
             white

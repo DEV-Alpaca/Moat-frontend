@@ -8,10 +8,9 @@ const EditorContainerBlock = styled.div``;
 
 const EditorContainer = () => {
   const dispatch = useDispatch();
-  const { club_type, address, description, d_date } = useSelector(
+  const { club_type, address, d_date, description } = useSelector(
     ({ write }) => ({
       club_type: write.club_type,
-
       address: write.address,
       description: write.description,
       d_date: write.d_date,
@@ -26,7 +25,15 @@ const EditorContainer = () => {
 
   return (
     <EditorContainerBlock>
-      {club_type && <Editor type={club_type} onChange={onChange} />}
+      {club_type && (
+        <Editor
+          type={club_type}
+          onChange={onChange}
+          {...{ address }}
+          {...{ d_date }}
+          {...{ description }}
+        />
+      )}
     </EditorContainerBlock>
   );
 };
