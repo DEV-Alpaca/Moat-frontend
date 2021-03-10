@@ -14,100 +14,111 @@ const StyledForm = styled(Form)`
 
 const StyledTextarea = styled.textarea`
   width: 100%;
-  border: none;
+  height: 37px;
   outline: none;
   overflow: visible;
   font-size: ${r[20]}rem;
   font-weight: 500;
   color: ${palette.black};
   resize: none;
-
+  padding: 0;
+  border: none;
   &:focus {
     color: black;
   }
 `;
 
-const defaultStyle = {
-  border: 'none',
-};
+const Editor = (props) => {
+  const {
+    type,
+    onChange,
+    onChangeDescription,
+    address,
+    d_date,
+    descriptionType1,
+    descriptionType2,
+  } = props;
+  const [index, setIndex] = useState(null);
+  const textareaRef = useRef([]);
 
-const Editor = ({
-  style = defaultStyle,
-  type,
-  onChange,
-  address,
-  d_date,
-  description,
-}) => {
-  const [selectRef, setSelectRef] = useState('');
-
-  const addressRef = useRef(null);
-  const d_dateRef = useRef(null);
-  const descriptionReft = useRef(null);
-
-  useEffect(() => {
-    if (selectRef && selectRef.current) {
-      selectRef.current.style.height = '0px';
-      const scrollHeight = selectRef.current.scrollHeight;
-      selectRef.current.style.height = scrollHeight + 'px';
-      console.log('높이는 ', selectRef.current.style.height, scrollHeight);
-    } else {
-      console.log('존재 x');
-    }
-  }, [selectRef]);
-
-  const handleSelectRef = (e) => {
-    setSelectRef(e.target.name);
+  const handleSelectRef = (index) => {
+    setIndex(index);
   };
-  console.log(selectRef);
+  useEffect(() => {
+    if (textareaRef && textareaRef.current[index]) {
+      if (index === 2) {
+        textareaRef.current[index].style.height = '150px';
+      } else {
+        textareaRef.current[index].style.height = '37px';
+      }
+      const scrollHeight = textareaRef.current[index].scrollHeight;
+      textareaRef.current[index].style.height = scrollHeight + 'px';
+    }
+  }, [index, address, d_date, descriptionType1, descriptionType2]);
+
+  console.log('현재 index', index, descriptionType1, descriptionType2);
   return (
     <EditorBlock>
       <StyledForm style={{ padding: `${r[12]}rem ${r[12]}rem` }}>
         {type === 1 ? (
           <>
             <StyledTextarea
-              style={style}
-              ref={addressRef}
+              ref={(el) => (textareaRef.current[0] = el)}
               name="address"
               value={address}
-              onClick={handleSelectRef}
+              onClick={() => {
+                handleSelectRef(0);
+              }}
+              onFocus={() => {
+                handleSelectRef(0);
+              }}
               onChange={onChange}
               placeholder="장소(ex. 체육관)"
-              rows=""
             />
             <StyledTextarea
-              style={style}
-              ref={d_dateRef}
+              ref={(el) => (textareaRef.current[1] = el)}
               name="d_date"
               value={d_date}
-              onClick={handleSelectRef}
+              onClick={() => {
+                handleSelectRef(1);
+              }}
+              onFocus={() => {
+                handleSelectRef(1);
+              }}
               onChange={onChange}
               placeholder="날짜(ex. 매주 화/수,금/협의/미정)"
-              rows=""
             />
             <StyledTextarea
-              style={style}
-              ref={descriptionReft}
-              name="description"
-              value={description}
-              onClick={handleSelectRef}
-              onChange={onChange}
+              ref={(el) => (textareaRef.current[2] = el)}
+              name="descriptionType1"
+              value={descriptionType1}
+              onClick={() => {
+                handleSelectRef(2);
+              }}
+              onFocus={() => {
+                handleSelectRef(2);
+              }}
+              onChange={onChangeDescription}
               placeholder="어떤 모임인지 이웃들이 알기 쉽게 적어주세요!"
-              rows=""
+              style={{ height: '150px' }}
             />
           </>
         ) : type === 2 ? (
           <StyledTextarea
-            style={style}
-            ref={descriptionReft}
-            name="description"
-            value={description}
-            onClick={handleSelectRef}
-            onChange={onChange}
+            ref={(el) => (textareaRef.current[2] = el)}
+            name="descriptionType2"
+            value={descriptionType2}
+            onClick={() => {
+              handleSelectRef(2);
+            }}
+            onFocus={() => {
+              handleSelectRef(2);
+            }}
+            onChange={onChangeDescription}
             placeholder=" - 연락이 가능한 시간대를 적어주세요
                 - 어떤 걸 나눌 수 있는지, 
                 - 나의 경력 혹은 나만의 강점이 뭔지 적어주세요!"
-            rows=""
+            style={{ height: '150px' }}
           />
         ) : null}
       </StyledForm>
