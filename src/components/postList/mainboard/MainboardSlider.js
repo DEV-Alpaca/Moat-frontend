@@ -91,7 +91,7 @@ const MainboardSlider = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
 
-    // autoplay: true,
+    autoplay: true,
     speed: 300,
     autoplaySpeed: 5000,
     cssEase: 'linear',

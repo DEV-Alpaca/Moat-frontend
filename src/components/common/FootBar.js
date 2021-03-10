@@ -53,7 +53,7 @@ const Spacer = styled.div`
   height: ${r[56]}rem;
 `;
 
-const categories = ['홈', '모앗 가이드', '마이페이지'];
+const categories = ['홈', '모앗 가이드'];
 
 const FootBar = () => {
   const [selectCategory, setSelectCategory] = useState('홈');
@@ -82,15 +82,6 @@ const FootBar = () => {
           >
             <Guide />
             <FootBarText>{categories[1]}</FootBarText>
-          </FootBarContainer>
-          <FootBarContainer
-            active={selectCategory === categories[2]}
-            onClick={() => {
-              onSelect(categories[2]);
-            }}
-          >
-            <Guide />
-            <FootBarText>{categories[2]}</FootBarText>
           </FootBarContainer>
         </Wrapper>
       </FootBarBlock>
