@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import Editor from '../../components/write/Editor';
-import { changeField, inputText, selectType } from '../../modules/write';
+import { changeField, inputText } from '../../modules/write';
 
 const EditorContainerBlock = styled.div``;
 
@@ -13,14 +13,11 @@ const EditorContainer = () => {
   });
 
   const dispatch = useDispatch();
-  const { club_type, address, d_date, description } = useSelector(
-    ({ write }) => ({
-      club_type: write.club_type,
-      address: write.address,
-      description: write.description,
-      d_date: write.d_date,
-    }),
-  );
+  const { club_type, address, d_date } = useSelector(({ write }) => ({
+    club_type: write.club_type,
+    address: write.address,
+    d_date: write.d_date,
+  }));
 
   const onChange = (e) => {
     const { value, name } = e.target;
@@ -37,25 +34,18 @@ const EditorContainer = () => {
     });
   };
 
-  // useEffect(() => {
-  //   dispatch(inputText({ ...descriptions.descriptionType2 }));
-  // }, [descriptions, dispatch]);
+  const handleDescription = (text) => {
+    dispatch(inputText({ text }));
+  };
+
   return (
     <EditorContainerBlock>
-      <button
-        onClick={() => {
-          dispatch(inputText({...descriptions.descriptionType1}));
-          console.log(descriptions);
-        }}
-      >
-        버튼
-      </button>
-
       {club_type && (
         <Editor
           type={club_type}
           onChange={onChange}
           onChangeDescription={onChangeDescription}
+          handleDescription={handleDescription}
           {...{ address }}
           {...{ d_date }}
           {...descriptions}

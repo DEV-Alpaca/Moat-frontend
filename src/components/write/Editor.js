@@ -33,6 +33,7 @@ const Editor = (props) => {
     type,
     onChange,
     onChangeDescription,
+    handleDescription,
     address,
     d_date,
     descriptionType1,
@@ -55,6 +56,13 @@ const Editor = (props) => {
       textareaRef.current[index].style.height = scrollHeight + 'px';
     }
   }, [index, address, d_date, descriptionType1, descriptionType2]);
+
+  useEffect(() => {
+    handleDescription(
+      type === 1 ? descriptionType1 : type === 2 ? descriptionType2 : '',
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [descriptionType1, descriptionType2, type]);
 
   console.log('현재 index', index, descriptionType1, descriptionType2);
   return (
