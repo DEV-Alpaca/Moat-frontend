@@ -21,6 +21,7 @@ const RegisterForm = ({
   onSubmit,
   password,
   passwordConfirm,
+  errorMessage,
   error,
 }) => {
   return (
@@ -34,6 +35,7 @@ const RegisterForm = ({
         </Title>
         <Padding height={60} />
         <form onSubmit={onSubmit}>
+          {!error && password && <Text input>비밀번호</Text>}
           <Input
             onChange={onChange}
             onSubmit={onSubmit}
@@ -43,9 +45,7 @@ const RegisterForm = ({
             placeholder="비밀번호 입력 (6자리 이상)"
           />
           <Padding />
-          <Text fontSize={16} textAlign={'left'} marginLeft={`${r[8]}`}>
-            비밀번호 확인
-          </Text>
+          {!error && passwordConfirm && <Text input>비밀번호 확인</Text>}
           <Input
             onChange={onChange}
             onSubmit={onSubmit}
@@ -55,16 +55,7 @@ const RegisterForm = ({
             placeholder=" 비밀번호를 한번 더 확인해주세요."
           />
         </form>
-        <Text
-          red
-          fontSize={18}
-          textAlign={'left'}
-          marginLeft={`${r[12]}`}
-          marginTop={`${r[3]}`}
-          fontWeight={700}
-        >
-          비밀번호를 다시 확인해주세요.
-        </Text>
+        {error && <Text error>비밀번호를 다시 확인해주세요.</Text>}
       </Form>
       <StyledButton full to="/registerConfirm">
         다음으로
