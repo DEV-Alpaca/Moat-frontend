@@ -11,11 +11,12 @@ const AuthPage = ({ location }) => {
 
   return (
     <>
+      {console.log(isPasswordChange)}
       <Nav
         goback
         text={isPasswordChange ? '비밀번호 재설정하기' : '회원가입'}
       />
-      <AuthFormContainer isPasswordChange />
+      <AuthFormContainer isPasswordChange={isPasswordChange} />
     </>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import AuthForm from '../../components/auth/AuthForm';
@@ -30,6 +30,13 @@ const AuthFormContainer = ({ isPasswordChange }) => {
     console.log('AuthFormContainer/onSubmit');
   };
 
+  useEffect(() => {
+    return () => {
+      dispatch(changeField({ key: 'phone_number', value: '' }));
+      dispatch(changeField({ key: 'phone_numberConfirm', value: '' }));
+    };
+  }, [dispatch]);
+
   return (
     <AuthFormContainerBlock>
       <AuthForm
@@ -39,7 +46,7 @@ const AuthFormContainer = ({ isPasswordChange }) => {
         phone_numberConfirm={phone_numberConfirm}
         errorMessage={errorMessage}
         error={false}
-        isPasswordChange
+        isPasswordChange={isPasswordChange}
       />
     </AuthFormContainerBlock>
   );
