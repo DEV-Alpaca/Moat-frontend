@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import Form from '../../lib/styles/Form';
 import palette from '../../lib/styles/paletts';
@@ -53,15 +53,23 @@ const RegisterConfirmForm = ({
   onSubmit,
   onClick,
   birthday,
-  errorMessage,
   error,
+  gender,
 }) => {
   const [selectCategory, setSelectCategory] = useState('');
+  const [check, setCheck] = useState(false);
 
   const onSelect = (category) => {
     setSelectCategory(category);
   };
 
+  useEffect(() => {
+    if (birthday.length === 8 && gender) {
+      setCheck(true);
+      return;
+    }
+    setCheck(false);
+  }, [birthday, gender]);
   return (
     <>
       <RegisterConfirmFormBlock>
@@ -76,7 +84,7 @@ const RegisterConfirmForm = ({
           onChange={onChange}
           placeholder="생년월일 8자리를 입력해주세요."
         />
-        {error && <Text error>{errorMessage}</Text>}
+        {error && <Text error>생년월일을 올바르게 입력해주세요.</Text>}
         <Padding />
         <CategoryContainer>
           {categories.map((category) => (
@@ -96,7 +104,7 @@ const RegisterConfirmForm = ({
           ))}
         </CategoryContainer>
       </RegisterConfirmFormBlock>
-      <StyledButton full to="/">
+      <StyledButton closed={!check} full to={check ? '/' : null}>
         가입완료
       </StyledButton>
       {/* <StyledButton closed full>

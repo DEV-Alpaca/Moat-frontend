@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import RegisterForm from '../../components/auth/RegisterForm';
@@ -47,7 +47,7 @@ const RegisterFormContainer = () => {
       dispatch(changeField({ key: 'password', value: '' }));
       dispatch(changeField({ key: 'passwordConfirm', value: '' }));
     };
-  }, []);
+  }, [dispatch]);
   return (
     <RegisterFormContainerBlock>
       <RegisterForm

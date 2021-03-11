@@ -5,7 +5,6 @@ import Button from '../common/Button';
 import Input from '../common/Input';
 import Title from '../common/Title';
 import Form from '../../lib/styles/Form';
-import r from '../../lib/styles/Rem';
 import Padding from '../common/Padding';
 import Text from '../common/Text';
 
