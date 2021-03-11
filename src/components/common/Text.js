@@ -70,6 +70,16 @@ const StyledText = styled.p`
     css`
       margin-bottom: ${props.marginBottom}rem;
     `};
+
+  ${(props) =>
+    props.error &&
+    css`
+      margin-top: ${r[3]}rem;
+      margin-left: ${r[12]}rem;
+      font-size: ${r[18]}rem;
+      font-weight: 700;
+      color: ${palette.red};
+    `};
 `;
 
 const Text = ({ children, ...rest }) => {

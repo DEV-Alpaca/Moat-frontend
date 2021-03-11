@@ -19,6 +19,7 @@ const Div = styled.div`
   position: relative;
   height: ${r[280]}rem;
   background: ${palette.orange5};
+  outline: none;
 `;
 
 const Container = styled(Form)`

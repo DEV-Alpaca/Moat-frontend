@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import LoginForm from '../../components/auth/LoginForm';
@@ -8,10 +8,21 @@ const LoginFormContainerBlock = styled.div``;
 
 const LoginFormContainer = () => {
   const dispatch = useDispatch();
-  const { mobile, password } = useSelector(({ login }) => ({
-    mobile: login.mobile,
+  const { phone_number, password } = useSelector(({ login }) => ({
+    phone_number: login.phone_number,
     password: login.password,
   }));
+
+  const [focus, setFocus] = useState(false);
+
+  const [errorMessage, setErrorMessage] = useState({
+    login: '전화번호를 다시 확인해주세요.',
+    password: '비밀번호를 다시 확인해주세요.',
+  });
+
+  const onFocus = () => {
+    setFocus(!focus);
+  };
 
   const onChange = (e) => {
     const { value, name } = e.target;
@@ -34,8 +45,12 @@ const LoginFormContainer = () => {
       <LoginForm
         onChange={onChange}
         onSubmit={onSubmit}
-        mobile={mobile}
+        onFocus={onFocus}
+        phone_number={phone_number}
         password={password}
+        focus={focus}
+        errorMessage={errorMessage}
+        error={false}
       />
     </LoginFormContainerBlock>
   );

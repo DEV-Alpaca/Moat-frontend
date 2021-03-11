@@ -13,7 +13,6 @@ export const initializeForm = createAction(INITIALIZE_FORM);
 const initialState = {
   phone_number: '',
   password: '',
-
   login: null,
   loginError: null,
 };
