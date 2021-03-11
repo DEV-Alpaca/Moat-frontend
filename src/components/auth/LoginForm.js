@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
 import Button from '../common/Button';
@@ -28,7 +28,6 @@ const LoginForm = ({
   onChange,
   phone_number,
   onSubmit,
-  onFocus,
   password,
   errorMessage,
   error,
@@ -47,6 +46,7 @@ const LoginForm = ({
             onChange={onChange}
             placeholder=" 전화번호를 입력하세요."
             error={error}
+            maxLength="11"
           />
           {error && <Text error>{errorMessage.login}</Text>}
           <Padding />
@@ -58,7 +58,6 @@ const LoginForm = ({
             name="password"
             value={password}
             onChange={onChange}
-            onFocus={onFocus}
             placeholder=" 비밀번호를 입력하세요."
             error={error}
           />
