@@ -60,7 +60,14 @@ const StyledAuthButton = styled(Button)`
   font-size: ${r[18]}rem;
 `;
 
-const AuthForm = () => {
+const AuthForm = ({
+  onChange,
+  onSubmit,
+  phone_number,
+  phone_numberConfirm,
+  error,
+  errorMessage,
+}) => {
   return (
     <>
       <Form>
@@ -71,33 +78,37 @@ const AuthForm = () => {
           인증해주세요.
         </Title>
         <Padding height={60} />
-        <Text fontSize={16} textAlign={'left'} marginLeft={`${r[8]}`}>
-          전화번호 입력
-        </Text>
+        {!error && phone_number && <Text input>전화번호</Text>}
         <StyledDiv>
-          <StyledInput placeholder="전화번호를 입력해주세요."></StyledInput>
-          <StyledAuthButton onClick={() => alert('인증하기')}>
+          <StyledInput
+            name="phone_number"
+            value={phone_number}
+            onChange={onChange}
+            placeholder="전화번호를 입력해주세요."
+          ></StyledInput>
+          <StyledAuthButton closed onClick={() => alert('인증하기')}>
             인증하기
           </StyledAuthButton>
         </StyledDiv>
-        <Padding />
-        <Text fontSize={16} textAlign={'left'} marginLeft={`${r[8]}`}>
-          인증번호 입력
-        </Text>
-        <StyledDiv>
-          <StyledInput placeholder="인증번호를 입력해주세요."></StyledInput>
-          <Check style={{ marginRight: `${r[3]}rem` }} />
-        </StyledDiv>
         <Text
-          red
-          fontSize={18}
-          textAlign={'left'}
-          marginLeft={`${r[12]}`}
-          marginTop={`${r[3]}`}
-          fontWeight={700}
+          error
+          style={{ color: `${palette.gray[400]}`, fontWeight: '450' }}
         >
-          인증번호를 다시 확인해주세요.
+          인증번호가 전송 되었습니다!
         </Text>
+        <Padding />
+        {!error && phone_numberConfirm && <Text input>인증번호 입력</Text>}
+        <StyledDiv>
+          <StyledInput
+            name="phone_numberConfirm"
+            value={phone_numberConfirm}
+            onChange={onChange}
+            placeholder="인증번호를 입력해주세요."
+            error={error}
+          ></StyledInput>
+          {!error && <Check style={{ marginRight: `${r[3]}rem` }} />}
+        </StyledDiv>
+        {error && <Text error>{errorMessage}</Text>}
       </Form>
       <StyledButton full fontSize={23} fontWeight={500} to="/register">
         다음으로
