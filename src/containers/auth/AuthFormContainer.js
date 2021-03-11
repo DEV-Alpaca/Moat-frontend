@@ -20,7 +20,9 @@ const AuthFormContainer = ({ isPasswordChange }) => {
   const onChange = (e) => {
     const { value, name } = e.target;
     console.log(name, value);
-    dispatch(changeField({ key: name, value }));
+    const curValue = value;
+    const newValue = curValue.replace(/[^0-9]/g, '');
+    dispatch(changeField({ key: name, value: newValue }));
   };
 
   const onSubmit = (e) => {
