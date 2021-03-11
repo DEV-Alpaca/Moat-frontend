@@ -80,6 +80,14 @@ const StyledText = styled.p`
       font-weight: 700;
       color: ${palette.red};
     `};
+
+  ${(props) =>
+    props.input &&
+    css`
+      margin-left: ${r[8]}rem;
+      font-size: ${r[16]}rem;
+      font-weight: 400;
+    `};
 `;
 
 const Text = ({ children, ...rest }) => {

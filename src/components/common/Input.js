@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import palette from '../../lib/styles/paletts';
 import r from '../../lib/styles/Rem';
 
@@ -19,6 +19,12 @@ const StyledDiv = styled.div`
   &:focus {
     border: 1px solid ${palette.orange};
   }
+
+  ${(props) =>
+    props.error &&
+    css`
+      border: 1px solid ${palette.red};
+    `};
 `;
 
 const StyledInput = styled.input`
@@ -34,26 +40,10 @@ const StyledInput = styled.input`
   outline: none;
 `;
 
-const Input = ({
-  // type = '',
-  // value = undefined,
-  // name = '',
-  // onChange = null,
-  // onSubmit = null,
-  // placeholder = '',
-  ...rest
-}) => {
+const Input = ({ error, ...rest }) => {
   return (
-    <StyledDiv>
-      <StyledInput
-        {...rest}
-        // name={name}
-        // value={value}
-        // type={type}
-        // onChange={onChange}
-        // onSubmit={onSubmit}
-        // placeholder={placeholder}
-      />
+    <StyledDiv error={error === true ? 1 : 0}>
+      <StyledInput {...rest} />
     </StyledDiv>
   );
 };

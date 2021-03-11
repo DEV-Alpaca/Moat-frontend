@@ -13,16 +13,10 @@ const LoginFormContainer = () => {
     password: login.password,
   }));
 
-  const [focus, setFocus] = useState(false);
-
   const [errorMessage, setErrorMessage] = useState({
     login: '전화번호를 다시 확인해주세요.',
     password: '비밀번호를 다시 확인해주세요.',
   });
-
-  const onFocus = () => {
-    setFocus(!focus);
-  };
 
   const onChange = (e) => {
     const { value, name } = e.target;
@@ -45,10 +39,8 @@ const LoginFormContainer = () => {
       <LoginForm
         onChange={onChange}
         onSubmit={onSubmit}
-        onFocus={onFocus}
         phone_number={phone_number}
         password={password}
-        focus={focus}
         errorMessage={errorMessage}
         error={false}
       />

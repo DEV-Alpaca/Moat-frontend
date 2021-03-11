@@ -30,7 +30,6 @@ const LoginForm = ({
   onSubmit,
   onFocus,
   password,
-  focus,
   errorMessage,
   error,
 }) => {
@@ -40,24 +39,19 @@ const LoginForm = ({
         <Title>로그인</Title>
         <Padding />
         <Padding />
-        {!error && phone_number && (
-          <Text fontSize={16} marginLeft={`${r[8]}`} fontWeight={400}>
-            전화번호
-          </Text>
-        )}
+        {!error && phone_number && <Text input>전화번호</Text>}
         <form onSubmit={onSubmit}>
           <Input
             name="phone_number"
             value={phone_number}
             onChange={onChange}
             placeholder=" 전화번호를 입력하세요."
+            error={error}
           />
           {error && <Text error>{errorMessage.login}</Text>}
           <Padding />
           {!error && password && (
-            <Text fontSize={16} marginLeft={`${r[8]}`} fontWeight={400}>
-              비밀번호는 영어, 숫자 6글자 이상으로 만드셈
-            </Text>
+            <Text input>비밀번호는 영어, 숫자 6글자 이상으로 만드셈</Text>
           )}
           <Input
             type="password"
@@ -66,6 +60,7 @@ const LoginForm = ({
             onChange={onChange}
             onFocus={onFocus}
             placeholder=" 비밀번호를 입력하세요."
+            error={error}
           />
           {error && <Text error>{errorMessage.password}</Text>}
           <Padding />
