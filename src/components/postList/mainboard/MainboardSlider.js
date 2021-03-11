@@ -108,7 +108,7 @@ const MainboardSlider = () => {
     <MainboardSliderBlock className="MainboardSliderBlock">
       <Slider {...settings}>
         {sliderList.map((item) => (
-          <Div className="Div">
+          <Div className="Div" key={item.id}>
             <Container>
               <Text fontSize={30} fontWeight={800}>
                 {item.title1} <br />

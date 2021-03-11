@@ -6,7 +6,7 @@ import { changeField } from '../../modules/register';
 
 const AuthFormContainerBlock = styled.div``;
 
-const AuthFormContainer = () => {
+const AuthFormContainer = ({ isPasswordChange }) => {
   const dispatch = useDispatch();
   const { phone_number, phone_numberConfirm } = useSelector(({ register }) => ({
     phone_number: register.phone_number,
@@ -37,6 +37,7 @@ const AuthFormContainer = () => {
         phone_numberConfirm={phone_numberConfirm}
         errorMessage={errorMessage}
         error={false}
+        isPasswordChange
       />
     </AuthFormContainerBlock>
   );

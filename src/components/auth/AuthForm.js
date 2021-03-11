@@ -61,6 +61,7 @@ const StyledAuthButton = styled(Button)`
 `;
 
 const AuthForm = ({
+  isPasswordChange,
   onChange,
   onSubmit,
   phone_number,
@@ -110,7 +111,12 @@ const AuthForm = ({
         </StyledDiv>
         {error && <Text error>{errorMessage}</Text>}
       </Form>
-      <StyledButton full fontSize={23} fontWeight={500} to="/register">
+      <StyledButton
+        full
+        fontSize={23}
+        fontWeight={500}
+        to={isPasswordChange ? '/passwordChange' : '/register'}
+      >
         다음으로
       </StyledButton>
       {/* <StyledButton closed full fontSize={23} fontWeight={500}>

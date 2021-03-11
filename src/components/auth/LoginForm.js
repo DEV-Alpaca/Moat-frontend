@@ -82,7 +82,7 @@ const LoginForm = ({
             회원가입
           </Button>
           <Padding />
-          <Link to="passwordChange">
+          <Link to="auth/?passwordChange=true">
             <Text
               gray
               style={{
