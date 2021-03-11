@@ -1,12 +1,12 @@
 import React from 'react';
 import Nav from '../components/common/Nav';
-import AuthForm from '../components/auth/AuthForm';
+import AuthFormContainer from '../containers/auth/AuthFormContainer';
 
 const AuthPage = () => {
   return (
     <>
       <Nav goback text={'회원가입'} />
-      <AuthForm />
+      <AuthFormContainer />
     </>
   );
 };

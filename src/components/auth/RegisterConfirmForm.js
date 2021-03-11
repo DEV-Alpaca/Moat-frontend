@@ -48,7 +48,13 @@ const StyledCategoryButton = styled(Button)`
 
 const categories = ['남', '여'];
 
-const RegisterConfirmForm = () => {
+const RegisterConfirmForm = ({
+  onChange,
+  onSubmit,
+  birthday,
+  errorMessage,
+  error,
+}) => {
   const [selectCategory, setSelectCategory] = useState('');
 
   const onSelect = (category) => {
@@ -62,7 +68,14 @@ const RegisterConfirmForm = () => {
           이제 마지막! <br /> 정보를 알려주세요.
         </Text>
         <Padding height={48} />
-        <Input placeholder="생년월일 8자리를 입력해주세요." />
+        {!error && birthday && <Text input>생년월일</Text>}
+        <Input
+          name="birthday"
+          value={birthday}
+          onChange={onChange}
+          placeholder="생년월일 8자리를 입력해주세요."
+        />
+        {error && <Text error>{errorMessage}</Text>}
         <Padding />
         <CategoryContainer>
           {categories.map((category) => (
