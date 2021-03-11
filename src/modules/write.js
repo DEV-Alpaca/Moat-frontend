@@ -5,7 +5,6 @@ const CHANGE_FIELD = 'write/CHANGE_FIELD';
 const INITIALIZE_FORM = 'write/INITIALIZE_FORM';
 const UPLOAD_PICTURE = 'write/UPLOAD_PICTURE';
 const INPUT_TEXT = 'write/INPUT_TEXT';
-const TESTING = 'write/TESTING';
 
 export const selectType = createAction(SELECT_TYPE, (type) => type);
 export const changeField = createAction(CHANGE_FIELD, ({ key, value }) => ({
@@ -16,18 +15,14 @@ export const initializeForm = createAction(INITIALIZE_FORM);
 export const uploadPicture = createAction(UPLOAD_PICTURE);
 export const inputText = createAction(INPUT_TEXT, (text) => text);
 
-export const onTesting = createAction(TESTING, (text) => text);
-
 const initialState = {
   name: '',
   club_type: null,
   session_time: null,
-  cost: null,
+  cost: '',
   address: '',
   description: '',
   d_date: '',
-
-  testing: '',
 };
 
 const write = handleActions(
@@ -39,11 +34,6 @@ const write = handleActions(
     [SELECT_TYPE]: (state, { payload: { type } }) => ({
       ...state,
       club_type: type,
-    }),
-
-    [TESTING]: (state, { payload: { text } }) => ({
-      ...state,
-      testing: text,
     }),
 
     [INPUT_TEXT]: (state, { payload: { text } }) => ({

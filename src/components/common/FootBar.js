@@ -27,7 +27,7 @@ const FootBarContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 12rem;
+  width: 100%;
   height: ${r[56]}rem;
   opacity: 0.3;
   cursor: pointer;

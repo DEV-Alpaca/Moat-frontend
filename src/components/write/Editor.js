@@ -62,9 +62,8 @@ const Editor = (props) => {
       type === 1 ? descriptionType1 : type === 2 ? descriptionType2 : '',
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [descriptionType1, descriptionType2]);
+  }, [type, descriptionType1, descriptionType2]);
 
-  console.log('현재 index', index, descriptionType1, descriptionType2);
   return (
     <EditorBlock>
       <StyledForm style={{ padding: `${r[12]}rem ${r[12]}rem` }}>

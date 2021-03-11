@@ -16,6 +16,8 @@ import TimeSelectModal from '../common/TimeSelectModal';
 const StyledInput = styled(Input)`
   width: 98%;
   height: ${r[52]}rem;
+  font-size: ${r[20]}rem;
+  font-weight: 700;
 `;
 
 const Container = styled.div`
@@ -133,7 +135,11 @@ const WriteForm = (props) => {
                 </Text>
               ) : null}
               <StyledDiv>
-                <StyledPriceInput name="cost" />
+                <StyledPriceInput
+                  name="cost"
+                  value={cost}
+                  onChange={onChange}
+                />
                 <Text style={{ color: `${palette.gray[200]}` }}>원</Text>
               </StyledDiv>
             </Container>

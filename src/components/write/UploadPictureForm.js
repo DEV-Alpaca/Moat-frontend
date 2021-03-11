@@ -79,16 +79,16 @@ const UploadPictureForm = ({ onInsert, imgUrls, onRemove }) => {
           />
         </CameraBlock>
         {imgUrls.map((imgUrl, i) => (
-          <>
+          <div key={i + 1}>
             {i === 0 ? null : (
-              <ImBlock key={i + 1}>
-                <StyledImg key={i + 1} src={imgUrl.fileUrl} />
-                <CloseBox key={i + 1} onClick={() => onRemove(imgUrl.id)}>
-                  <WhiteClose key={i + 1} />
+              <ImBlock>
+                <StyledImg src={imgUrl.fileUrl} />
+                <CloseBox onClick={() => onRemove(imgUrl.id)}>
+                  <WhiteClose />
                 </CloseBox>
               </ImBlock>
             )}
-          </>
+          </div>
         ))}
       </ImgContainer>
     </div>
