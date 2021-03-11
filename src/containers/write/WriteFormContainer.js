@@ -2,7 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import WriteForm from '../../components/write/WriteForm';
-import { changeField, initializeForm, selectType } from '../../modules/write';
+import {
+  changeField,
+  initializeForm,
+  selectSessionTime,
+  selectType,
+} from '../../modules/write';
 
 const WriteFormContainerBlock = styled.div``;
 
@@ -12,38 +17,34 @@ const typeList = [
 ];
 
 const timeList = [
-  '30분',
-  '1시간',
-  '1시간 30분',
-  '2시간',
-  '2시간 30분',
-  '3시간',
+  { id: 1, text: '30분', value: 30 },
+  { id: 2, text: '1시간', value: 60 },
+  { id: 3, text: '1시간 30분', value: 90 },
+  { id: 4, text: '2시간', value: 120 },
+  { id: 5, text: '2시간 30분', value: 150 },
+  { id: 6, text: '3시간', value: 180 },
 ];
 
 const WriteFormContainer = () => {
   const dispatch = useDispatch();
-  const { name, club_type, session_time, cost } = useSelector(({ write }) => ({
+  const { name, club_type, cost } = useSelector(({ write }) => ({
     name: write.name,
     club_type: write.club_type,
-    session_time: write.session_time,
     cost: write.cost,
   }));
-
-  const onChange = (e) => {
-    const { value, name } = e.target;
-    console.log(name, value);
-    dispatch(changeField({ key: name, value }));
-  };
-
-  const onSubmit = (e) => {
-    e.preventDefault();
-    alert('글쓰기');
-    console.log('WriteFormContainer/onSubmit');
-  };
 
   const [type, setType] = useState(null);
   const [modal, setModal] = useState(false);
   const [time, setTime] = useState('30분');
+
+  const onChange = (e) => {
+    const { value, name } = e.target;
+    console.log(name, value);
+    if (name === 'cost ') {
+      dispatch(changeField({ key: name, value: parseInt(value) }));
+    }
+    dispatch(changeField({ key: name, value }));
+  };
 
   const onModalClick = () => {
     setModal(!modal);
@@ -51,9 +52,11 @@ const WriteFormContainer = () => {
   const onCancel = () => {
     setModal(false);
   };
-  const onConfirm = (time) => {
+  const onConfirm = (text, value) => {
     setModal(false);
-    setTime(time);
+    setTime(text);
+    console.log(text);
+    dispatch(selectSessionTime({ time: value }));
   };
 
   const onTypeSelect = (type) => {
@@ -78,10 +81,8 @@ const WriteFormContainer = () => {
         {...{ type }}
         {...{ onTypeSelect }}
         {...{ onChange }}
-        {...{ onSubmit }}
         {...{ name }}
         {...{ club_type }}
-        {...{ session_time }}
         {...{ cost }}
       />
     </WriteFormContainerBlock>

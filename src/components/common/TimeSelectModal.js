@@ -42,13 +42,13 @@ const TimeSelectModal = ({ timeList, visible, onConfirm, onCancel }) => {
       <ModalBlock>
         {timeList.map((time) => (
           <StyledButton
-            key={time}
+            key={time.id}
             white
             onClick={() => {
-              onConfirm(time);
+              onConfirm(time.text, time.value);
             }}
           >
-            {time}
+            {time.text}
           </StyledButton>
         ))}
       </ModalBlock>
