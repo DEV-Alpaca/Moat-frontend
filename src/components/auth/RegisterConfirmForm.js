@@ -51,6 +51,7 @@ const categories = ['남', '여'];
 const RegisterConfirmForm = ({
   onChange,
   onSubmit,
+  onClick,
   birthday,
   errorMessage,
   error,
@@ -84,6 +85,7 @@ const RegisterConfirmForm = ({
               active={selectCategory === category}
               onClick={() => {
                 onSelect(category);
+                onClick(category);
               }}
             >
               {selectCategory === category ? (

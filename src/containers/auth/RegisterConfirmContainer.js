@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import RegisterConfirmForm from '../../components/auth/RegisterConfirmForm';
-import { changeField, initializeForm } from '../../modules/register';
+import {
+  changeField,
+  initializeForm,
+  selectGender,
+} from '../../modules/register';
 
 const RegisterConfirmContainerBlock = styled.div``;
 
@@ -27,11 +31,16 @@ const RegisterConfirmContainer = () => {
     console.log('RegisterConfirmContainer/onSubmit');
   };
 
+  const onClick = (gender) => {
+    dispatch(selectGender({ gender }));
+  };
+
   return (
     <RegisterConfirmContainerBlock>
       <RegisterConfirmForm
         onChange={onChange}
         onSubmit={onSubmit}
+        onClick={onClick}
         birthday={birthday}
         errorMessage={errorMessage}
         error={false}
