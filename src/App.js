@@ -26,15 +26,13 @@ const App = () => {
       <Route component={RegisterPage} path="/register" />
       <Route component={RegisterConfirmPage} path="/registerConfirm" />
       <Route component={PasswordChangePage} path="/passwordChange" />
-      <Route component={RendingPage} path='/'/>
-
+      <Route component={RendingPage} path="/" />
       {/* <Route component={PostListPage} path={['/@:username', '/']} exact /> */}
       <Route component={PostPage} path="/post" />
       <Route component={SelectLocationPage} path="/select" />
       <Route component={WritePage} path="/write" />
       <Route component={WriteInfoPage} path="/writeInfo" />
       <Route component={WriteCompletePage} path="/writeComplete" />
-
       <Route component={WarningPage} path="/warning" />
       <Route component={MyPage} path="/@:username/:postId" />
     </Template>
