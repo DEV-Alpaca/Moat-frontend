@@ -13,8 +13,8 @@ const PostListPage = () => {
       <Pagination />
       <QuestionBox />
       <FootBar />
-    </>
+    </> 
   );
 };
 
-export default PostListPage;
+export default PostListPage

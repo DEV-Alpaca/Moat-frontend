@@ -16,6 +16,7 @@ import PasswordChangePage from './pages/PasswordChangePage';
 import PostPage from './pages/PostPage';
 import WriteInfoPage from './pages/WriteInfoPage';
 import WriteCompletePage from './pages/WriteCompletePage';
+import RendingPage from './pages/RendingPage';
 
 const App = () => {
   return (
@@ -25,7 +26,9 @@ const App = () => {
       <Route component={RegisterPage} path="/register" />
       <Route component={RegisterConfirmPage} path="/registerConfirm" />
       <Route component={PasswordChangePage} path="/passwordChange" />
-      <Route component={PostListPage} path={['/@:username', '/']} exact />
+      <Route component={RendingPage} path='/'/>
+
+      {/* <Route component={PostListPage} path={['/@:username', '/']} exact /> */}
       <Route component={PostPage} path="/post" />
       <Route component={SelectLocationPage} path="/select" />
       <Route component={WritePage} path="/write" />
