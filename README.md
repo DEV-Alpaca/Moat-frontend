@@ -1,5 +1,5 @@
 # Moat-frontend
-React.js로 개발(cra)
+ - React.js로 개발(cra)
 
 # 환경 
 
